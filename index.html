@@ -88,45 +88,38 @@
                             As the name suggests, such systems are designed process data streams modelled through RDF, and they offer a wide set of operators, from typical SPE operations (e.g., filters, aggregations, event pattern matching) to reasoning processes.
                           </p>
 
-                        \begin{table}[]
-                        \footnotesize
-                        \centering
-                        \caption{Comparison between data management and web of data paradigms}
-                        \label{tab:overview}
-                        \begin{tabular}{l||c|c|c|c}
-                        & DB  & SPE                & WoD          & WoDS             \\
-                        \hline	\hline
-                        Processing    & SQL & StreamSQL (et al.) & SPAR\textbf{QL}      & RSP-QL (et al.) \\
-                        \hline
-                        Data exchange & -   & -                  & HTTP, S\textbf{P}ARQL 		&  ?
-                        \end{tabular}
-                        \end{table}
+                          <table id="tab:overview">
+                              <caption>Comparison between data management and web of data paradigms</caption>
+                              <thead>
+                                  <tr><th></th><th>DB</th><th>SPE</th><th>WoD</th><th>WoDS</th></tr>
+                              </thead>
+                              <tbody>
+                                  <tr><td>Processing</td><td>SQL</td><td>StreamSQL (et al.)</td><td>SPAR<b>QL</b></td><td>RSP-QL (et al.)</td></tr>
+                                  <tr><td>Data exchange</td><td>-</td><td>-</td><td>HTTP, S<b>P</b>ARQL</td><td>?</td></tr>
+                              </tbody>
+                          </table>
 
                           <p>
                             RSP fills an important gap between the Web of Data towards a Web of Data Streams (WoDS): it introduces processing models and languages to process streams on the Web, mostly of them captured by reference models as RSEP-QL and LARS.
                             However, an important elements is still missing, and it is a technical infrastructure to manage data exchange.
-                            As depicted in Table \ref{tab:overview}, data can be exchanged by HTTP (following the linked data principles) or via the SPARQL protocol.
+                            As depicted in Table <a href="#tab:overview">1</a>, data can be exchanged by HTTP (following the linked data principles) or via the SPARQL protocol.
                             These solutions perfectly suit the cases where engines follow passive processing models, i.e., they pull the data when needed, but not when engines adopt passive processing models.
                           </p>
 
                           <p>
-                            In this paper, we ask \emph{what is the best data exchange infrastructure to perform stream processing on the Web?} \dd{what is a ( suitable [or] proper ) data exchange infrastructure to perform stream processing on the Web?}\jpc{tricky: is it only an infrastructure what we propose? }
-                            In other words, we ask ourselves how can we build an infrastructure that enables the scenario in Figure \ref{fig:overview}: a network of RSP engines, distributed on the Web, able to exchange and process RDF streams among them.
+                            In this paper, we ask <em>what is the best data exchange infrastructure to perform stream processing on the Web?</em> \dd{what is a ( suitable [or] proper ) data exchange infrastructure to perform stream processing on the Web?}\jpc{tricky: is it only an infrastructure what we propose? }
+                            In other words, we ask ourselves how can we build an infrastructure that enables the scenario in Figure <a href="#fig:overview">1</a>: a network of RSP engines, distributed on the Web, able to exchange and process RDF streams among them.
                           </p>
 
-
-                        \begin{figure}[t]
-                        \begin{center}
-                        \includegraphics[width=0.7\textwidth]{img/overview.png}
-                        \caption{Overview}
-                        \label{fig:overview}
-                        \end{center}
-                        \end{figure}
+                          <figure id="fig:overview">
+                              <object data="img/overview.png"  type="image/png" width="200"></object>
+                              <figcaption>Overview</figcaption>
+                          </figure>
 
                           <p>
                             The solution should take into account both the nature of the engines and the Web setting.
                             We should indeed consider that existing RSP engines are heterogeneous in terms of operators and APIs to control them, as well as the nature of the Web, that is distributed and relies on existing technologies and standards.
-                            We envision a scenario as the one depicted in Figure \ref{fig:overview}: interconnected RSPs that perform several tasks such as querying to reasoning, exchanging the results and producing sophisticated analyses.
+                            We envision a scenario as the one depicted in Figure <a href="#fig:overview">1</a>: interconnected RSPs that perform several tasks such as querying to reasoning, exchanging the results and producing sophisticated analyses.
                           </p>
 
                           <p>
