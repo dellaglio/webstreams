@@ -47,7 +47,9 @@
                     <section id="abstract">
                         <h2>Abstract</h2>
                         <div datatype="rdf:HTML" property="schema:abstract">
-                            <p>The abstract is a mandatory element that should summarize the contents of the paper and should contain at least 70 and at most 150 words. Abstract and keywords are freely available in SpringerLink.</p>
+                          <p>With the growing popularity of IoT and sensor technologies an enormous amount of data is being produced at a very rapid pace. Sensor data mostly consists of live data streams containing sensor observations. These data streams are generated in a distributed fashion by multiple heterogeneous infrastructures having minimal or no interoperability. RDF Stream Processing (RSP) supports mitigation of heterogeneity, increase in interoperability and facilitation of cross-domain stream easoning. While existing RSP engines are capable of processing distributed RDF streams, there is still a big roam to improve the ability of existing RSP engines to federate queries over large-scale and highly distributed data streams over the Web.\jpc{from this sentence, it seems that the main issue we want to address is federation} </p>
+
+                          <p>In this paper, we present a federated RSP engine which can execute complex distributed queries over large-scale data streams on the Web.\jpc{is this really what we have? To get to this point we would first need a federated rsp language} Our federated RSP engine is capable of consuming distributed RDF streams using multiple communication protocols to access live data streams. We introduce a uniform stream descriptor for RDF streams publication over the Web. Federated RSP engine is capable of consuming data streams over the Web including the streams generated as an outcome of queries deployed over existing RSP engines. We tested our federated query engine over a real complex scenario of traffic and parking management using datasets collected from infrastructure deployed in the City of Aarhus, Denmark.\footnote{\url{http://iot.ee.surrey.ac.uk:8080/datasets.html}}</p>
                         </div>
                     </section>
 
@@ -63,23 +65,85 @@
                     <section id="introduction" rel="schema:hasPart" resource="#introduction">
                         <h2 property="schema:name">Introduction</h2>
                         <div datatype="rdf:HTML" property="schema:description">
-                            <p>You will find here Springer’s guidelines for the preparation of proceedings papers to be published in one of the following series, in printed and electronic form:</p>
+                          <p>
+                            The Web of Data (WoD) vision consists of Web as a distributed database: a vast---endless---amount of datasets to be accessed and queried.
+                            The Linking Open Data (LOD) cloud is one of the most successful examples of such a vision: more than a thousand of datasets, owned and managed by different organizations, exposing interconnected data to be freely accessed.
+                            It usually happens through SPARQL \jpc{what usually happens?}, that is both a query language for the RDF data exposed in the LOD \cite{harris_sparql_2013} and a protocol to exchange such data through Internet \cite{feigenbaum_sparql_2013}.\jpc{Not sure SPARQL is the main way of reusing LOD. Sometimes people just dereference links}
+                            Since the late 2000s, we have observed a trend that substantially increased the velocity of part of such data.
+                            The Internet of Things (IoT) well exemplifies this: sensors create \emph{streams}, i.e., continuous sequences of data generated at very high frequencies. \jpc{velocity is a key factor, but recency is also important}
+                            It was therefore normal to ask if the existent WoD solutions were good enough to cope with such data.
+                            Looking at the research in database, it is possible to observe that the typical database approaches show several limits while coping with data streams.
+                            Stonebraker et al. \cite{stonebraker_8_2005} explained which are the requirements of processing streams, and highlighted the limits of the DBMS approach, e.g., their passive processing models badly works with data with extreme velocity; SQL does not support operators to cope with streams; and it is challenging to predict the behaviour of such systems while coping with streaming data.
+                            It is easy to observe that these limits affect SPARQL\jpc{not only sparql but in general the RDF model as underlying representation infrastructure IMO} and existent WoD solutions.
+                          </p>
 
-                            <ul>
-                                <li>Lecture Notes in Computer Science (LNCS), incl. its subseries Lecture Notes in Artificial Intelligence (LNAI) and Lecture Notes in Bioinformatics (LNBI), and LNCS Transactions;</li>
-                                <li>Lecture Notes in Business Information Processing (LNBIP); </li>
-                                <li>Communications in Computer and Information Science (CCIS);</li>
-                                <li>Lecture Notes of the Institute for Computer Sciences, Social Informatics and Telecommunications Engineering (LNICST);</li>
-                                <li>IFIP Advances in Information and Communication Technology (IFIP AICT), formerly known as the IFIP Series;</li>
-                                <li>Proceedings in Information and Communication Technology (PICT).</li>
-                            </ul>
+                          <p>
+                            As a possible solution, Stream Processing Engines (SPEs) emerged in the data management research to cope with streaming data.
+                            They introduce new paradigms and processing models that fit better the requirements of scenarios involving data streams.
+                            As a result, a new set of languages have been designed and developed, such as CQL, StreamSQL, EPL, with engines and systems designed with the specific task of processing streams.
+                          </p>
 
-                            <p>Your contribution may be prepared in LaTeX or Microsoft Word. Technical Instructions for working with Springer’s style files and templates are provided in separate documents which can be found in the respective zip packages on our website.</p>
+                          <p>
+                            In the Web of Data, these novel paradigms inspired RDF Stream Processing (RSP): it builds on top of SPEs to mitigate the data heterogeneity issues by exploiting semantic web technologies.
+                            As the name suggests, such systems are designed process data streams modelled through RDF, and they offer a wide set of operators, from typical SPE operations (e.g., filters, aggregations, event pattern matching) to reasoning processes.
+                          </p>
 
-                            <aside class="note">
-                                <p id="note-*"><sup>*</sup> No academic titles or descriptions of academic positions should be included in the addresses. The affiliations should consist of the author’s institution, town, and country.</p>
-                            </aside>
-                        </div>
+                        \begin{table}[]
+                        \footnotesize
+                        \centering
+                        \caption{Comparison between data management and web of data paradigms}
+                        \label{tab:overview}
+                        \begin{tabular}{l||c|c|c|c}
+                        & DB  & SPE                & WoD          & WoDS             \\
+                        \hline	\hline
+                        Processing    & SQL & StreamSQL (et al.) & SPAR\textbf{QL}      & RSP-QL (et al.) \\
+                        \hline
+                        Data exchange & -   & -                  & HTTP, S\textbf{P}ARQL 		&  ?
+                        \end{tabular}
+                        \end{table}
+
+                          <p>
+                            RSP fills an important gap between the Web of Data towards a Web of Data Streams (WoDS): it introduces processing models and languages to process streams on the Web, mostly of them captured by reference models as RSEP-QL and LARS.
+                            However, an important elements is still missing, and it is a technical infrastructure to manage data exchange.
+                            As depicted in Table \ref{tab:overview}, data can be exchanged by HTTP (following the linked data principles) or via the SPARQL protocol.
+                            These solutions perfectly suit the cases where engines follow passive processing models, i.e., they pull the data when needed, but not when engines adopt passive processing models.
+                          </p>
+
+                          <p>
+                            In this paper, we ask \emph{what is the best data exchange infrastructure to perform stream processing on the Web?} \dd{what is a ( suitable [or] proper ) data exchange infrastructure to perform stream processing on the Web?}\jpc{tricky: is it only an infrastructure what we propose? }
+                            In other words, we ask ourselves how can we build an infrastructure that enables the scenario in Figure \ref{fig:overview}: a network of RSP engines, distributed on the Web, able to exchange and process RDF streams among them.
+                          </p>
+
+
+                        \begin{figure}[t]
+                        \begin{center}
+                        \includegraphics[width=0.7\textwidth]{img/overview.png}
+                        \caption{Overview}
+                        \label{fig:overview}
+                        \end{center}
+                        \end{figure}
+
+                          <p>
+                            The solution should take into account both the nature of the engines and the Web setting.
+                            We should indeed consider that existing RSP engines are heterogeneous in terms of operators and APIs to control them, as well as the nature of the Web, that is distributed and relies on existing technologies and standards.
+                            We envision a scenario as the one depicted in Figure \ref{fig:overview}: interconnected RSPs that perform several tasks such as querying to reasoning, exchanging the results and producing sophisticated analyses.
+                          </p>
+
+                          <p>
+                            In the following we present \rsep, a framework to build complex network of RSP engines on the Web. \rsep brings a communication protocol to initialize the connection between two RSP engines and to manage the data exchange.
+                            This is implemented through two interfaces for the elements that produce and consume streams, and a vocabulary to annotate a stream.
+                            We design and build \rsep taking into account existing previous results such as the W3C RSP-CG reports \cite{}, existing RSP engines, protocol and standards.
+                            We empirically show that \rsep enables the construction of a Web of Data Streams by evaluating the introduced overhead and making a study about scalability.
+                          </p>
+
+                        The paper is structured as follows. After an overview of the state of the art in Section \ref{sec:related}. we present a motivating
+                        scenario for federated query processing in Section \ref{sec:usecase}.
+                        %
+                        We set out requirements of federated RSP engine in Section \ref{sec:requirements}. Section~\ref{sec:rsep} presents \rsep,
+                        describing its components and presenting some existing implementation.
+                        %
+                        We evaluate \rsep in Section \ref{sec:eval} before concluding with remarks and future directions in Section
+                        \ref{sec:concl}.                        </div>
                     </section>
 
                     <section id="preperation-of-your-paper" rel="schema:hasPart" resource="#preperation-of-your-paper">
