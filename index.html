@@ -26,7 +26,7 @@
                 <div id="authors">
                     <dl id="author-name">
                         <dt>Authors</dt>
-                        <dd id="author-1"><span about="http://dellaglio.org" rel="schema:creator schema:publisher schema:contributor schema:author"><a about="#daniele" typeof="schema:Person" rel="schema:url" property="schema:name" href="http://dellaglio.org">Daniele Dell'Aglio</a></span><span about="#Alfred-Hofmann" rel="schema:memberOf" resource="#UZH"></span><sup><a href="#author-org-1">1</a></sup><sup><a href="#author-email-a">a</a></sup></dd>
+                        <dd id="author-1"><span about="http://dellaglio.org" rel="schema:creator schema:publisher schema:contributor schema:author"><a about="#daniele" typeof="schema:Person" rel="schema:url" property="schema:name" href="http://dellaglio.org">Daniele Dell'Aglio</a></span><span about="#daniele" rel="schema:memberOf" resource="#UZH"></span><sup><a href="#author-org-1">1</a></sup><sup><a href="#author-email-a">a</a></sup></dd>
                         <dd id="author-2"><span about="" rel="schema:contributor"><a about="#Ralf-Gerstner" typeof="schema:Person" rel="schema:url" property="schema:name" href="http://www.springer.com/">Ralf Gerstner</a></span><span about="#Ralf-Gerstner" rel="schema:memberOf" resource="#Springer-Verlag-Computer-Science-Editorial"></span><sup><a href="#author-org-1">1</a></sup><sup><a href="#author-email-b">b</a></sup></dd>
                         <dd id="author-3"><span about="" rel="schema:contributor"><a about="#Anna-Kramer" typeof="schema:Person" rel="schema:url" property="schema:name" href="http://www.springer.com/">Anna Kramer</a></span><span about="#Anna-Kramer" rel="schema:memberOf" resource="#Springer-Verlag-Computer-Science-Editorial"></span><sup><a href="#author-org-1">1</a></sup><sup><a href="#author-email-c">c</a></sup></dd>
                         <dd id="author-4"><span about="" rel="schema:contributor"><a about="#Frank-Holzwarth" typeof="schema:Person" rel="schema:url" property="schema:name" href="http://www.springer.com/">Frank Holzwarth</a></span><span about="#Frank-Holzwarth" rel="schema:memberOf" resource="#Springer-Verlag-Technical-Support"></span><sup><a href="#author-org-1">1</a></sup><sup><a href="#author-email-d">d</a></sup></dd>
@@ -40,7 +40,7 @@
                     </ul>
 
                     <ul id="author-email">
-                        <li id="author-email-a"><sup>a</sup><a about="#Alfred-Hofmann" rel="schema:email" href="mailto:alfred.hofmann@springer.com">dellaglio@ifi.uzh.ch</a></li>
+                        <li id="author-email-a"><sup>a</sup><a about="#daniele" rel="schema:email" href="mailto:dellaglio@ifi.uzh.ch">dellaglio@ifi.uzh.ch</a></li>
                         <li id="author-email-b"><sup>b</sup><a about="#Ralf-Gerstner" rel="schema:email" href="mailto:ralf.gerstner@springer.com">ralf.gerstner@springer.com</a></li>
                         <li id="author-email-c"><sup>c</sup><a about="#Anna-Kramer" rel="schema:email" href="mailto:anna.kramer@springer.com">anna.kramer@springer.com</a></li>
                         <li id="author-email-d"><sup>d</sup><a about="#Frank-Holzwarth" rel="schema:email" href="mailto:frank.holzwarth@springer.com">frank.holzwarth@springer.com</a></li>
@@ -147,14 +147,16 @@
                           </p>
 
                           <p>
-                            The paper is structured as follows. After an overview of the state of the art in Section \ref{sec:related}. we present a motivating scenario for federated query processing in Section \ref{sec:usecase}.
-                            We set out requirements of federated RSP engine in Section \ref{sec:requirements}. Section~\ref{sec:rsep} presents \rsep, describing its components and presenting some existing implementation.
-                            We evaluate \rsep in Section \ref{sec:eval} before concluding with remarks and future directions in Section \ref{sec:concl}.
+                            The paper is structured as follows.
+                            We set requirements for communication of Web stream processors in Section <a href="#reqs">2</a>.
+                            In Section <a href="#related-work">3</a>, we review the state of the art and we discuss the solutions available so far.
+                            Section <a href="#rsep">6</a> presents \rsep, describing its components and presenting some existing implementation.
+                            We evaluate \rsep in Section <a href="#impl">5</a> before concluding with remarks and future directions in Section <a href="#concl">6</a>.
                           </p>
                         </div>
                     </section>
 
-                    <section id="sec:scenario-reqs">
+                    <section id="reqs" rel="schema:hasPart" resource="#reqs">
                       <h2 property="schema:name">Requirements</h2>
                       <div datatype="rdf:HTML" property="schema:description">
                         <p>
@@ -254,7 +256,7 @@
                       <h2 property="schema:name">Related Work</h2>
                     </section>
 
-                    <section id="related-work" rel="schema:hasPart" resource="#related-work">
+                    <section id="rsep" rel="schema:hasPart" resource="#rsep">
                       <h2 property="schema:name">A framework to exchange RDF streams on the Web</h2>
                       <div datatype="rdf:HTML" property="schema:description">
                           <section id="rdf-stream" rel="schema:hasPart" resource="#rdf-stream">
@@ -341,7 +343,7 @@
                             </div>
                           </section>
 
-                          <section id="affiliations" rel="schema:hasPart" resource="#affiliations">
+                          <section id="protocol" rel="schema:hasPart" resource="#protocol">
                               <h3 property="schema:name">Communication protocol</h4>
                               <div datatype="rdf:HTML" property="schema:description">
                                   <p>
@@ -507,7 +509,7 @@
                         </section>
                     </section>
 
-                    <section id="conlc" rel="schema:hasPart" resource="#concl">
+                    <section id="concl" rel="schema:hasPart" resource="#concl">
                         <h2 property="schema:name">Conclusions</h2>
                         <div datatype="rdf:HTML" property="schema:description">
                         </div>
