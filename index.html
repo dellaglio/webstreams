@@ -55,7 +55,11 @@
                             With the growing popularity of IoT and sensor technologies an enormous amount of data is being produced at a very rapid pace.
                             Sensor data mostly consists of live data streams containing sensor observations.
                             These data streams are generated in a distributed fashion by multiple heterogeneous infrastructures having minimal or no interoperability.
-                            RDF Stream Processing (RSP) supports mitigation of heterogeneity, increase in interoperability and facilitation of cross-domain stream easoning.
+                            RDF streams emerged as a model to represent data streams, and RDF Stream Processing (RSP) indicates a set of technologies to process such data.
+                            Today we can count several successful stories related to RSP research, but we register the fact that in most of the cases the Web dimension is marginal or missing.
+                            We register the lack of proper infrastructures to enable the exchange of RDF streams over heterogeneous and differnt types of RDF stream related processors, which features may vary from data generation to querying, from reasoning to visualization.
+                            In this article, we define a set of requirements related to the creation of a web of RDF stream processors. We then use such requirements to first analyse the current state of the art, and then to build a novel proposal named \rseql.
+                            <!--support the mitigation of heterogeneity, increasing interoperability and facilitating cross-domain stream querying and reasoning.
                             While existing RSP engines are capable of processing distributed RDF streams, there is still a big roam to improve the ability of existing RSP engines to federate queries over large-scale and highly distributed data streams over the Web.
                             \jpc{from this sentence, it seems that the main issue we want to address is federation}
                           </p>
@@ -66,7 +70,7 @@
                             Our federated RSP engine is capable of consuming distributed RDF streams using multiple communication protocols to access live data streams.
                             We introduce a uniform stream descriptor for RDF streams publication over the Web.
                             Federated RSP engine is capable of consuming data streams over the Web including the streams generated as an outcome of queries deployed over existing RSP engines.
-                            We tested our federated query engine over a real complex scenario of traffic and parking management using datasets collected from infrastructure deployed in the City of Aarhus, Denmark.\footnote{\url{http://iot.ee.surrey.ac.uk:8080/datasets.html}}</p>
+                            We tested our federated query engine over a real complex scenario of traffic and parking management using datasets collected from infrastructure deployed in the City of Aarhus, Denmark.\footnote{\url{http://iot.ee.surrey.ac.uk:8080/datasets.html}}</p>-->
                         </div>
                     </section>
 
@@ -85,7 +89,8 @@
                           <p>
                             The Web of Data (WoD) vision consists of Web as a distributed database: a vast&mdash;endless&mdash;amount of datasets to be accessed and queried.
                             The Linking Open Data (LOD) cloud is one of the most successful examples of such a vision: more than a thousand of datasets, owned and managed by different organizations, exposing interconnected data to be freely accessed.
-                            It usually happens through SPARQL \jpc{what usually happens?}, that is both a query language for the RDF data exposed in the LOD \cite{harris_sparql_2013} and a protocol to exchange such data through Internet \cite{feigenbaum_sparql_2013}.\jpc{Not sure SPARQL is the main way of reusing LOD. Sometimes people just dereference links}
+                            The data can be accesses in different ways. The two most popular solutions are dereferentiation and through SPARQL endpoints. The idea behind the former is to provide
+                            These accesses usually happens through SPARQL, which is both a query language for the RDF data exposed in the LOD \cite{harris_sparql_2013} and a protocol to exchange such data through Internet \cite{feigenbaum_sparql_2013}.\jpc{Not sure SPARQL is the main way of reusing LOD. Sometimes people just dereference links}
                             Since the late 2000s, we have observed a trend that substantially increased the velocity of part of such data.
                             The Internet of Things (IoT) well exemplifies this: sensors create \emph{streams}, i.e., continuous sequences of data generated at very high frequencies. \jpc{velocity is a key factor, but recency is also important}
                             It was therefore normal to ask if the existent WoD solutions were good enough to cope with such data.
