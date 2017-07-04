@@ -258,14 +258,11 @@
                                     We detail the stream descriptor in Section~\ref{sec:impl:sd}; in the following, we describe how the producer/consumer communication develops.
                                   </p>
 
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=0.65\textwidth]{img/consume.png}
-		\caption{Protocol to establish the communication between the producer
-			and the consumer interfaces}
-		\label{fig:protocol}
-	\end{center}
-\end{figure}
+                                  <figure id="fig:protocol">
+                                      <object data="img/consume.png"  type="image/png" width="200"></object>
+                                      <figcaption>Protocol to establish the communication between the producer
+                                  			and the consumer interfaces</figcaption>
+                                  </figure>
 
                                   <p>
                                     The communication relies on two phases, depicted in Figure~\ref{fig:protocol}, and it starts on the consumer side.
@@ -287,6 +284,58 @@
                                   </p>
                               </div>
                           </section>
+
+                      <section id="service-descriptor" rel="schema:hasPart" resource="#service-descriptor">
+                          <h3 property="schema:name">Service Descriptor</h3>
+                          <div datatype="rdf:HTML" property="schema:description">
+                            <p>
+                              The Stream Descriptor is an RDF document providing metadata of the RDF stream that is used by a \emph{consumer} for bootstrapping its stream consuming process.
+                              Realizing that RDF Stream is also an RDF dataset, we extend <a  href="https://www.w3.org/TR/vocab-dcat/">DCAT vocabulary</a> to represent the an RDF Stream as illustrated in Figure~\ref{fig:schema}.
+                              The class RDFStream extends dcat:DataSet to inherit all properties of a RDF dataset, and it also has the properties specific to a stream such as \emph{streamrate} and \emph{streamTemplate}.
+                              The \emph{streamTemplate} property can be used to point to a document that specify the template or the constraint of the RDF stream, for instance, the template can be a RDF document driven <a href="https://www.w3.org/TR/shacl/">SCHACL</a>.
+                              The template can be used as a hint of the data shape of the RDF stream for the consumer to optimize its processing.
+                              It also plays the role as a validation rule for consumer to verify if the incoming data is conformed with the template.
+                            </p>
+
+                            <figure id="fig:schema">
+                                <object data="img/streamschema.png"  type="image/png" width="200"></object>
+                                <figcaption>Description of RDF Stream</figcaption>
+                            </figure>
+
+                            <figure class="listing">
+                                <pre>
+<code>{ "@context": {</code>
+<code>    "sld": "http://streamreasoning.org/ontologies/wsd#",</code>
+<code>    "generatedAt": { </code>
+<code>      "@id": "http://www.w3.org/ns/prov#generatedAtTime",</code>
+<code>      "@type": "http://www.w3.org/2001/XMLSchema#dateTime" </code>
+<code>    }</code>
+<code>  },</code>
+<code>  "@type": "wsd:RDFStream",</code>
+<code>  "dcat:accessURL": "ws://localhost:8101/TripleWave/replay",</code>
+<code>  "wsd:streamTemplate": {"@id":"http://purl.oclc.org/NET/ssnx/ssn"},</code>
+<code>  "wsd:shacl": {</code>
+<code>    "@list": [</code>
+<code>      { "generatedAt": "2016-04-21T13:01:18.663Z", "@id": "tr:1461243678663" },</code>
+<code>      { "generatedAt": "2016-04-21T13:01:19.784Z", "@id": "tr:1461243679784" }</code>
+<code>    ]</code>
+<code>  },</code>
+<code>  "sld:lastUpdated": "2016-04-21T13:02:06.575Z"</code>
+<code> }</code>
+                                </pre>
+                                <figcaption>The Stream Descriptor pointing to the iGraph described in Listing~\ref{list:datastreamjson}.</figcaption>
+                            </figure>
+
+                            <p>
+                              Note that an RDF can be distributed via different stream channels using different protocols like MQTT and Websocket.
+                              Therefore, a stream channel is an instance of the RDFStreamPublisher class which is linked to the RDFStream class via the property \emph{dcat:distribution}.
+                              The RDFStreamPublisher is used to specify the protocol and the URL whereby the consumer can tap into to receive the stream.
+                              Also, RDFStreamPublisher is a subclass of the dcat:Distribution class which has several properties for the consumer to configure its parsers such as \emph{dcat:mediaType} and {dcat:format}.
+                              An RDFStreamPublisher might provide a continuous query service which is specified by the RSPService class extended from the sd:Service defined by <a href="https://www.w3.org/TR/sparql11-service-description/">SPARQL 1.1 Service description</a>.
+                              As most of RSP engines extend SPARQL 1.1 for their query languages, using the federated service vocabularies will provide useful vocabularies for describing RDF continuous querying services powered by RSP engines such as C-SPARQL and CQELS.
+                            </p>
+                          </div>
+                      </section>
                     </section>
 
                     <section id="preperation-of-your-paper" rel="schema:hasPart" resource="#preperation-of-your-paper">
