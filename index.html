@@ -78,7 +78,10 @@
                         <h2>Keywords</h2>
                         <div>
                             <ul>
-                                <li>We would like to encourage you to list your keywords here. They should be separated by middots.</li>
+                              <li>RDF stream</li>
+                              <li>RDF stream processing</li>
+                              <li>Interoperability</li>
+                              <li>Stream processing</li>
                             </ul>
                         </div>
                     </section>
@@ -89,20 +92,23 @@
                           <p>
                             The Web of Data (WoD) vision consists of Web as a distributed database: a vast&mdash;endless&mdash;amount of datasets to be accessed and queried.
                             The Linking Open Data (LOD) cloud is one of the most successful examples of such a vision: more than a thousand of datasets, owned and managed by different organizations, exposing interconnected data to be freely accessed.
-                            The data can be accesses in different ways. The two most popular solutions are dereferentiation and through SPARQL endpoints. The idea behind the former is to provide
-                            These accesses usually happens through SPARQL, which is both a query language for the RDF data exposed in the LOD \cite{harris_sparql_2013} and a protocol to exchange such data through Internet \cite{feigenbaum_sparql_2013}.\jpc{Not sure SPARQL is the main way of reusing LOD. Sometimes people just dereference links}
+                            The data can be accesses in different ways, and the two most popular solutions are dereferentiation and through SPARQL.
+                            In the latter case, SPARQL is both a query language for the RDF data exposed in the LOD \cite{harris_sparql_2013} and a protocol to exchange such data through Internet \cite{feigenbaum_sparql_2013}.
+                          </p>
+
+                          <p>
                             Since the late 2000s, we have observed a trend that substantially increased the velocity of part of such data.
-                            The Internet of Things (IoT) well exemplifies this: sensors create \emph{streams}, i.e., continuous sequences of data generated at very high frequencies. \jpc{velocity is a key factor, but recency is also important}
+                            The Internet of Things (IoT) well exemplifies this: sensors create \emph{streams}, i.e., continuous sequences of data generated at very high frequencies, where its value is usually strictly associated to recency, i.e. the quicker the data is processed, the more valuable it is.
                             It was therefore normal to ask if the existent WoD solutions were good enough to cope with such data.
-                            Looking at the research in database, it is possible to observe that the typical database approaches show several limits while coping with data streams.
-                            Stonebraker et al. \cite{stonebraker_8_2005} explained which are the requirements of processing streams, and highlighted the limits of the DBMS approach, e.g., their passive processing models badly works with data with extreme velocity; SQL does not support operators to cope with streams; and it is challenging to predict the behaviour of such systems while coping with streaming data.
+                            Looking at the research in the database area, it is possible to observe that the typical database approaches show several limits while coping with data streams.
+                            Stonebraker et al. \cite{stonebraker_8_2005} explains which are the requirements of processing streams, and highlights the limits of DBMS approaches, e.g., their passive processing model badly works with data characterized by extreme velocity; SQL does not support operators to cope with streams; and it is challenging to predict the behaviour of such systems while coping with streaming data.
                             It is easy to observe that these limits affect SPARQL\jpc{not only sparql but in general the RDF model as underlying representation infrastructure IMO} and existent WoD solutions.
                           </p>
 
                           <p>
                             As a possible solution, Stream Processing Engines (SPEs) emerged in the data management research to cope with streaming data.
                             They introduce new paradigms and processing models that fit better the requirements of scenarios involving data streams.
-                            As a result, a new set of languages have been designed and developed, such as CQL, StreamSQL, EPL, with engines and systems designed with the specific task of processing streams.
+                            As a result, a new set of languages have been designed and developed, such as CQL, StreamSQL and EPL, with engines and systems designed with the specific task of processing streams.
                           </p>
 
                           <p>
@@ -122,7 +128,7 @@
                           </table>
 
                           <p>
-                            RSP fills an important gap between the Web of Data towards a Web of Data Streams (WoDS): it introduces processing models and languages to process streams on the Web, mostly of them captured by reference models as RSEP-QL and LARS.
+                            RSP fills an important gap between the Web of Data towards a Web of Data Streams (WoDS): it introduces processing models and languages to process streams on the Web, mostly of them captured by reference models as RSEP-QL \cite{} and LARS \cite{}.
                             However, an important elements is still missing, and it is a technical infrastructure to manage data exchange.
                             As depicted in Table <a href="#tab:overview">1</a>, data can be exchanged by HTTP (following the linked data principles) or via the SPARQL protocol.
                             These solutions perfectly suit the cases where engines follow passive processing models, i.e., they pull the data when needed, but not when engines adopt passive processing models.
@@ -139,13 +145,14 @@
                           </figure>
 
                           <p>
-                            The solution should take into account both the nature of the engines and the Web setting.
+                            The solution should take into account the nature of the streams and the engines, as well as the Web setting.
                             We should indeed consider that existing RSP engines are heterogeneous in terms of operators and APIs to control them, as well as the nature of the Web, that is distributed and relies on existing technologies and standards.
                             We envision a scenario as the one depicted in Figure <a href="#fig:overview">1</a>: interconnected RSPs that perform several tasks such as querying to reasoning, exchanging the results and producing sophisticated analyses.
                           </p>
 
                           <p>
-                            In the following we present \rsep, a framework to build complex network of RSP engines on the Web. \rsep brings a communication protocol to initialize the connection between two RSP engines and to manage the data exchange.
+                            In the following we present \rsep, a framework to build complex network of RSP engines on the Web.
+                            \rsep brings a communication protocol to initialize the connection between two RSP engines and to manage the data exchange.
                             This is implemented through two interfaces for the elements that produce and consume streams, and a vocabulary to annotate a stream.
                             We design and build \rsep taking into account existing previous results such as the W3C RSP-CG reports \cite{}, existing RSP engines, protocol and standards.
                             We empirically show that \rsep enables the construction of a Web of Data Streams by evaluating the introduced overhead and making a study about scalability.
