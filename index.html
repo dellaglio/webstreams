@@ -12,6 +12,10 @@
         <script src="https://dokie.li/scripts/medium-editor.min.js"></script>
         <script src="https://dokie.li/scripts/medium-editor-tables.min.js"></script>
         <script src="https://dokie.li/scripts/do.js"></script>
+<script type="text/javascript" async
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
     </head>
 
     <body about="" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# dcterms: http://purl.org/dc/terms/ dctypes: http://purl.org/dc/dcmitype/ foaf: http://xmlns.com/foaf/0.1/ v: http://www.w3.org/2006/vcard/ns# pimspace: http://www.w3.org/ns/pim/space# cc: https://creativecommons.org/ns# skos: http://www.w3.org/2004/02/skos/core# prov: http://www.w3.org/ns/prov# qb: http://purl.org/linked-data/cube# schema: http://schema.org/ void: http://rdfs.org/ns/void# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# cal: http://www.w3.org/2002/12/cal/ical# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# org: http://www.w3.org/ns/org# biblio: http://purl.org/net/biblio# bibo: http://purl.org/ontology/bibo/ book: http://purl.org/NET/book/vocab# ov: http://open.vocab.org/terms/ sioc: http://rdfs.org/sioc/ns# doap: http://usefulinc.com/ns/doap# dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ oa: http://www.w3.org/ns/oa# as: https://www.w3.org/ns/activitystreams# ldp: http://www.w3.org/ns/ldp# solid: http://www.w3.org/ns/solid/terms# acl: http://www.w3.org/ns/auth/acl# dio: https://w3id.org/dio#" typeof="schema:CreativeWork sioc:Post prov:Entity">
@@ -48,6 +52,8 @@
                         <h2>Abstract</h2>
                         <div datatype="rdf:HTML" property="schema:abstract">
                           <p>With the growing popularity of IoT and sensor technologies an enormous amount of data is being produced at a very rapid pace. Sensor data mostly consists of live data streams containing sensor observations. These data streams are generated in a distributed fashion by multiple heterogeneous infrastructures having minimal or no interoperability. RDF Stream Processing (RSP) supports mitigation of heterogeneity, increase in interoperability and facilitation of cross-domain stream easoning. While existing RSP engines are capable of processing distributed RDF streams, there is still a big roam to improve the ability of existing RSP engines to federate queries over large-scale and highly distributed data streams over the Web.\jpc{from this sentence, it seems that the main issue we want to address is federation} </p>
+
+<p>Some text with math \(S = (G_1,t_1), (G_2,t_2), (G_3,t_3), (G_4,t_4), \ldots \) </p>
 
                           <p>In this paper, we present a federated RSP engine which can execute complex distributed queries over large-scale data streams on the Web.\jpc{is this really what we have? To get to this point we would first need a federated rsp language} Our federated RSP engine is capable of consuming distributed RDF streams using multiple communication protocols to access live data streams. We introduce a uniform stream descriptor for RDF streams publication over the Web. Federated RSP engine is capable of consuming data streams over the Web including the streams generated as an outcome of queries deployed over existing RSP engines. We tested our federated query engine over a real complex scenario of traffic and parking management using datasets collected from infrastructure deployed in the City of Aarhus, Denmark.\footnote{\url{http://iot.ee.surrey.ac.uk:8080/datasets.html}}</p>
                         </div>
