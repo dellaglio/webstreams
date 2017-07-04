@@ -229,6 +229,58 @@
                               </p>
                             </div>
                           </section>
+
+                          <section id="affiliations" rel="schema:hasPart" resource="#affiliations">
+                              <h3 property="schema:name">Communication protocol</h4>
+                              <div datatype="rdf:HTML" property="schema:description">
+                                  <p>
+                                    We identify two interfaces, namely <em>producer</em> and <em>consumer</em>.
+                                    As the names suggest, the former is implemented by actors that distribute streams across the Web, while the latter is implemented actors who wants to receive streams.
+                                  </p>
+
+                                  <p>
+                                    Every actor involved in the processing may implement either interface, as well as both of them. This lead us to the following nomenclature.
+                                    A <em>stream source</em> implements the producer interface only. Services exposing sensors data on the Web and TripleWave are examples of stream sources.
+                                    Similarly, a <em>stream sink</em> implements the consumer interface only, e.g. a dashboard visualising information for the final user.
+                                    Finally, a <em>stream transformer</em> implements both the interfaces: it gets as input a stream and outputs another stream, e.g. a stream processor or a stream reasoner.
+                                  </p>
+
+                                  <p>
+                                    The principal responsibility of the producers is to make streaming data accessible. It is done by exposing <em>Stream Descriptors</em>, i.e. metadata about the streams.
+                                    Examples of Stream Descriptor contents are the creator, the adopted vocabulary and statistical information about the stream.
+                                    However, the most relevant data the Stream Descriptor brings is about how to effectively access the stream content.
+                                    We detail the stream descriptor in Section~\ref{sec:impl:sd}; in the following, we describe how the producer/consumer communication develops.
+                                  </p>
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=0.65\textwidth]{img/consume.png}
+		\caption{Protocol to establish the communication between the producer
+			and the consumer interfaces}
+		\label{fig:protocol}
+	\end{center}
+\end{figure}
+
+                                  <p>
+                                    The communication relies on two phases, depicted in Figure~\ref{fig:protocol}, and it starts on the consumer side.
+                                    The consumer only needs to be aware of the IRI of the Stream Descriptor, e.g. consumer user provides it as instruction.
+                                    This is what is needed for the first phase, where the consumer accesses the Stream Descriptor IRI (the blue part in Figure~\ref{fig:protocol}) through a HTTP request, following the Linked Data principles.
+                                  </p>
+
+                                  <p>
+                                    In the second phase, the consumer starts to receive the stream (the light blue part in Figure~\ref{fig:protocol}).
+                                    The Service Descriptor brings information about how to access the effective stream content.
+                                    That means it describes one or more ways to establish the connection between the consumer and the endpoint that is providing the stream content.
+                                    This connection can happen with different protocols, based on push mechanisms. e.g. WebSocket and MQTT, as well as based on pull mechanisms, e.g. HTTP.
+                                    Among the several options offered by the producer through the Service Descriptor, consumers chose the way they prefer.
+                                    After the decision, consumer can start to receive the stream content and to process it.
+                                  </p>
+
+                                  <p>
+                                    The choice to allow several channels to distribute the streams gives the freedom to adopt several channels to exchange the streams, relying on different technologies based on requirements in the scenario.
+                                  </p>
+                              </div>
+                          </section>
                     </section>
 
                     <section id="preperation-of-your-paper" rel="schema:hasPart" resource="#preperation-of-your-paper">
