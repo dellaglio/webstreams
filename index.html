@@ -51,11 +51,22 @@
                     <section id="abstract">
                         <h2>Abstract</h2>
                         <div datatype="rdf:HTML" property="schema:abstract">
-                          <p>With the growing popularity of IoT and sensor technologies an enormous amount of data is being produced at a very rapid pace. Sensor data mostly consists of live data streams containing sensor observations. These data streams are generated in a distributed fashion by multiple heterogeneous infrastructures having minimal or no interoperability. RDF Stream Processing (RSP) supports mitigation of heterogeneity, increase in interoperability and facilitation of cross-domain stream easoning. While existing RSP engines are capable of processing distributed RDF streams, there is still a big roam to improve the ability of existing RSP engines to federate queries over large-scale and highly distributed data streams over the Web.\jpc{from this sentence, it seems that the main issue we want to address is federation} </p>
+                          <p>
+                            With the growing popularity of IoT and sensor technologies an enormous amount of data is being produced at a very rapid pace.
+                            Sensor data mostly consists of live data streams containing sensor observations.
+                            These data streams are generated in a distributed fashion by multiple heterogeneous infrastructures having minimal or no interoperability.
+                            RDF Stream Processing (RSP) supports mitigation of heterogeneity, increase in interoperability and facilitation of cross-domain stream easoning.
+                            While existing RSP engines are capable of processing distributed RDF streams, there is still a big roam to improve the ability of existing RSP engines to federate queries over large-scale and highly distributed data streams over the Web.
+                            \jpc{from this sentence, it seems that the main issue we want to address is federation}
+                          </p>
 
-<p>Some text with math \(S = (G_1,t_1), (G_2,t_2), (G_3,t_3), (G_4,t_4), \ldots \) </p>
-
-                          <p>In this paper, we present a federated RSP engine which can execute complex distributed queries over large-scale data streams on the Web.\jpc{is this really what we have? To get to this point we would first need a federated rsp language} Our federated RSP engine is capable of consuming distributed RDF streams using multiple communication protocols to access live data streams. We introduce a uniform stream descriptor for RDF streams publication over the Web. Federated RSP engine is capable of consuming data streams over the Web including the streams generated as an outcome of queries deployed over existing RSP engines. We tested our federated query engine over a real complex scenario of traffic and parking management using datasets collected from infrastructure deployed in the City of Aarhus, Denmark.\footnote{\url{http://iot.ee.surrey.ac.uk:8080/datasets.html}}</p>
+                          <p>
+                            In this paper, we present a federated RSP engine which can execute complex distributed queries over large-scale data streams on the Web.
+                            \jpc{is this really what we have? To get to this point we would first need a federated rsp language}
+                            Our federated RSP engine is capable of consuming distributed RDF streams using multiple communication protocols to access live data streams.
+                            We introduce a uniform stream descriptor for RDF streams publication over the Web.
+                            Federated RSP engine is capable of consuming data streams over the Web including the streams generated as an outcome of queries deployed over existing RSP engines.
+                            We tested our federated query engine over a real complex scenario of traffic and parking management using datasets collected from infrastructure deployed in the City of Aarhus, Denmark.\footnote{\url{http://iot.ee.surrey.ac.uk:8080/datasets.html}}</p>
                         </div>
                     </section>
 
@@ -143,10 +154,104 @@
                         </div>
                     </section>
 
-                    <section id="sec:scenario-reqs"></section>
+                    <section id="sec:scenario-reqs">
+                      <h2 property="schema:name">Requirements</h2>
+                      <div datatype="rdf:HTML" property="schema:description">
+                        <p>
+                          To design an infrastructure to exchange RDF streams on the Web, we first define a set of requirements.
+                          As we will see, three of them are extensions of Stonebraker et al.'s rules for SPE \cite{stonebraker_8_2005}, while others are elicited from real-world <a href="https://www.w3.org/community/rsp/wiki/Use_cases">use
+                          cases</a>.
+                        </p>
+
+                        <section id="sec:scenario-req-1">
+                          <h4 property="schema:name">R1: Keep the data moving</h4>
+                          <div datatype="rdf:HTML" property="schema:description">
+                            <p>
+                              The first rule of \cite{stonebraker_8_2005} states that a SPE "should use an	active (i.e., non-polling) processing model".
+                              Looking at the WoD, we can notice that most of the interactions follow a polling paradigm and are stateless.
+                              This is a direct consequence of the client-server paradigm at the basis of HTTP and the Web: servers supplying resources to client on demand.
+                              In this sense, the WoD is not the most suitable environment to perform stream	processing.
+                              Therefore, as first requirement, <em>\rsep must prioritize active paradigms for data stream exchange, where the	data supplier can <em>push</em> the stream content to the actors interested in it</em>.
+                            </p>
+                          </div>
+                        </section>
+
+                        <section id="sec:scenario-req-2">
+                          <h4 property="schema:name">R2: Stored and streamed data</h4>
+                          <div datatype="rdf:HTML" property="schema:description">
+                            <p>
+                              The fifth rule of 	\cite{stonebraker_8_2005} is about the "capability to efficiently store, access and modify state information, and combine it with live streaming data".
+                              We need to revisit this rule by a WoD point of view, in particular about the notion of stored data.
+                              In our context, this data is represented by any dataset that is exposed to the Web through SPARQL endpoints or through Linked Data technologies.
+                              Our second requirement states that <em>\rsep must enable the combination of streaming and stored data</em>.
+                              In this case combination has a broad meaning, and may refer to several operations, such as stream enrichment, stream storage or fact derivation.
+                            </p>
+                          </div>
+                        </section>
+
+                        <section id="sec:scenario-req-3">
+                          <h4 property="schema:name">R3: High availability, distribution and scalability</h4>
+                          <div datatype="rdf:HTML" property="schema:description">
+                            <p>
+                              The sixth rule of \cite{stonebraker_8_2005} states that  "ensure that the applications are up and available, and the integrity of the data maitained at all times, despite failures",
+                              while the seventh states that SPE  "must be able to distribute its processing across multiple processors and machines to achieve incremental scalability. Ideally, the distribution should be automatic and transparent".
+                            	Even if such rules are mainly related to the stream processing engines architecture, we can infer some useful indication for the design of \rsep.
+                              Our third requirement is that <em>\rsep must enable the possibility to build reliable, distributed and scalable streaming applications</em>.
+                            </p>
+                          </div>
+                        </section>
+
+                        <section id="sec:scenario-req-4">
+                          <h4 property="schema:name">R4: Operations on the stream content</h4>
+                          <div datatype="rdf:HTML" property="schema:description">
+                            <p>
+                              Every use case has special requirements on the way the streaming data should processed.
+                              Querying is an option when the goal is to aggregate, filter and look of relevant pattern of events.
+                              However, other alternatives are possible, such as deductive, inductive and other types of reasoning; stream generation and visualization.
+                            	<em>\rsep must guarantee a wide range of operations over the stream</em>.
+                              Such a requirement is important, in particular on the Web perspective, where data may be accessed and used in unexpected ways by third-part entities.
+                              \jpc{wide range of operations: is it too vague?}
+                            </p>
+                          </div>
+                        </section>
+
+                        <section id="sec:scenario-req-5">
+                          <h4 property="schema:name">R5: Accessible information about the stream</h4>
+                          <div datatype="rdf:HTML" property="schema:description">
+                            <p>
+                              While the nature of the stream content is highly dynamic and volatile, the stream itself is a resource that can be described.
+                              Such descriptions are needed in a number of cases.
+                              For example, statistics about the frequency and the size of the stream content may be used to enable query optimization in the RSP engines; information about the generation of the stream may be used to enable provenance-related reasoning; description of the features of the streams may be collected in registries to achieve search and discovery.
+                              Our fifth requirement states that <em>\rsep must support the publication of stream descriptions</em>.
+                          </div>
+                        </section>
+
+                        <section id="sec:scenario-req-6">
+                          <h4 property="schema:name">R6: Stream variety support</h4>
+                          <div datatype="rdf:HTML" property="schema:description">
+                            <p>
+                              The decentralized and bottom-up nature of the Web make hard&mdash;if not impossible&mdash;to define \emph{the} model and serialization format for streams.
+                            	Looking at the use cases in the RSP-CG wiki, it is easy to observe that: streams can have different velocities (e.g., one new item every minute vs every millisecond); time annotations can be composed by zero, one, two or more time instants, item schemata can be simple (e.g., numbers) or complex (e.g., graphs or tables).
+                              To preserve the heterogeneity that characterize the Web, <em>\rsep should support the exchange of a wide variety of streams</em>.
+                          </div>
+                        </section>
+
+                        <section id="sec:scenario-req-7">
+                          <h4 property="schema:name">R7: Reuse of technologies and standards</h4>
+                          <div datatype="rdf:HTML" property="schema:description">
+                            <p>
+                              A common problem when building new frameworks and infrastructures is to find a good trade-off among what is new and what exists.
+                              On the one hand, creating everything from scratch is an opportunity to create a solution that perfectly fits the requirements, but on the other hand adopting existing specifications (i.e., standards and protocols) allows reusing existing tools and methods.
+                              This is particular true on the Web, where guaranteeing compatibility is mandatory in order to enable interoperability.
+                              Our last requirements states that the design of <em>\rsep should exploit as much as possible existing protocols and standards</em>.
+                            </p>
+                          </div>
+                        </section>
+                      </div>
+                    </section>
 
                     <section id="related-work" rel="schema:hasPart" resource="#related-work">
-                      <h2>Related work</h2>
+                      <h2 property="schema:name">Related Work</h2>
                     </section>
 
                     <section id="related-work" rel="schema:hasPart" resource="#related-work">
