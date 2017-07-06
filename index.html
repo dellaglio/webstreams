@@ -428,6 +428,46 @@
                         <li>RSP services</li>
                         <li>LDN</li>
                       </ul>
+
+\item usual citations to RSP engines
+\item SPARQLpush, LDN etc
+%our contribution
+
+\item Something on Web Services?
+\item protocols: MQTT, WebSocket, HTTP, etc.
+\item the Abstract syntax of W3C RSP - our work is compliant to that model (probably)
+\item TripleWave
+
+\twave\footnote{\twave: \url{http://streamreasoning.github.io/TripleWave/}}, is an open-source framework for creating RDF streams and publishing them over the Web.
+Triplewave facilitates the dissemination and consumption of RDF streams, in a similar manner as is already common for static RDF datasets with RDF graphs and datasets.
+
+\item ontologies
+\begin{itemize}
+\item IoT ontologies: SSN, the one of Monika, etc.
+\item SPARQL federation ontologies
+\end{itemize}
+\end{itemize}
+
+RSP engines emerged in recent years, with the goal of extending RDF and SPARQL to process RDF streams.
+%
+They can be broadly divided into two groups.
+
+RSPs influenced by CEP reactively process the input streams to identify relevant events and sequences of them. 
+EP-SPARQL~\cite{Anicic2011} is one of the first RSP that adopts some of these complex pattern operators. 
+
+Other such recent approaches include Sparkwave~\cite{Komazec2012} and Instans~\cite{Rinne2012}. 
+%
+On the other hand, approaches inspired by DSMS exploit sliding window mechanisms to capture a recent and finite portion of the
+input data, enabling their processing through SPARQL operators in an atemporal fashion.
+%
+C-SPARQL~\cite{Barbieri2010}, CQELS~\cite{lephuoc2011native}, and SPARQLStream~\cite{calbimonte2012} are representative 
+examples of this group. % of RSP engines.
+
+Other approaches have proposed to create RDF datasets fed from unstructured streams~\cite{gerber2013,trinh2014web}, to lift 
+streaming data as Linked Data~\cite{balduini2013,lephuoc2012}, or to provide virtual RDF Streams~\cite{calbimonte2012}. 
+To improve scalability, systems like Ztreamy~\cite{fisteus2014ztreamy} are designed for efficient transmission of compressed data 
+streams, although they do not address the heterogeneity of data sources, declarative transformation and consumption modes.
+
           </section>
 
           <section id="rsep" rel="schema:hasPart" resource="#rsep">
