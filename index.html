@@ -621,8 +621,8 @@
                    <figcaption>Description of RDF Stream</figcaption>                 
                  </figure>
 
-                                <figure class="listing">
-                                    <pre>
+                 <figure class="listing">
+                   <pre>
 <code>{"@context": {</code>
 <code>  "sld": "http://streamreasoning.org/ontologies/wsd#",</code>
 <code>  "generatedAt": { </code>
@@ -641,52 +641,71 @@
 <code> },</code>
 <code> "sld:lastUpdated": "2016-04-21T13:02:06.575Z"</code>
 <code>}</code>
-                                    </pre>
-                                    <figcaption>The Stream Descriptor pointing to the iGraph described in Listing~\ref{list:datastreamjson}.</figcaption>
-                                </figure>
+                   </pre>
+                   <figcaption>The Stream Descriptor pointing to the iGraph described in Listing~\ref{list:datastreamjson}.</figcaption>
+                 </figure>
 
-                                <p>
-                                  Note that an RDF can be distributed via different stream channels using different protocols like MQTT and Websocket.
-                                  Therefore, a stream channel is an instance of the RDFStreamPublisher class which is linked to the RDFStream class via the property \emph{dcat:distribution}.
-                                  The RDFStreamPublisher is used to specify the protocol and the URL whereby the consumer can tap into to receive the stream.
-                                  Also, RDFStreamPublisher is a subclass of the dcat:Distribution class which has several properties for the consumer to configure its parsers such as \emph{dcat:mediaType} and {dcat:format}.
-                                  An RDFStreamPublisher might provide a continuous query service which is specified by the RSPService class extended from the sd:Service defined by <a href="https://www.w3.org/TR/sparql11-service-description/">SPARQL 1.1 Service description</a>.
-                                  As most of RSP engines extend SPARQL 1.1 for their query languages, using the federated service vocabularies will provide useful vocabularies for describing RDF continuous querying services powered by RSP engines such as C-SPARQL and CQELS.
-                                </p>
-                              </div>
-                          </section>
-                    </section>
+                 <p>
+                   Note that an RDF can be distributed via different stream channels using different protocols 
+                   like MQTT and Websocket.
+                   Therefore, a stream channel is an instance of the RDFStreamPublisher class which is linked 
+                   to the RDFStream class via the property <em>dcat:distribution</em>.
+                   The RDFStreamPublisher is used to specify the protocol and the URL whereby the consumer can 
+                   tap into to receive the stream.
+                   Also, RDFStreamPublisher is a subclass of the dcat:Distribution class which has several 
+                   properties for the consumer to configure its parsers such as <em>dcat:mediaType</em> and 
+                   <em>dcat:format</em>.
+                   An RDFStreamPublisher might provide a continuous query service which is specified by the 
+                   RSPService class extended from the sd:Service defined by 
+                   <a href="https://www.w3.org/TR/sparql11-service-description/">SPARQL 1.1 Service description</a>.
+                   As most of RSP engines extend SPARQL 1.1 for their query languages, using the federated service 
+                   vocabularies will provide useful vocabularies for describing RDF continuous querying services 
+                   powered by RSP engines such as C-SPARQL and CQELS.
+                 </p>
+               </div>
+             </section>
+           </section>
 
-                    <section id="impl" rel="schema:hasPart" resource="#impl">
-                        <h2 property="schema:name">Implementation and examples</h2>
-                        <div datatype="rdf:HTML" property="schema:description">
-                          <section id="impl" rel="schema:hasPart" resource="#impl">
-                              <h3 property="schema:name">Stream source example: TripleWave</h3>
-                              <div datatype="rdf:HTML" property="schema:description">
-                                <p>
-                                  TripleWave [<a href="#mauri2016"></a>] is a framework to create and expose RDF streams according to the producer interface described above.
-                                  Triplewave can be fed with different input, such as non-RDF Web streams or RDF data containing some temporal annotation.
-                                </p>
+           <section id="impl" rel="schema:hasPart" resource="#impl">
+             <h2 property="schema:name">Implementation and examples</h2>
+             <div datatype="rdf:HTML" property="schema:description">
+               <section id="impl" rel="schema:hasPart" resource="#impl">
+                 <h3 property="schema:name">Stream source example: TripleWave</h3>
+                 <div datatype="rdf:HTML" property="schema:description">
+                   <p>
+                     TripleWave [<a href="#mauri2016"></a>] is a framework to create and expose RDF streams 
+                     according to the producer interface described above.
+                     Triplewave can be fed with different input, such as non-RDF Web streams or RDF data 
+                     containing some temporal annotation.
+                   </p>
 
-                                <p>
-                                  In the former case, TripleWave lifts existing Web streams in RDF streams, such as the <a href="https://en.wikipedia.org/wiki/Special:RecentChanges">Wikipedia update stream</a> and <a href="https://dev.twitter.com/streaming/overview">Twitter stream</a>.
-                                  The operation is enabled through R2RML transformations [<a href="#das2012"></a>], that map relational to RDF data.
-                                  The lifting operation enables the interoperability among the WSP actors, addressing \dd{Rx}.
-                                </p>
+                   <p>
+                     In the former case, TripleWave lifts existing Web streams in RDF streams, such as the 
+                     <a href="https://en.wikipedia.org/wiki/Special:RecentChanges">Wikipedia update stream</a> 
+                     and <a href="https://dev.twitter.com/streaming/overview">Twitter stream</a>.
+                     The operation is enabled through R2RML transformations [<a href="#das2012"></a>], that map 
+                     relational to RDF data.
+                     The lifting operation enables the interoperability among the WSP actors, addressing \dd{Rx}.
+                   </p>
 
-                                <p>
-                                  In the latter case, TripleWave streams out data stored in a repository.
-                                  This mode is useful for benchmarking as well as experimental runs, where data has to be streamed multiple times across the overall network.
-                                  Precondition to this mode is the existence of time information associated to the repository content: TripleWave uses them to compute the correct intervals between consecutive events and set delays accordingly.
-                                </p>
+                   <p>
+                     In the latter case, TripleWave streams out data stored in a repository.
+                     This mode is useful for benchmarking as well as experimental runs, where data has to be 
+                     streamed multiple times across the overall network.
+                     Precondition to this mode is the existence of time information associated to the repository 
+                     content: TripleWave uses them to compute the correct intervals between consecutive events and 
+                     set delays accordingly.
+                   </p>
 
-                                <p>
-                                  TripleWave has been designed and implemented to natively implement the producer interface. It exposes the Service Descriptor on an HTTP address, and publishes the streaming data through MQTT and WebSocket.
-                                </p>
-                              </div>
-                          </section>
+                   <p>
+                     TripleWave has been designed and implemented to natively implement the producer interface. 
+                     It exposes the Service Descriptor on an HTTP address, and publishes the streaming data through 
+                     MQTT and WebSocket.
+                   </p>
+                 </div>
+               </section>
 
-                          <section id="impl" rel="schema:hasPart" resource="#impl">
+               <section id="impl" rel="schema:hasPart" resource="#impl">
                               <h3 property="schema:name">Stream transformer example: C-SPARQL and CQELS</h3>
                               <div datatype="rdf:HTML" property="schema:description">
                                 <p>
