@@ -32,6 +32,17 @@
         ct++;
       })
 
+      //section numbering
+      ct=1;
+      $("section > h2").each(function(){          
+        var id=$(this).parent().attr('id')
+        if (id!='keywords' && id!='abstract') {
+          console.log(id+' '+ct)
+          $("[href='#"+id+"']").html('Section '+ct);
+          ct++;
+        }
+      })
+          
       //Figure numbering
       ct=1;
       $(".fig").each(function(){
@@ -91,7 +102,8 @@
           </dl>
 
           <ul id="author-org">
-            <li id="author-org-1"><sup>1</sup><a about="#UZH" typeof="schema:Organization" property="schema:name" rel="schema:url" href="http://uzh.ch">University of Zurich</a>, <span class="adr"><span class="region">Zurich</span>, <span class="country-name">Switzerland</span></span></li>
+            <li id="author-org-1">
+              <sup>1</sup><a about="#UZH" typeof="schema:Organization" property="schema:name" rel="schema:url" href="http://uzh.ch">University of Zurich</a>, <span class="adr"><span class="region">Zurich</span>, <span class="country-name">Switzerland</span></span></li>
             <li id="author-org-1"><sup>1</sup><a about="#Springer-Verlag-Computer-Science-Editorial" typeof="schema:Organization" property="schema:name" rel="schema:url" href="http://www.springer.com/de/">Springer-Verlag, Computer Science Editorial</a>, <span class="adr"><span class="region">Heidelberg</span>, <span class="country-name">Germany</span></span></li>
             <li id="author-org-1"><sup>1</sup><a about="#Springer-Verlag-Computer-Science-Editorial" typeof="schema:Organization" property="schema:name" rel="schema:url" href="http://www.springer.com/de/">Springer-Verlag, Computer Science Editorial</a>, <span class="adr"><span class="region">Heidelberg</span>, <span class="country-name">Germany</span></span></li>
             <li id="author-org-2"><sup>2</sup><a about="#HESSO" typeof="schema:Organization" property="schema:name" rel="schema:url" href="http://www.hevs.ch">University of Applied Sciences and Arts Western Switzerland, HES-SO Valais-Wallis</a>, <span class="adr"><span class="region">Sierre</span>, <span class="country-name">Switzerland</span></span></li>
@@ -275,13 +287,13 @@
               <p>
                The paper is structured as follows.
                We set requirements for communication of Web stream processors in 
-               Section <a href="#reqs">2</a>.
-               In Section <a href="#related-work">3</a>, we review the state of the art and we discuss 
+               <a href="#reqs">2</a>.
+               In <a href="#related-work">3</a>, we review the state of the art and we discuss 
                the solutions available so far.
-               Section <a href="#rsep">6</a> presents <span name="wrsp"></span>, describing its components 
+               <a href="#rsep">6</a> presents <span name="wrsp"></span>, describing its components 
                and presenting some existing implementation.
-               We evaluate <span name="wrsp"></span> in Section <a href="#impl">5</a> before concluding with 
-               remarks and future directions in Section <a href="#concl">6</a>.
+               We evaluate <span name="wrsp"></span> in <a href="#impl">5</a> before concluding with 
+               remarks and future directions in <a href="#concl">6</a>.
               </p>
             </div>
           </section>
@@ -422,14 +434,32 @@
 
           <section id="related-work" rel="schema:hasPart" resource="#related-work">
             <h2 property="schema:name">Related Work</h2>
-                       <ul>
-                        <li>RSP CG Abstract syntax</li>
-                        <li>serialization</li>
-                        <li>RSP services</li>
-                        <li>LDN</li>
-                      </ul>
+                 
+            <div datatype="rdf:HTML" property="schema:description">
+              <p>
+                RSP engines emerged in recent years, with the goal of extending RDF and SPARQL to process 
+                RDF streams.
+                They can be broadly divided into two groups.
+                RSPs influenced by CEP reactively process the input streams to identify relevant events and 
+                sequences of them. EP-SPARQL~\cite{Anicic2011} is one of the first RSP that adopts some of 
+                these complex pattern operators. 
+                Other such recent approaches include Sparkwave~\cite{Komazec2012} and Instans~\cite{Rinne2012}. 
+              </p>
 
-\item usual citations to RSP engines
+              <p>
+                On the other hand, approaches inspired by DSMS exploit sliding window mechanisms to capture 
+                a recent and finite portion of the input data, enabling their processing through SPARQL 
+                operators in an atemporal fashion.
+                C-SPARQL~\cite{Barbieri2010}, CQELS~\cite{lephuoc2011native}, and 
+                SPARQLStream~\cite{calbimonte2012} are representative examples of this group.
+              </p>
+                
+Other approaches have proposed to create RDF datasets fed from unstructured streams~\cite{gerber2013,trinh2014web}, to lift 
+streaming data as Linked Data~\cite{balduini2013,lephuoc2012}, or to provide virtual RDF Streams~\cite{calbimonte2012}. 
+To improve scalability, systems like Ztreamy~\cite{fisteus2014ztreamy} are designed for efficient transmission of compressed data 
+streams, although they do not address the heterogeneity of data sources, declarative transformation and consumption modes.
+
+
 \item SPARQLpush, LDN etc
 %our contribution
 
@@ -447,27 +477,7 @@ Triplewave facilitates the dissemination and consumption of RDF streams, in a si
 \item SPARQL federation ontologies
 \end{itemize}
 \end{itemize}
-
-RSP engines emerged in recent years, with the goal of extending RDF and SPARQL to process RDF streams.
-%
-They can be broadly divided into two groups.
-
-RSPs influenced by CEP reactively process the input streams to identify relevant events and sequences of them. 
-EP-SPARQL~\cite{Anicic2011} is one of the first RSP that adopts some of these complex pattern operators. 
-
-Other such recent approaches include Sparkwave~\cite{Komazec2012} and Instans~\cite{Rinne2012}. 
-%
-On the other hand, approaches inspired by DSMS exploit sliding window mechanisms to capture a recent and finite portion of the
-input data, enabling their processing through SPARQL operators in an atemporal fashion.
-%
-C-SPARQL~\cite{Barbieri2010}, CQELS~\cite{lephuoc2011native}, and SPARQLStream~\cite{calbimonte2012} are representative 
-examples of this group. % of RSP engines.
-
-Other approaches have proposed to create RDF datasets fed from unstructured streams~\cite{gerber2013,trinh2014web}, to lift 
-streaming data as Linked Data~\cite{balduini2013,lephuoc2012}, or to provide virtual RDF Streams~\cite{calbimonte2012}. 
-To improve scalability, systems like Ztreamy~\cite{fisteus2014ztreamy} are designed for efficient transmission of compressed data 
-streams, although they do not address the heterogeneity of data sources, declarative transformation and consumption modes.
-
+              </div>
           </section>
 
           <section id="rsep" rel="schema:hasPart" resource="#rsep">
