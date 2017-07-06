@@ -437,29 +437,41 @@
                  
             <div datatype="rdf:HTML" property="schema:description">
               <p>
-                RSP engines emerged in recent years, with the goal of extending RDF and SPARQL to process 
-                RDF streams.
-                They can be broadly divided into two groups.
-                RSPs influenced by CEP reactively process the input streams to identify relevant events and 
-                sequences of them. EP-SPARQL~\cite{Anicic2011} is one of the first RSP that adopts some of 
-                these complex pattern operators. 
-                Other such recent approaches include Sparkwave~\cite{Komazec2012} and Instans~\cite{Rinne2012}. 
+                RSP (RDF Stream Processing) engines emerged in recent years, with the goal of extending RDF 
+                and SPARQL to process RDF streams. 
+                They can be broadly divided into two groups. The first is of those influenced by Complex Event
+                Processing (CEP), e.g. EP-SPARQL [<a href="anicic2011"></a>], Sparkwave [<a href="komazec2012"></a>]
+                and Instans [<a href="rinne2012"></a>]. 
+                the second group is that of engines inspired by DSMS, which exploit sliding window mechanisms 
+                to capture a finite portion of the input data. Examples include C-SPARQL [<a href="barbieri2010"></a>], 
+                CQELS [<a href="lephuoc2011"></a>], and SPARQLStream [<a href="calbimonte2012"></a>].
+              </p>
+                
+              <p>
+                While these engines provide querying features, they generally lack the means to publish or reuse RDF data
+                streams on the Web. Instead, they assume ad-hoc connection to RDF streams without any protocol of
+                communication. A related effort targeting communication and interchange among RSP engines, named 
+                RSP Services, was proposed in [<a href="balduini2013a"></a>], using a REST API. However, it has limitations
+                given the heterogeneity and difficulty of handling the engines in a uniform manner. It is also limited to 
+                HTTP, but uses a similar model and communication method.
+                Also, regarding the publication of streams on the Web using RDF technologies, we can mention 
+                [<a href="gerber2013"></a>,<a href="trinh2014"></a>], which propose generation RDf datasets out of
+                unstructured streams. Other works focused on the usage of Linked Data principles for publishing streams 
+                [<a href="balduini2013"></a>,<a href="lephuoc2012"></a>], although they didn't provide any further
+                communication or interchange protocol beyond the standard principles used in static and stored data.
+              </p>
+              <p>
+                The work of the W3C RDF Stream Processing Community Group (RSP-CG), provides a starting point towards
+                a common model for representing, querying and exchanging RDF stream data. However, given the scope of the
+                group, the published reports on <a href="http://streamreasoning.github.io/RSP-QL/RSP_Requirements_Design_Document/">
+                Requirements and Design Principles</a>, as well as the <a href="http://streamreasoning.github.io/RSP-QL/Abstract%20Syntax%20and%20Semantics%20Document/">Abstract model</a>, do not propose a concrete
+                set of interfaces and serialization formats for enabling interchange and interoperability. In <span name="wrsp"></span>
+                we take into consideration the abstract model and guidelines of the RSP-CG, taking it to the implementation level.
               </p>
 
               <p>
-                On the other hand, approaches inspired by DSMS exploit sliding window mechanisms to capture 
-                a recent and finite portion of the input data, enabling their processing through SPARQL 
-                operators in an atemporal fashion.
-                C-SPARQL~\cite{Barbieri2010}, CQELS~\cite{lephuoc2011native}, and 
-                SPARQLStream~\cite{calbimonte2012} are representative examples of this group.
-              </p>
                 
-Other approaches have proposed to create RDF datasets fed from unstructured streams~\cite{gerber2013,trinh2014web}, to lift 
-streaming data as Linked Data~\cite{balduini2013,lephuoc2012}, or to provide virtual RDF Streams~\cite{calbimonte2012}. 
-To improve scalability, systems like Ztreamy~\cite{fisteus2014ztreamy} are designed for efficient transmission of compressed data 
-streams, although they do not address the heterogeneity of data sources, declarative transformation and consumption modes.
-
-
+              </p>
 \item SPARQLpush, LDN etc
 %our contribution
 
@@ -831,6 +843,10 @@ Triplewave facilitates the dissemination and consumption of RDF streams, in a si
                   D. Anicic, P. Fodor, S. Rudolph, and N. Stojanovic. 
                   EP-SPARQL: a unified language for event processing and stream reasoning. 
                   In WWW, pages 635-644, 2011.</li>
+                <li id="balduini2013a" property="schema:citation">
+                  M. Balduini and E. Della Valle.
+                  A restful interface for RDF stream processors.
+                  In Proceedings of the 2013th International Conference on Posters & Demonstrations Track-Volume 1035, pages={209--212}, 2013</li>
                 <li id="balduini2013" property="schema:citation">
                   M. Balduini, E. Della Valle, D. Dell'Aglio, M. Tsytsarau, T. Palpanas, and C. Confalonieri.
                   Social Listening of City Scale Events Using the Streaming Linked Data Framework. 
