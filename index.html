@@ -285,21 +285,22 @@
                This is implemented through two interfaces for the elements that produce and consume streams,
                and a vocabulary to annotate a stream.
                The design and implementation of <span name="wrsp"></span> takes into account existing previous 
-               results such as the <a href="https://www.w3.org/community/rsp">W3C RSP-CG</a> reports, existing 
-               RSP engines, protocol and standards.
-               We empirically show that <span name="wrsp"></span> enables the construction of a Web of Data
-               Streams by evaluating the introduced overhead and making a study about scalability.
+               results such as the W3C RSP Community Group <a href="https://www.w3.org/community/rsp">(RSP-CG)</a> 
+               reports, existing RSP engines, protocol and standards.
+               We empirically show the feasibility of the <span name="wrsp"></span> approach for the construction 
+               of a Web of Data Streams, by proposing an implementation of its components with exiting RSP 
+               publishers and engines.
               </p>
 
               <p>
-               The paper is structured as follows.
+               The remainder of the paper is structured as follows.
                We set requirements for communication of Web stream processors in
                <a href="#reqs">2</a>.
-               In <a href="#related-work">3</a>, we review the state of the art and we discuss
-               the solutions available so far.
                <a href="#rsep">6</a> presents <span name="wrsp"></span>, describing its components
                and presenting some existing implementation.
-               We evaluate <span name="wrsp"></span> in <a href="#impl">5</a> before concluding with
+               We evaluate <span name="wrsp"></span> in <a href="#impl">5</a>.
+               In <a href="#related-work">3</a>, we review the state of the art and we discuss
+               the solutions available so far, before concluding with
                remarks and future directions in <a href="#concl">6</a>.
               </p>
             </div>
@@ -312,7 +313,8 @@
                To design an infrastructure to exchange RDF streams on the Web, we first define a set
                of requirements.
                As we will see, three of them are extensions of Stonebraker et al.'s rules for
-               SPE [<a href="#stonebraker2005"></a>], while others are elicited from real-world
+               SPE (stream processing engines) [<a href="#stonebraker2005"></a>], while others are 
+               elicited from real-world
                <a href="https://www.w3.org/community/rsp/wiki/Use_cases">use cases</a>.
               </p>
               <br>
@@ -326,7 +328,7 @@
                    and are stateless.
                    This is a direct consequence of the client-server paradigm at the basis of HTTP and the
                    Web: servers supplying resources to client on demand.
-                   In this sense, the WoD is not the most suitable environment to perform stream	processing.
+                   In this sense, the traditional WoD is not the most suitable environment to perform stream processing.
                    Therefore, as first requirement, <em><span name="wrsp"></span> must prioritize active
                    paradigms for data stream exchange, where the data supplier can <em>push</em> the stream
                    content to the actors interested in it</em>.
@@ -357,13 +359,13 @@
                 <h4 property="schema:name">R3: High availability, distribution and scalability</h4>
                 <div datatype="rdf:HTML" property="schema:description">
                   <p>
-                   The sixth rule of [<a href="#stonebraker2005"></a>] states that  "ensure that the
+                   The sixth rule of [<a href="#stonebraker2005"></a>] proposes to "ensure that the
                    applications are up and available, and the integrity of the data maintained at all
                    times, despite failures", while the seventh states that SPE "must be able to distribute
                    its processing across multiple processors and machines to achieve incremental scalability.
                    Ideally, the distribution should be automatic and transparent".
                    Even if such rules are mainly related to the stream processing engine architectures,
-                   we can infer some useful indication for the design of <span name="wrsp"></span>.
+                   we can infer useful indications for the design of <span name="wrsp"></span>.
                    Our third requirement is that <em><span name="wrsp"></span> must enable the possibility
                    to build reliable, distributed and scalable streaming applications</em>.
                   </p>
@@ -375,14 +377,13 @@
                 <div datatype="rdf:HTML" property="schema:description">
                   <p>
                    Every use case has special requirements on the way the streaming data should processed.
-                   Querying is an option when the goal is to aggregate, filter and look of relevant
-                   pattern of events.
+                   Querying is an option when the goal is to aggregate, filter and look for relevant
+                   patterns of events.
                    However, other alternatives are possible, such as deductive, inductive and other types
                    of reasoning; stream generation and visualization.
-                   <em><span name="wrsp"></span> must guarantee a wide range of operations over the stream</em>.
+                   <em><span name="wrsp"></span> must guarantee a wide range of operations over the streams</em>.
                    Such a requirement is important, in particular on the Web perspective, where data may
                    be accessed and used in unexpected ways by third-part entities.
-                   \jpc{wide range of operations: is it too vague?}
                   </p>
                 </div>
               </section>
@@ -408,13 +409,13 @@
                 <h4 property="schema:name">R6: Stream variety support</h4>
                 <div datatype="rdf:HTML" property="schema:description">
                   <p>
-                   The descentralized and bottom-up nature of the Web make hard &mdash;if not impossible&mdash;
-                   to define \emph{the} model and serialization format for streams.
+                   The descentralized and bottom-up nature of the Web makes it hard &mdash;if not impossible&mdash;
+                   to define <em>the</em> model and serialization format for streams.
                    Looking at the use cases in the RSP-CG wiki, it is easy to observe that: streams can have
                    different velocities (e.g., one new item every minute vs every millisecond); time annotations
                    can be composed by zero, one, two or more time instants, item schemata can be simple (e.g.,
                    numbers) or complex (e.g., graphs or tables).
-                   To preserve the heterogeneity that characterize the Web, <em><span name="wrsp"></span> should
+                   To preserve the heterogeneity that characterizes the Web, <em><span name="wrsp"></span> should
                    support the exchange of a wide variety of streams</em>.
                   </p>
                 </div>
@@ -446,8 +447,8 @@
                <h3 property="schema:name">RDF stream: model and serialization</h3>
                <div datatype="rdf:HTML" property="schema:description">
                  <p>
-                   Following the requirements and the type of scenarios that we address in this work, we
-                   need to represent heterogeneous data streams, which can be shared by different processing
+                   Following the requirements and the type of scenarios that we address in this work, it is needed
+                   to represent heterogeneous data streams, which can be shared by different processing
                    engines, and whose data can be not only retrievable but interpretable and distributable among
                    these engines.
                    The RDF model lends itself as a natural candidate for representing different types of data,
