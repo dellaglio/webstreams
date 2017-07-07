@@ -21,8 +21,8 @@
 
       function load(){
       //Replace variables
-      document.getElementsByName('wrsp').forEach(function(entry){
-        entry.innerHTML=wrsp;
+      $("[name='wrsp']").each(function(){
+        $(this).html(wrsp);
       })
       var ct=1;
 
@@ -85,35 +85,40 @@
               <span about="" rel="schema:contributor">
                 <a about="#danh" typeof="schema:Person" rel="schema:url" property="schema:name" href="http://www.springer.com/">Danh Le Phuoc</a>
               </span>
-              <span about="#danh" rel="schema:memberOf" resource="#Springer-Verlag-Computer-Science-Editorial"></span><sup><a href="#author-org-1">1</a></sup><sup><a href="#author-email-b">b</a></sup>
+              <span about="#danh" rel="schema:memberOf" resource="#tuberlin"></span><sup><a href="#author-org-2">2</a></sup><sup><a href="#author-email-b">b</a></sup>
             </dd>
             <dd id="author-3">
               <span about="" rel="schema:contributor">
                 <a about="#ali" typeof="schema:Person" rel="schema:url" property="schema:name" href="http://www.springer.com/">Ali Intizar</a>
               </span>
-              <span about="#ali" rel="schema:memberOf" resource="#Springer-Verlag-Computer-Science-Editorial"></span><sup><a href="#author-org-1">1</a></sup><sup><a href="#author-email-c">c</a></sup>
+              <span about="#ali" rel="schema:memberOf" resource="#insight"></span><sup><a href="#author-org-3">3</a></sup><sup><a href="#author-email-c">c</a></sup>
             </dd>
             <dd id="author-4">
               <span about="" rel="schema:creator schema:publisher schema:contributor schema:author">
                 <a about="#jpcik" typeof="schema:Person" rel="schema:url" property="schema:name" href="https://w3id.org/people/jpcik/me">Jean-Paul Calbimonte</a>
               </span>
-              <span about="#jpcik" rel="schema:memberOf" resource="#HESSO"></span><sup><a href="#author-org-2">2</a></sup><sup><a href="#author-email-d">d</a></sup>
+              <span about="#jpcik" rel="schema:memberOf" resource="#HESSO"></span><sup><a href="#author-org-4">4</a></sup><sup><a href="#author-email-d">d</a></sup>
             </dd>
           </dl>
 
           <ul id="author-org">
-            <li id="author-org-1">
-              <sup>1</sup><a about="#UZH" typeof="schema:Organization" property="schema:name" rel="schema:url" href="http://uzh.ch">University of Zurich</a>, 
-              <span class="adr"><span class="region">Zurich</span>, <span class="country-name">Switzerland</span></span></li>
-            <li id="author-org-1"><sup>1</sup><a about="#Springer-Verlag-Computer-Science-Editorial" typeof="schema:Organization" property="schema:name" rel="schema:url" href="http://www.springer.c om/de/">Springer-Verlag, Computer Science Editorial</a>, <span class="adr"><span class="region">Heidelberg</span>, <span class="country-name">Germany</span></span></li>
-            <li id="author-org-1"><sup>1</sup><a about="#Springer-Verlag-Computer-Science-Editorial" typeof="schema:Organization" property="schema:name" rel="schema:url" href="http://www.springer.com/de/">Springer-Verlag, Computer Science Editorial</a>, <span class="adr"><span class="region">Heidelberg</span>, <span class="country-name">Germany</span></span></li>
-            <li id="author-org-2"><sup>2</sup><a about="#HESSO" typeof="schema:Organization" property="schema:name" rel="schema:url" href="http://www.hevs.ch">University of Applied Sciences and Arts Western Switzerland, HES-SO Valais-Wallis</a>, <span class="adr"><span class="region">Sierre</span>, <span class="country-name">Switzerland</span></span></li>
+            <li id="author-org-1"><sup>1</sup>
+              <a about="#UZH" typeof="schema:Organization" property="schema:name" rel="schema:url" href="http://uzh.ch">University of Zurich</a>,
+              <span class="adr"><span class="region">Zurich</span>, <span class="country-name">Switzerland</span></span></li><br>
+            <li id="author-org-2"><sup>2</sup>
+              <a about="#tuberlin" typeof="schema:Organization" property="schema:name" rel="schema:url" href="http://tu-berlin.de">Technichal University of Berlin</a>,
+              <span class="adr"><span class="region">Berlin</span>, <span class="country-name">Germany</span></span></li><br>
+            <li id="author-org-3"><sup>3</sup>
+              <a about="#insight" typeof="schema:Organization" property="schema:name" rel="schema:url" href="https://insight-centre.org/">Insight Center for Data Analytics. National University of Ireland</a>, 
+              <span class="adr"><span class="region">Galway</span>, <span class="country-name">Ireland</span></span></li><br>
+            <li id="author-org-4"><sup>4</sup><a about="#HESSO" typeof="schema:Organization" property="schema:name" rel="schema:url" href="http://www.hevs.ch">University of Applied Sciences and Arts Western Switzerland, HES-SO Valais-Wallis</a>, 
+              <span class="adr"><span class="region">Sierre</span>, <span class="country-name">Switzerland</span></span></li>
           </ul>
-
+                        
           <ul id="author-email">
-            <li id="author-email-a"><sup>a</sup><a about="#daniele" rel="schema:email" href="mailto:dellaglio@ifi.uzh.ch">dellaglio@ifi.uzh.ch</a></li>
-            <li id="author-email-b"><sup>b</sup><a about="#danh" rel="schema:email" href="mailto:ralf.gerstner@springer.com">ralf.gerstner@springer.com</a></li>
-            <li id="author-email-c"><sup>c</sup><a about="#ali" rel="schema:email" href="mailto:anna.kramer@springer.com">anna.kramer@springer.com</a></li>
+              <li id="author-email-a"><sup>a</sup><a about="#daniele" rel="schema:email" href="mailto:dellaglio@ifi.uzh.ch">dellaglio@ifi.uzh.ch</a></li>
+            <li id="author-email-b"><sup>b</sup><a about="#danh" rel="schema:email" href="mailto:danh.lephuoc@tu-berlin.de">danh.lephuoc@tu-berlin.de</a></li>
+            <li id="author-email-c"><sup>c</sup><a about="#ali" rel="schema:email" href="mailto:ali.intizar@insight-centre.org">ali.intizar@insight-centre.org</a></li>
             <li id="author-email-d"><sup>d</sup><a about="#jpcik" rel="schema:email" href="mailto:jean-paul.calbimonte@hevs.ch">jean-paul.calbimonte@hevs.ch</a></li>
           </ul>
         </div>
@@ -248,24 +253,23 @@
               </p>
 
               <p>
-               In this paper, we ask <em>what is the best data exchange infrastructure to perform
-               stream processing on the Web?</em> \dd{what is a ( suitable [or] proper ) data exchange
-               infrastructure to perform stream processing on the Web?}\jpc{tricky: is it only an
-               infrastructure what we propose? }
-               In other words, we ask ourselves how can we build an infrastructure that enables the
-               scenario in <a href="#fig:overview">Figure</a>: a network of RSP engines, distributed on
-               the Web, able to exchange and process RDF streams among them.
+               This paper addresses the following research question: <em>what is a suitable data exchange 
+               infrastructure to perform stream processing on the Web?</em> 
+               In other words, this work intends to provide the bulding blocks of an infrastructure that 
+               enables the scenario depicted in <a href="#fig:overview">Figure</a>: a network of RSP engines, 
+               distributed on the Web, able to exchange and process RDF streams among them.
               </p>
 
               <figure id="fig:overview" class="fig">
                 <object data="img/overview.png"  type="image/png" width="200"></object>
-                <figcaption>Overview</figcaption>
+                <figcaption>The vision of WeSP: a network of RSP engines distributed on the Web, able to 
+                exchange RDF streaminf data among them.</figcaption>
               </figure>
 
               <p>
                The solution should take into account the nature of the streams and the engines, as
-               well as the Web setting.
-               We should indeed consider that existing RSP engines are heterogeneous in terms of operators
+               well as the technical characteristics of data exchange on the Web.
+               It should indeed consider that existing RSP engines are heterogeneous in terms of operators
                and APIs to control them, as well as the nature of the Web, that is distributed and relies
                on existing technologies and standards.
                We envision a scenario as the one depicted in <a href="#fig:overview">Figure</a>:
@@ -274,14 +278,15 @@
               </p>
 
               <p>
-               In the following we present <span name="wrsp"></span>, a framework to build complex network
+                  In the following we present <span name="wrsp"></span>, a framework to build complex network
                of RSP engines on the Web.
-               <span name="wrsp"></span> brings a communication protocol to initialize the connection between
+               <span name="wrsp"></span> defines a communication protocol to initialize the connection between
                two RSP engines and to manage the data exchange.
                This is implemented through two interfaces for the elements that produce and consume streams,
                and a vocabulary to annotate a stream.
-               We design and build <span name="wrsp"></span> taking into account existing previous results
-               such as the W3C RSP-CG reports \cite{}, existing RSP engines, protocol and standards.
+               The design and implementation of <span name="wrsp"></span> takes into account existing previous 
+               results such as the <a href="https://www.w3.org/community/rsp">W3C RSP-CG</a> reports, existing 
+               RSP engines, protocol and standards.
                We empirically show that <span name="wrsp"></span> enables the construction of a Web of Data
                Streams by evaluating the introduced overhead and making a study about scalability.
               </p>
