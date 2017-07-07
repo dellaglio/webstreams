@@ -243,7 +243,7 @@
                RSP fills an important gap between the current Web of Data and a Web of Data Streams (WoDS): 
                it introduces models and languages to process streams on the Web, most of 
                them captured by reference models as RSEP-QL [<a href="#dellaglio2016"></a>] and LARS 
-               [<a href=""></a>].
+               [<a href="beck2015"></a>].
                However, an important elements is still missing, and it is a technical infrastructure 
                to manage data exchange among RSP engines.
                As depicted in <a href="#tab:overview"></a>, data can be exchanged through HTTP (following 
@@ -455,7 +455,7 @@
                    thanks to its flexibility in data modeling, and the usage of well established standards, designed
                    for the Web.
                    However, in order to be used in a streaming scenario, the RDF model needs extensions,
-                   as shown in previous works [<a href="#lephuoc2011"></a>,<a href="#barbieri2010"></a>].
+                   as shown in previous works [<a href="#lephuoc2011"></a>, <a href="#barbieri2010"></a>].
                  </p>
 
                  <p>
@@ -522,16 +522,22 @@
 
                  <figure id="fig:streamexample" class="fig">
                    <object data="img/streamexample.png"  type="image/png" style="min-height:0px;"></object>
-                   <figcaption>Overview</figcaption>
+                   <figcaption>An example of time annotated graphs on an RDF Stream.</figcaption>
                  </figure>
 
-
-                 <figure class="listing">
-                   <pre>
+                 <p>
+                   This model can be implemented using current standards for RDF representation. 
+                   As an example, <a href="#list:example"></a> shows a JSON-LD representation of a
+                   timestamped graph,annotated using the <a href="https://www.w3.org/TR/prov-o/">PROV</a> 
+                   <em>generatedAtTime</em> property. In this case the graph contents include a traffic
+                   observation from the CityBench datasets.
+                 </p>
+                 <figure class="listing" id="list:example">
+                   <pre style="font-size:0.7em;">
 <code>{"http://www.w3.org/ns/prov#generatedAtTime": "2015-06-30T16:44:59.587Z",</code>
 <code> "@id": "http://streamreasoning.org/TripleWave/ak10992887",</code>
 <code> "@graph": [</code>
-<code>  { "@id": "http://streamreasoning.org/TripleWavee/ak10992887",</code>
+<code>  { "@id": "http://streamreasoning.org/TripleWave/ak10992887",</code>
 <code>    "@type": "cbench:TrafficObservation",</code>
 <code>    "ssn:observedProperty": "cbench:TrafficData",</code>
 <code>    "ssn:hasValue": "32",</code>
@@ -539,27 +545,26 @@
 <code>  }],</code>
 <code> "@context": {</code>
 <code>    "ssn": "http://www.w3.org/2002/12/cal/ical#",</code>
-<code>    "cbench": "http://www.w3.org/2001/XMLSchema#",</code>
+<code>    "cbench": "http://www.insight-centre.org/citytraffic#",</code>
 <code>    "ins-event": "http://www.insight-centre.org/dataset/SampleEventService#"</code>
-<code>}</code>
-                   </pre>
-                   <figcaption>Some caption, what is this example?</figcaption>
+<code>}</code></pre>
+                   <figcaption>Example of a timestamped graph represented using JSON-LD.</figcaption>
                  </figure>
                </div>
              </section>
 
               <section id="protocol" rel="schema:hasPart" resource="#protocol">
-               <h3 property="schema:name">Communication protocol</h4>
+               <h3 property="schema:name">Communication protocol</h3>
                <div datatype="rdf:HTML" property="schema:description">
                  <p>
-                   We identify two interfaces, namely <em>producer</em> and <em>consumer</em>.
+                   <span name="wrsp"></span> defines two interfaces, namely <em>producer</em> and <em>consumer</em>.
                    As the names suggest, the former is implemented by actors that distribute streams
-                   across the Web, while the latter is implemented actors who wants to receive streams.
+                   across the Web, while the latter is implemented by actors who want to receive streams.
                  </p>
 
                  <p>
                    Every actor involved in the processing may implement either interface, as well as both
-                   of them. This lead us to the following nomenclature.
+                   of them. This leads us to the following nomenclature.
                    A <em>stream source</em> implements the producer interface only. Services exposing sensors
                    data on the Web and TripleWave are examples of stream sources.
                    Similarly, a <em>stream sink</em> implements the consumer interface only, e.g. a dashboard
@@ -575,7 +580,7 @@
                    information about the stream.
                    However, the most relevant data the Stream Descriptor brings is about how to effectively access
                    the stream content.
-                   We detail the stream descriptor in Section <href a="#service-descriptor"></a>; in the following,
+                   We detail the stream descriptor in Section <a href="#service-descriptor"></a>. In the following,
                    we describe how the producer/consumer communication develops.
                  </p>
 
@@ -591,21 +596,21 @@
                    The consumer only needs to be aware of the IRI of the Stream Descriptor, e.g. consumer user
                    provides it as instruction.
                    This is what is needed for the first phase, where the consumer accesses the Stream Descriptor
-                   IRI (the blue part in <a href="#fig:protocol">Figure</a>) through a HTTP request, following the
+                   IRI (as in <a href="#fig:protocol">Figure</a>) through a HTTP request, following the
                    Linked Data principles.
                  </p>
 
                  <p>
-                   In the second phase, the consumer starts to receive the stream (the light blue part in
+                   In the second phase, the consumer starts to receive the stream (as in
                    <a href="#fig:protocol">Figure</a>).
                    The Service Descriptor brings information about how to access the effective stream content.
-                   That means it describes one or more ways to establish the connection between the consumer and
+                   That means that it describes one or more ways to establish the connection between the consumer and
                    the endpoint that is providing the stream content.
                    This connection can happen with different protocols, based on push mechanisms. e.g. WebSocket and
                    MQTT, as well as based on pull mechanisms, e.g. HTTP.
                    Among the several options offered by the producer through the Service Descriptor, consumers chose
                    the way they prefer.
-                   After the decision, consumer can start to receive the stream content and to process it.
+                   After the decision, the consumer can start to receive the stream content and to process it.
                  </p>
 
                  <p>
@@ -706,7 +711,7 @@
                    and <a href="https://dev.twitter.com/streaming/overview">Twitter stream</a>.
                    The operation is enabled through R2RML transformations [<a href="#das2012"></a>], that map
                    relational to RDF data.
-                   The lifting operation enables the interoperability among the WSP actors, addressing \dd{Rx}.
+                   The lifting operation enables the interoperability among the WSP actors, addressing R6.
                   </p>
 
                   <p>
@@ -754,7 +759,7 @@
                     the streams are?
                     The solution we propose is based on the following consideration: both the languages adopted by
                     the engines (respectively C-SPARQL and CQELS-QL) offer the possibility to declare the stream
-                    through a IRI, as shown in Listing~\ref{lst:query1}. \dd{fill with the example}
+                    through a IRI.
                     If such IRI denotes a Stream Descriptor address, engines would have the information they need to
                     establish the connection.
                   </p>
@@ -786,7 +791,7 @@
                 and SPARQL to process RDF streams.
                 They can be broadly divided into two groups. The first is of those influenced by Complex Event
                 Processing (CEP), e.g. EP-SPARQL [<a href="#anicic2011"></a>], Sparkwave [<a href="#komazec2012"></a>]
-                and Instans [<a href="rinne2012"></a>].
+                and Instans [<a href="#rinne2012"></a>].
                 the second group is that of engines inspired by DSMS, which exploit sliding window mechanisms
                 to capture a finite portion of the input data. Examples include C-SPARQL [<a href="#barbieri2010"></a>],
                 CQELS [<a href="#lephuoc2011"></a>], and SPARQLStream [<a href="#calbimonte2012"></a>].
@@ -800,7 +805,7 @@
                 given the heterogeneity and difficulty of handling the engines in a uniform manner. It is also limited to
                 HTTP, but uses a similar model and communication method.
                 Also, regarding the publication of streams on the Web using RDF technologies, we can mention
-                [<a href="gerber2013"></a>,<a href="#trinh2014"></a>], which propose generation RDF datasets out of
+                [<a href="#gerber2013"></a>, <a href="#trinh2014"></a>], which propose generation RDF datasets out of
                 unstructured streams. Other works focused on the usage of Linked Data principles for publishing streams
                 [<a href="#balduini2013"></a>,<a href="#lephuoc2012"></a>], although they didn't provide any further
                 communication or interchange protocol beyond the standard principles used in static and stored data.
@@ -865,6 +870,10 @@
                   D. F. Barbieri and E. Della Valle.
                   A proposal for publishing data streams as linked data - A position paper.
                   In LDOW, 2010.</li>
+                <li id="beck2015" property="schema:citation">
+                  Beck, H., Dao-Tran, M., Eiter, T., and Fink, M. 
+                  LARS: A Logic-Based Framework for Analyzing Reasoning over Streams. 
+                  In AAAI (pp. 1431-1438), 2015.</li>
                 <li id="calbimonte2012" property="schema:citation">
                   J.-P. Calbimonte, H. Jeung, O. Corcho, and K. Aberer.
                   Enabling query technologies for the semantic sensor web.
