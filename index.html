@@ -831,26 +831,30 @@
                 the second group is that of engines inspired by DSMS, which exploit sliding window mechanisms
                 to capture a finite portion of the input data. Examples include C-SPARQL [<a href="#barbieri2010"></a>],
                 CQELS [<a href="#lephuoc2011"></a>], and SPARQLStream [<a href="#calbimonte2012"></a>].
+                While these engines provide querying features, they generally lack the means to publish or reuse RDF data
+                streams on the Web. Instead, they assume ad-hoc connection to RDF streams without any protocol of
+                communication. </p>
+
+              <p>
+                An inital effort targeting communication and interchange among RSP engines, named
+                RSP Services, was proposed in [<a href="#balduini2013a"></a>].
+                The goal of this project is to enable remote control of RSP engines, which is achieved by introducing REST APIs that exposes the programmatic APIs of the RSP engines, and by Web
+                Socket channels to connect engines. So far, <a href="https://github.com/streamreasoning/rsp-services-csparql">an implementation</a> for C-SPARQL exists. This project has limitations given the heterogeneity and difficulty of handling the engines in a uniform manner: not all the engines work based on queries, so it may not be enough to cover a wider range of RDF stream processing engines, such as stream reasoners.
+                WeSP targets the problem of exhanging RDF streams between engines, not only query engines; it supports a wider range of communication protocols and a richer  description of the stream (thorugh the stream descriptor).
               </p>
 
               <p>
-                While these engines provide querying features, they generally lack the means to publish or reuse RDF data
-                streams on the Web. Instead, they assume ad-hoc connection to RDF streams without any protocol of
-                communication. A related effort targeting communication and interchange among RSP engines, named
-                RSP Services, was proposed in [<a href="#balduini2013a"></a>], using a REST API. However, it has limitations
-                given the heterogeneity and difficulty of handling the engines in a uniform manner. It is also limited to
-                HTTP, but uses a similar model and communication method.
-                Also, regarding the publication of streams on the Web using RDF technologies, we can mention
+                Regarding the publication of streams on the Web using RDF technologies, we can mention
                 [<a href="#gerber2013"></a>, <a href="#trinh2014"></a>], which propose generation RDF datasets out of
                 unstructured streams. Other works focused on the usage of Linked Data principles for publishing streams
-                [<a href="#balduini2013"></a>,<a href="#lephuoc2012"></a>], although they didn't provide any further
+                [<a href="#balduini2013"></a>,<a href="#lephuoc2012"></a>], although they did not provide any further
                 communication or interchange protocol beyond the standard principles used in static and stored data.
-                A more generic and stream-oriented publication system, <a href="http://streamreasoning.github.io/TripleWave/">
-                TripleWave</a> [<a href="#mauri2016"></a>], goes beyond
-                previous works, providing a generic framework for RDF stream provision, including ingestion of non-RDF
-                sources and time-annotated RDF datasets. TripleWave can be used as a stream producer, as explained in
-                <a href="#impl"></a>.
               </p>
+              <p>
+                The precursor WeSP relies on <a href="http://streamreasoning.github.io/TripleWave/">TripleWave</a> [<a href="#mauri2016"></a>], a generic and RDF stream-oriented publication system tailored for the Web. It goes beyond
+                previous works, providing a generic framework for RDF stream provision, including ingestion of non-RDF sources and time-annotated RDF datasets. TripleWave introduced the notion of stream descriptor. As explained in <a href="#impl"></a>, in the context of this study we extended TripleWave with a new stream descriptor vocabulary and extension to new communication protocols such as MQTT.
+              </p>
+
               <p>
                 The work of the W3C RDF Stream Processing Community Group (RSP-CG), provides a starting point towards
                 a common model for representing, querying and exchanging RDF stream data. However, given the scope of the
