@@ -728,6 +728,11 @@
           <section id="impl" rel="schema:hasPart" resource="#impl">
             <h2 property="schema:name">Implementation and examples</h2>
             <div datatype="rdf:HTML" property="schema:description">
+              <p>
+                In this section, we describe two implementations of <span name="wrsp"></span>.
+                The first is a stream source, the second is a stream transformer. They are built on top of existing frameworks, TripleWave and C-SPARQL.
+                All the related code is open source under <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 Licence</a> and is available online.
+              </p>
               <section id="impl" rel="schema:hasPart" resource="#impl">
                 <h3 property="schema:name">Stream source example: TripleWave</h3>
                 <div datatype="rdf:HTML" property="schema:description">
@@ -757,9 +762,9 @@
                   </p>
 
                   <p>
-                   TripleWave has been designed and implemented to natively implement the producer interface.
-                   It exposes the Service Descriptor on an HTTP address, and publishes the streaming data through
-                   MQTT and WebSocket.
+                   TripleWave has been extended to natively implement natively support <span name="wrsp"></span>, as it implements the producer interface.
+                   It can spread the streams through WebSocket, <a href="mqtt.org/">MQTT</a> and HTTP chunked econdoing. Support for <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events">Server-Sent Events</a> (SSE) will be released soon. This offers to consumer a wide choice on the protocol to be used to receive the data, according to the use case requirements and on the system needs.
+                   The endpoints related to the protocols, as well as the required informantion to access them, are described in RDF and embed in the Stream Descriptor, exposed on an HTTP address. The code and the instructions are available at the <a href="http://streamreasoning.github.io/TripleWave">project page</a>.
                   </p>
                 </div>
               </section>
