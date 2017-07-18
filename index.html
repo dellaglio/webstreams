@@ -605,8 +605,7 @@
                    information about the stream.
                    However, the most relevant data the Stream Descriptor brings is about how to effectively access
                    the stream content.
-                   We detail the stream descriptor in Section <a href="#service-descriptor"></a>. In the following,
-                   we describe how the producer/consumer communication develops.
+                   We detail the stream descriptor in <a href="#service-descriptor">Section 3.3</a>. In the following, we describe how the producer/consumer communication develops.
                  </p>
 
                  <figure id="fig:protocol" class="fig">
@@ -617,9 +616,9 @@
 
                  <p>
                    The communication relies on two phases, depicted in <a href="#fig:protocol">Figure</a>, and it
-                   starts on the consumer side.
-                   The consumer only needs to be aware of the IRI of the Stream Descriptor, e.g. consumer user
-                   provides it as instruction.
+                   starts on the consumer side (as in typical push-based communication).
+                   The consumer only needs to be aware of the IRI of the Stream Descriptor, e.g. the user
+                   provides it as instruction to the constructor.
                    This is what is needed for the first phase, where the consumer accesses the Stream Descriptor
                    IRI (as in <a href="#fig:protocol">Figure</a>) through a HTTP request, following the
                    Linked Data principles.
@@ -629,19 +628,19 @@
                    In the second phase, the consumer starts to receive the stream (as in
                    <a href="#fig:protocol">Figure</a>).
                    The Service Descriptor brings information about how to access the effective stream content.
-                   That means that it describes one or more ways to establish the connection between the consumer and
+                   That means, it describes one or more ways to establish the connection between the consumer and
                    the endpoint that is providing the stream content.
-                   This connection can happen with different protocols, based on push mechanisms. e.g. WebSocket and
-                   MQTT, as well as based on pull mechanisms, e.g. HTTP.
-                   Among the several options offered by the producer through the Service Descriptor, consumers chose
-                   the way they prefer.
+                   This connection can happen with different protocols, based on push mechanisms. e.g. WebSocket
+                   and MQTT, as well as based on pull mechanisms, e.g. HTTP.
+                   Among the several options offered by the producer through the Service Descriptor, consumers
+                   chose the way they prefer.
                    After the decision, the consumer can start to receive the stream content and to process it.
                  </p>
 
                  <p>
-                   The choice to allow several channels to distribute the streams gives the freedom to adopt several
-                   channels to exchange the streams, relying on different technologies based on requirements in the
-                   scenario.
+                   The choice to allow several channels to distribute the streams gives the freedom to
+                   adopt several channels to exchange the streams, relying on different technologies based on
+                   requirements of the specific the scenario.
                  </p>
                </div>
              </section>
@@ -652,18 +651,19 @@
                  <p>
                    The Stream Descriptor is an RDF document providing metadata of the RDF stream that is used by a
                    <em>consumer</em> for bootstrapping its stream consuming process.
-                   Realizing that RDF Stream is also an RDF dataset, we extend
-                   <a  href="https://www.w3.org/TR/vocab-dcat/">DCAT vocabulary</a> to represent the an RDF Stream as
-                   illustrated in <a href="#fig:schema">Figure</a>.
-                   The class RDFStream extends dcat:DataSet to inherit all properties of a RDF dataset, and it also
-                   has the properties specific to a stream such as <em>streamrate</em> and <em>streamTemplate</em>.
-                   The <em>streamTemplate</em> property can be used to point to a document that specify the template
-                   or the constraint of the RDF stream, for instance, the template can be a RDF document driven
-                   <a href="https://www.w3.org/TR/shacl/">SHACL</a>.
-                   The template can be used as a hint of the data shape of the RDF stream for the consumer to optimize
-                   its processing.
-                   It also plays the role as a validation rule for consumer to verify if the incoming data is conformed
-                   with the template.
+                   Realizing that RDF stream is similar to an RDF dataset, we extend the
+                   <a  href="https://www.w3.org/TR/vocab-dcat/">DCAT vocabulary</a> to represent the an RDF
+                   Stream as illustrated in <a href="#fig:schema">Figure</a>.
+                 </p>
+                 <p>
+                   The class RDFStream extends dcat:DataSet to inherit all properties of a RDF dataset, and
+                   it also offers properties specific to a stream, such as <em>streamrate</em> and <em>streamTemplate</em>.
+                   The <em>streamTemplate</em> property can be used to point to a document that specifies the
+                   template or the constraint of the RDF stream, for instance, the template can be a RDF
+                   document driven <a href="https://www.w3.org/TR/shacl/">SHACL</a>.
+                   The template can be used as a hint of the data shape of the RDF stream for the consumer to
+                   optimize its processing.
+                   It also plays the role as a validation rule for consumer to verify if the incoming data is conformed with the template.
                  </p>
 
                  <figure id="fig:schema" class="fig">
@@ -671,33 +671,8 @@
                    <figcaption>Description of RDF Stream</figcaption>
                  </figure>
 
-                 <figure class="listing">
-                   <pre>
-<code>{"@context": {</code>
-<code>  "sld": "http://streamreasoning.org/ontologies/wsd#",</code>
-<code>  "generatedAt": { </code>
-<code>   "@id": "http://www.w3.org/ns/prov#generatedAtTime",</code>
-<code>   "@type": "http://www.w3.org/2001/XMLSchema#dateTime" </code>
-<code>  }</code>
-<code> },</code>
-<code> "@type": "wsd:RDFStream",</code>
-<code> "dcat:accessURL": "ws://localhost:8101/TripleWave/replay",</code>
-<code> "wsd:streamTemplate": {"@id":"http://purl.oclc.org/NET/ssnx/ssn"},</code>
-<code> "wsd:shacl": {</code>
-<code>  "@list": [</code>
-<code>   { "generatedAt": "2016-04-21T13:01:18.663Z", "@id": "tr:1461243678663" },</code>
-<code>   { "generatedAt": "2016-04-21T13:01:19.784Z", "@id": "tr:1461243679784" }</code>
-<code>  ]</code>
-<code> },</code>
-<code> "sld:lastUpdated": "2016-04-21T13:02:06.575Z"</code>
-<code>}</code>
-                   </pre>
-                   <figcaption>The Stream Descriptor pointing to the iGraph described in Listing~\ref{list:datastreamjson}.</figcaption>
-                 </figure>
-
                  <p>
-                   Note that an RDF can be distributed via different stream channels using different protocols
-                   like MQTT and Websocket.
+                   Note that an RDF stream can be distributed via different stream channels using different protocols, like HTTP and Websocket.
                    Therefore, a stream channel is an instance of the RDFStreamPublisher class which is linked
                    to the RDFStream class via the property <em>dcat:distribution</em>.
                    The RDFStreamPublisher is used to specify the protocol and the URL whereby the consumer can
@@ -708,11 +683,44 @@
                    An RDFStreamPublisher might provide a continuous query service which is specified by the
                    RSPService class extended from the sd:Service defined by
                    <a href="https://www.w3.org/TR/sparql11-service-description/">SPARQL 1.1 Service description</a>.
+                   <!--
                    As most of RSP engines extend SPARQL 1.1 for their query languages, using the federated service
                    vocabularies will provide useful vocabularies for describing RDF continuous querying services
                    powered by RSP engines such as C-SPARQL and CQELS.
+                 -->
                  </p>
-               </div>
+                 <figure class="listing">
+                   <pre>
+<code>{"@context": {</code>
+<code>  "wesp": "http://streamreasoning.org/wesp/",</code>
+<code>  "generatedAt": { </code>
+<code>   "@id": "http://www.w3.org/ns/prov#generatedAtTime",</code>
+<code>   "@type": "http://www.w3.org/2001/XMLSchema#dateTime" </code>
+<code>  }</code>
+<code> },</code>
+<code> "@type": "wsd:RDFStream",</code>
+<code> "dcat:accessURL": "ws://localhost/streams/S",</code>
+<code> "wsd:streamTemplate": {"@id":"http://purl.oclc.org/NET/ssnx/ssn"},</code>
+<code> "wsd:shacl": {</code>
+<code>  "@list": [</code>
+<code>   {</code>
+<code>     "generatedAt": "2015-06-30T02:00:00.000Z", </code>
+<code>     "@id": "wesp:G1" </code>
+<code>   },{</code>
+<code>     "generatedAt": "2015-06-30T04:00:00.000Z", </code>
+<code>     "@id": "wesp:G2" </code>
+<code>   },{ </code>
+<code>     "generatedAt": "2015-06-30T06:00:00.000Z", </code>
+<code>     "@id": "wesp:G3" </code>
+<code>   }</code>
+<code>  ]</code>
+<code> },</code>
+<code> "sld:lastUpdated": "2015-06-30T06:00:00.000Z"</code>
+<code>}</code>
+                   </pre>
+                   <figcaption>The Stream Descriptor associated to the stream in <a href="#fig:streamexample"></a>.</figcaption>
+                 </figure>
+                 </div>
              </section>
             </div>
           </section>
