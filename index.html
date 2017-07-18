@@ -775,15 +775,11 @@
                   <p>
                    It is possible to create WSP actors out of existing stream processors by introducing adapters.
                    We depict this possibility by presenting the cases of C-SPARQL [<a href="#barbieri2010"></a>]
-                   and CQELS [<a href="#lephuoc2011"></a>], two RDF Stream Processing (RSP) engines, i.e. stream
-                   processing engines supporting query languages for graph processing, usually extensions of
-                   SPARQL [<a href="#harris2013"></a>].
+                   and CQELS [<a href="#lephuoc2011"></a>], two engines able to processing streams throgh continuous query languages based on SPARQL [<a href="#harris2013"></a>].
                   </p>
 
                   <p>
-                    These engines offers APIs to manage the communication, i.e. (i) declare RDF streams, (ii) push
-                    the stream items into the declared RDF Streams, (iii) register the query, (iv) register listeners
-                    to obtain query results.
+                    These engines offers programmatic APIs to manage the communication, i.e. (i) declare RDF streams, (ii) push the stream items into the declared RDF Streams, (iii) register the query, (iv) register listeners to obtain and manage query results.
                     The WSP-RSP adapter should implement the producer and consumer interfaces according to such APIs.
                   </p>
 
@@ -814,6 +810,8 @@
                     that manages the ongoing connections.
                     In this way, several actors may access the results of the same query.
                   </p>
+                  <p>
+                    The code for C-SPARQL is available on <a href="https://github.com/dellaglio/csparql-wesp">GitHub</a>. The library embeds the C-SPARQL engine in a Java class that implements the consumer and producer interfaces. The result is transparent, in the sense that the new main class exposes the same methods of the C-SPARQL original one. In this way, no additional effort is put on the user side, which can benefit of WeSP without learning to use new APIs.</p>
                 </div>
               </section>
             </div>
