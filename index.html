@@ -89,15 +89,21 @@
             </dd>
             <dd id="author-3">
               <span about="" rel="schema:contributor">
-                <a about="#ali" typeof="schema:Person" rel="schema:url" property="schema:name" href="http://www.springer.com/">Ali Intizar</a>
+                <a about="#anh" typeof="schema:Person" rel="schema:url" property="schema:name" href="http://www.springer.com/">Anh Le-Tuan</a>
               </span>
-              <span about="#ali" rel="schema:memberOf" resource="#insight"></span><sup><a href="#author-org-3">3</a></sup><sup><a href="#author-email-c">c</a></sup>
-            </dd>
+              <span about="#anh" rel="schema:memberOf" resource="#insight"></span><sup><a href="#author-org-3">3</a></sup><sup><a href="#author-email-c">c</a></sup>
+            </dd><br/>
             <dd id="author-4">
+              <span about="" rel="schema:contributor">
+                <a about="#ali" typeof="schema:Person" rel="schema:url" property="schema:name" href="http://www.springer.com/">Muhammad Intizar Ali</a>
+              </span>
+              <span about="#ali" rel="schema:memberOf" resource="#insight"></span><sup><a href="#author-org-3">3</a></sup><sup><a href="#author-email-d">d</a></sup>
+            </dd>
+            <dd id="author-5">
               <span about="" rel="schema:creator schema:publisher schema:contributor schema:author">
                 <a about="#jpcik" typeof="schema:Person" rel="schema:url" property="schema:name" href="https://w3id.org/people/jpcik/me">Jean-Paul Calbimonte</a>
               </span>
-              <span about="#jpcik" rel="schema:memberOf" resource="#HESSO"></span><sup><a href="#author-org-4">4</a></sup><sup><a href="#author-email-d">d</a></sup>
+              <span about="#jpcik" rel="schema:memberOf" resource="#HESSO"></span><sup><a href="#author-org-4">4</a></sup><sup><a href="#author-email-e">e</a></sup>
             </dd>
           </dl>
 
@@ -118,8 +124,9 @@
           <ul id="author-email">
               <li id="author-email-a"><sup>a</sup><a about="#daniele" rel="schema:email" href="mailto:dellaglio@ifi.uzh.ch">dellaglio@ifi.uzh.ch</a></li>
             <li id="author-email-b"><sup>b</sup><a about="#danh" rel="schema:email" href="mailto:danh.lephuoc@tu-berlin.de">danh.lephuoc@tu-berlin.de</a></li>
-            <li id="author-email-c"><sup>c</sup><a about="#ali" rel="schema:email" href="mailto:ali.intizar@insight-centre.org">ali.intizar@insight-centre.org</a></li>
-            <li id="author-email-d"><sup>d</sup><a about="#jpcik" rel="schema:email" href="mailto:jean-paul.calbimonte@hevs.ch">jean-paul.calbimonte@hevs.ch</a></li>
+            <li id="author-email-c"><sup>c</sup><a about="#anh" rel="schema:email" href="mailto:anh.letuan@insight-centre.org">anh.letuan@insight-centre.org</a></li>
+            <li id="author-email-d"><sup>c</sup><a about="#ali" rel="schema:email" href="mailto:ali.intizar@insight-centre.org">ali.intizar@insight-centre.org</a></li>
+            <li id="author-email-e"><sup>d</sup><a about="#jpcik" rel="schema:email" href="mailto:jean-paul.calbimonte@hevs.ch">jean-paul.calbimonte@hevs.ch</a></li>
           </ul>
         </div>
 
@@ -749,7 +756,7 @@
                    and <a href="https://dev.twitter.com/streaming/overview">Twitter stream</a>.
                    The operation is enabled through R2RML transformations [<a href="#das2012"></a>], that map
                    relational to RDF data.
-                   The lifting operation enables the interoperability among the WSP actors, addressing R6.
+                   The lifting operation enables the interoperability among the WeSP actors, addressing R6.
                   </p>
 
                   <p>
@@ -773,14 +780,14 @@
                 <h3 property="schema:name">Stream transformer example: C-SPARQL and CQELS</h3>
                 <div datatype="rdf:HTML" property="schema:description">
                   <p>
-                   It is possible to create WSP actors out of existing stream processors by introducing adapters.
+                   It is possible to create WeSP actors out of existing stream processors by introducing adapters.
                    We depict this possibility by presenting the cases of C-SPARQL [<a href="#barbieri2010"></a>]
                    and CQELS [<a href="#lephuoc2011"></a>], two engines able to processing streams throgh continuous query languages based on SPARQL [<a href="#harris2013"></a>].
                   </p>
 
                   <p>
                     These engines offers programmatic APIs to manage the communication, i.e. (i) declare RDF streams, (ii) push the stream items into the declared RDF Streams, (iii) register the query, (iv) register listeners to obtain and manage query results.
-                    The WSP-RSP adapter should implement the producer and consumer interfaces according to such APIs.
+                    The WeSP adapter should implement the producer and consumer interfaces according to such APIs.
                   </p>
 
                   <p>
@@ -801,17 +808,25 @@
                   <p>
                     Similarly to the consumption, the stream production is query driven. RSP engines stream out the
                     query results and make it available to other agents (e.g. users, other engines, etc.).
-                    The WSP-RSP adapter implements the producer interface as follows. For each query that is registered
+                    The WeSP adapter implements the producer interface as follows. For each query that is registered
                     in the engine, the adapter performs two actions.
                     First, it creates a Stream Descriptor and exposes it at an HTTP address.
                     Second, it registers a listener to manage the answers.
                     The current implementation provides the listeners for MQTT and WebSocket.
-                    The first forwards the results to an MQTT channel, while the latter sends the result to the adapter,
-                    that manages the ongoing connections.
+                    The first forwards the results to a MQTT broker, while the latter sends the result to an interla component that manages the ongoing connections.
                     In this way, several actors may access the results of the same query.
                   </p>
                   <p>
-                    The code for C-SPARQL is available on <a href="https://github.com/dellaglio/csparql-wesp">GitHub</a>. The library embeds the C-SPARQL engine in a Java class that implements the consumer and producer interfaces. The result is transparent, in the sense that the new main class exposes the same methods of the C-SPARQL original one. In this way, no additional effort is put on the user side, which can benefit of WeSP without learning to use new APIs.</p>
+                    The code for C-SPARQL is available on <a href="https://github.com/dellaglio/csparql-wesp">GitHub</a>.
+                    The library embeds the C-SPARQL engine in a Java class that implements the consumer and producer interfaces.
+                    The result is transparent, in the sense that the new main class exposes the same methods of the C-SPARQL original one.
+                    In this way, no additional effort is put on the user side, which can benefit of WeSP without learning to use new APIs.
+                  </p>
+                  <p>
+                    The code for CQELS is available in the official CQELS <a href="https://github.com/cqels/CQELS-1.x/">repository</a>.
+                    In this case, we opted for the integration of the WeSP interface directly in the main project.
+                    The current version supports the data stream exchange via WebSocket, but we plan to integrate other protocols in the future work.
+                  </p>
                 </div>
               </section>
             </div>
@@ -897,7 +912,7 @@
                 <li id="balduini2013a" property="schema:citation">
                   M. Balduini and E. Della Valle.
                   A restful interface for RDF stream processors.
-                  In Proceedings of the 2013th International Conference on Posters & Demonstrations Track-Volume 1035, pages={209--212}, 2013</li>
+                  In Proceedings of the 2013th International Conference on Posters & Demonstrations Track-Volume 1035, pages 209-212, 2013</li>
                 <li id="balduini2013" property="schema:citation">
                   M. Balduini, E. Della Valle, D. Dell'Aglio, M. Tsytsarau, T. Palpanas, and C. Confalonieri.
                   Social Listening of City Scale Events Using the Streaming Linked Data Framework.
