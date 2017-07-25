@@ -1,4 +1,4 @@
-@prefix rsd: <http://example.org/RdfStreamDescriptor#>.
+@prefix rsd: <http://streamreasoning.org/wesp#>.
 @prefix dcat: <http://www.w3.org/ns/dcat#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
