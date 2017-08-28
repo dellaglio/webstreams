@@ -10,10 +10,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="all" />
     <script src="https://dokie.li/scripts/simplerdf.js"></script>
     <script src="https://dokie.li/scripts/medium-editor.min.js"></script>
-    <script src="https://dokie.li/scripts/medium-editor-tables.min.js"></script>
     <script src="https://dokie.li/scripts/do.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" async
+    <script type="text/javascript" async="true"
       src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
     <script type="text/javascript">
@@ -65,13 +64,20 @@
 
       }
     </script>
+    <style>
+        #authors li {
+            white-space: nowrap;
+        }  
+        h4 {
+            display: inline-table;
+        }
+    </style>
   </head>
 
   <body about="" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# dcterms: http://purl.org/dc/terms/ dctypes: http://purl.org/dc/dcmitype/ foaf: http://xmlns.com/foaf/0.1/ v: http://www.w3.org/2006/vcard/ns# pimspace: http://www.w3.org/ns/pim/space# cc: https://creativecommons.org/ns# skos: http://www.w3.org/2004/02/skos/core# prov: http://www.w3.org/ns/prov# qb: http://purl.org/linked-data/cube# schema: http://schema.org/ void: http://rdfs.org/ns/void# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# cal: http://www.w3.org/2002/12/cal/ical# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# org: http://www.w3.org/ns/org# biblio: http://purl.org/net/biblio# bibo: http://purl.org/ontology/bibo/ book: http://purl.org/NET/book/vocab# ov: http://open.vocab.org/terms/ sioc: http://rdfs.org/sioc/ns# doap: http://usefulinc.com/ns/doap# dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ oa: http://www.w3.org/ns/oa# as: https://www.w3.org/ns/activitystreams# ldp: http://www.w3.org/ns/ldp# solid: http://www.w3.org/ns/solid/terms# acl: http://www.w3.org/ns/auth/acl# dio: https://w3id.org/dio#" typeof="schema:CreativeWork sioc:Post prov:Entity" onload="load();">
     <main>
       <article about="" typeof="schema:ScholarlyArticle">
         <h1 property="schema:name">On a Web of Data Streams</h1>
-
         <div id="authors">
           <dl id="author-name">
             <dt>Authors</dt>
@@ -83,19 +89,19 @@
             </dd>
             <dd id="author-2">
               <span about="" rel="schema:contributor">
-                <a about="#danh" typeof="schema:Person" rel="schema:url" property="schema:name" href="http://www.springer.com/">Danh Le Phuoc</a>
+                <a about="#danh" typeof="schema:Person" rel="schema:url" property="schema:name" href="http://data.semanticweb.org/person/danh-le-phuoc">Danh Le Phuoc</a>
               </span>
               <span about="#danh" rel="schema:memberOf" resource="#tuberlin"></span><sup><a href="#author-org-2">2</a></sup><sup><a href="#author-email-b">b</a></sup>
             </dd>
             <dd id="author-3">
               <span about="" rel="schema:contributor">
-                <a about="#anh" typeof="schema:Person" rel="schema:url" property="schema:name" href="http://www.springer.com/">Anh Le-Tuan</a>
+                <a about="#anh" typeof="schema:Person" rel="schema:url" property="schema:name" href="https://www.insight-centre.org/users/anh-le-tuan">Anh Le-Tuan</a>
               </span>
               <span about="#anh" rel="schema:memberOf" resource="#insight"></span><sup><a href="#author-org-3">3</a></sup><sup><a href="#author-email-c">c</a></sup>
-            </dd><br/>
+            </dd>
             <dd id="author-4">
               <span about="" rel="schema:contributor">
-                <a about="#ali" typeof="schema:Person" rel="schema:url" property="schema:name" href="http://www.springer.com/">Muhammad Intizar Ali</a>
+                <a about="#ali" typeof="schema:Person" rel="schema:url" property="schema:name" href="http://intizarali.org/">Muhammad Intizar Ali</a>
               </span>
               <span about="#ali" rel="schema:memberOf" resource="#insight"></span><sup><a href="#author-org-3">3</a></sup><sup><a href="#author-email-d">d</a></sup>
             </dd>
@@ -110,17 +116,16 @@
           <ul id="author-org">
             <li id="author-org-1"><sup>1</sup>
               <a about="#UZH" typeof="schema:Organization" property="schema:name" rel="schema:url" href="http://uzh.ch">University of Zurich</a>,
-              <span class="adr"><span class="region">Zurich</span>, <span class="country-name">Switzerland</span></span></li><br>
+              <span class="adr"><span class="region">Zurich</span>, <span class="country-name">Switzerland</span></span></li>
             <li id="author-org-2"><sup>2</sup>
               <a about="#tuberlin" typeof="schema:Organization" property="schema:name" rel="schema:url" href="http://tu-berlin.de">Technichal University of Berlin</a>,
-              <span class="adr"><span class="region">Berlin</span>, <span class="country-name">Germany</span></span></li><br>
+              <span class="adr"><span class="region">Berlin</span>, <span class="country-name">Germany</span></span></li>
             <li id="author-org-3"><sup>3</sup>
               <a about="#insight" typeof="schema:Organization" property="schema:name" rel="schema:url" href="https://insight-centre.org/">Insight Center for Data Analytics. National University of Ireland</a>,
-              <span class="adr"><span class="region">Galway</span>, <span class="country-name">Ireland</span></span></li><br>
+              <span class="adr"><span class="region">Galway</span>, <span class="country-name">Ireland</span></span></li>
             <li id="author-org-4"><sup>4</sup><a about="#HESSO" typeof="schema:Organization" property="schema:name" rel="schema:url" href="http://www.hevs.ch">University of Applied Sciences and Arts Western Switzerland, HES-SO Valais-Wallis</a>,
               <span class="adr"><span class="region">Sierre</span>, <span class="country-name">Switzerland</span></span></li>
           </ul>
-
           <ul id="author-email">
               <li id="author-email-a"><sup>a</sup><a about="#daniele" rel="schema:email" href="mailto:dellaglio@ifi.uzh.ch">dellaglio@ifi.uzh.ch</a></li>
             <li id="author-email-b"><sup>b</sup><a about="#danh" rel="schema:email" href="mailto:danh.lephuoc@tu-berlin.de">danh.lephuoc@tu-berlin.de</a></li>
@@ -129,7 +134,6 @@
             <li id="author-email-e"><sup>d</sup><a about="#jpcik" rel="schema:email" href="mailto:jean-paul.calbimonte@hevs.ch">jean-paul.calbimonte@hevs.ch</a></li>
           </ul>
         </div>
-
         <div id="content">
           <section id="abstract">
             <h2>Abstract</h2>
@@ -150,11 +154,11 @@
                This article defines a set of requirements related to the creation of a web of RDF stream
                processors.
                These requirements are then used to analyse the current state of the art, and to build a
-               novel proposal, <span name="wrsp"></span>, which addresses these concerns.
+               novel proposal, WeSP, which addresses these concerns.
               </p>
             </div>
           </section>
-
+            
           <section id="keywords">
             <h2>Keywords</h2>
             <div>
@@ -171,7 +175,7 @@
             <h2 property="schema:name">Introduction</h2>
             <div datatype="rdf:HTML" property="schema:description">
               <p>
-               The Web of Data (WoD) vision considers the Web as a distributed database: a vast&mdash;endless&mdash;amount of datasets to be accessed and queried.
+               The Web of Data (WoD) vision considers the Web as a distributed database: a vast—endless—amount of datasets to be accessed and queried.
                The <a href="http://lod-cloud.net/">Linking Open Data</a> (LOD) cloud is one of the most successful examples of such a vision:
                more than a thousand of datasets, owned and managed by different organisations, exposing
                interconnected data to be freely accessed.
@@ -181,7 +185,6 @@
                LOD [<a href="#harris2013"></a>], and a protocol
                to exchange such data on the Web [<a href="#feigenbaum2013"></a>].
               </p>
-
               <p>
                Since the late 2000s, we have observed a trend that substantially increased the velocity
                aspect of part of this data.
@@ -200,7 +203,6 @@
                of such systems while coping with streaming data.
                It is easy to observe that these limitations also affect SPARQL and existent WoD solutions.
               </p>
-
               <p>
                As a possible solution, Stream Processing Engines (SPEs) emerged in the area of data management
                research to cope with streaming data.
@@ -209,7 +211,6 @@
                As a result, new languages have been designed and developed, such as CQL, StreamSQL and EPL,
                with engines and systems designed with the specific task of processing streams.
               </p>
-
               <p>
                In the Web of Data, these novel paradigms inspired RDF Stream Processing (RSP): it builds
                on top of SPEs to mitigate the data heterogeneity issues by exploiting Semantic Web
@@ -248,14 +249,13 @@
                RSP fills an important gap between the current Web of Data and a Web of Data Streams (WoDS):
                it introduces models and languages to process streams on the Web, most of
                them captured by reference models as RSEP-QL [<a href="#dellaglio2016"></a>] and LARS
-               [<a href="beck2015"></a>].
+               [<a href="#beck2015"></a>].
                However, an important element is still missing, and it is a technical infrastructure
                to manage decentralized data exchange among RSP engines.
                As depicted in <a href="#tab:overview"></a>, data can be exchanged through HTTP (following the linked data principles) or via the SPARQL protocol.
                These solutions perfectly suit the cases where engines follow passive processing models,
                i.e. they pull the data when needed, but not when engines adopt active processing models.
               </p>
-
               <p>
                This study addresses the following research question: <em>what is a suitable data exchange
                infrastructure to perform stream processing on the Web?</em>
@@ -263,13 +263,11 @@
                enables the scenario depicted in <a href="#fig:overview">Figure</a>: a network of RSP engines,
                distributed on the Web, able to exchange and process RDF streams among them.
               </p>
-
               <figure id="fig:overview" class="fig">
-                <object data="img/overview.png"  type="image/png" width="200"></object>
+                <img src="img/overview.png"  type="image/png" />
                 <figcaption>The vision of WeSP: a network of RSP engines distributed on the Web, able to
                 exchange RDF streaminf data among them.</figcaption>
               </figure>
-
               <p>
                The solution should take into account the nature of the streams and the engines, as
                well as the technical characteristics of data exchange on the Web.
@@ -280,36 +278,34 @@
                interconnected RSPs that perform several tasks such as querying to reasoning, exchanging the
                results and producing sophisticated analyses.
               </p>
-
               <p>
-               In the following, we present <span name="wrsp"></span>, a framework to build complex networks
+               In the following, we present WeSP, a framework to build complex networks
                of RSP engines on the Web.
-               <span name="wrsp"></span> defines a communication protocol to initialize the connection between
+               WeSP defines a communication protocol to initialize the connection between
                two RSP engines and to manage the data exchange.
                This is implemented through two interfaces for the elements that produce and consume streams,
                and a vocabulary to annotate the streams.
-               The design and implementation of <span name="wrsp"></span> takes into account existing previous
+               The design and implementation of WeSP takes into account existing previous
                results such as the W3C RSP Community Group <a href="https://www.w3.org/community/rsp">(RSP-CG)</a>
                reports, existing RSP engines, protocol and standards.
-               We empirically show the feasibility of the <span name="wrsp"></span> approach for the construction
+               We empirically show the feasibility of the WeSP approach for the construction
                of a Web of Data Streams, by proposing an implementation of its components with exiting RSP
                publishers and engines.
               </p>
-
               <p>
                The remainder of the article is structured as follows.
                We set requirements for communication of Web stream processors in
-               <a href="#reqs">2</a>.
-               <a href="#rsep">6</a> presents <span name="wrsp"></span>, describing its components
-               and presenting some existing implementation in in <a href="#impl">5</a>.
-               In <a href="#related-work">3</a>, we review the state of the art and we discuss
+               <a href="#requirements"></a>.
+               <a href="#framework-rdf-streams"></a> presents WeSP, describing its components
+               and presenting some existing implementation in in <a href="#implementation"></a>.
+               In <a href="#related-work"></a>, we review the state of the art and we discuss
                the solutions available so far, before concluding with
-               remarks and future directions in <a href="#concl">6</a>.
+               remarks and future directions in <a href="#conclusions"></a>.
               </p>
             </div>
           </section>
 
-          <section id="reqs" rel="schema:hasPart" resource="#reqs">
+          <section id="requirements" rel="schema:hasPart" resource="#requirements">
             <h2 property="schema:name">Requirements</h2>
             <div datatype="rdf:HTML" property="schema:description">
               <p>
@@ -320,7 +316,6 @@
                elicited from real-world
                <a href="https://www.w3.org/community/rsp/wiki/Use_cases">use cases</a>.
               </p>
-              <br>
               <section id="sec:scenario-req-1">
                 <h4 property="schema:name">R1: Keep the data moving</h4>
                 <div datatype="rdf:HTML" property="schema:description">
@@ -332,13 +327,12 @@
                    This is a direct consequence of the client-server paradigm at the basis of HTTP and the
                    Web: servers supplying resources to client on demand.
                    In this sense, the traditional WoD is not the most suitable environment to perform stream processing.
-                   Therefore, as first requirement, <em><span name="wrsp"></span> must prioritize active
+                   Therefore, as first requirement, <em>WeSP must prioritize active
                    paradigms for data stream exchange, where the data supplier can <em>push</em> the stream
                    content to the actors interested in it</em>.
                   </p>
                 </div>
               </section>
-              <br>
               <section id="sec:scenario-req-2">
                 <h4 property="schema:name">R2: Stored and streamed data</h4>
                 <div datatype="rdf:HTML" property="schema:description">
@@ -350,14 +344,13 @@
                    of stored data.
                    In this context, this data is represented by any dataset that is exposed to the Web
                    through SPARQL endpoints or through Linked Data technologies.
-                   Our second requirement states that <em><span name="wrsp"></span> must enable the
+                   Our second requirement states that <em>WeSP must enable the
                    combination of streaming and stored data</em>.
                    In this case combination has a broad meaning, and may refer to several operations,
                    such as stream enrichment, stream storage or fact derivation.
                   </p>
                 </div>
               </section>
-              <br>
               <section id="sec:scenario-req-3">
                 <h4 property="schema:name">R3: High availability, distribution and scalability</h4>
                 <div datatype="rdf:HTML" property="schema:description">
@@ -368,13 +361,12 @@
                    its processing across multiple processors and machines to achieve incremental scalability.
                    Ideally, the distribution should be automatic and transparent".
                    Even if such rules are mainly related to the stream processing engine architectures,
-                   we can infer useful indications for the design of <span name="wrsp"></span>.
-                   Our third requirement is that <em><span name="wrsp"></span> must enable the possibility
+                   we can infer useful indications for the design of WeSP.
+                   Our third requirement is that <em>WeSP must enable the possibility
                    to build reliable, distributed and scalable streaming applications</em>.
                   </p>
                 </div>
               </section>
-              <br>
               <section id="sec:scenario-req-4">
                 <h4 property="schema:name">R4: Operations on the stream content</h4>
                 <div datatype="rdf:HTML" property="schema:description">
@@ -384,13 +376,12 @@
                    patterns of events.
                    However, other alternatives are possible, such as deductive, inductive and other types
                    of reasoning; stream generation and visualization.
-                   <em><span name="wrsp"></span> must guarantee a wide range of operations over the streams</em>.
+                   <em>WeSP must guarantee a wide range of operations over the streams</em>.
                    Such a requirement is important, in particular on the Web perspective, where data may
                    be accessed and used in unexpected ways by third-parties.
                   </p>
                 </div>
               </section>
-              <br>
               <section id="sec:scenario-req-5">
                 <h4 property="schema:name">R5: Accessible information about the stream</h4>
                 <div datatype="rdf:HTML" property="schema:description">
@@ -402,27 +393,25 @@
                    used to enable query optimization in the RSP engines; information about the generation
                    of the stream may be used to enable provenance-related reasoning; description of the
                    features of the streams may be collected in registries to achieve search and discovery.
-                   Our fifth requirement states that <em><span name="wrsp"></span> must support the
+                   Our fifth requirement states that <em>WeSP must support the
                    publication of stream descriptions</em>.
                   </p>
                 </div>
               </section>
-              <br>
               <section id="sec:scenario-req-6">
                 <h4 property="schema:name">R6: Stream variety support</h4>
                 <div datatype="rdf:HTML" property="schema:description">
                   <p>
-                   The decentralised and bottom-up nature of the Web makes it hard&mdash;if not impossible&mdash;to define <em>the</em> model and serialization format for streams.
+                   The decentralised and bottom-up nature of the Web makes it hard—if not impossible—to define <em>the</em> model and serialization format for streams.
                    Looking at the use cases in the RSP-CG wiki, it is easy to observe that: streams can have
                    different velocity (e.g. one new item every minute vs every millisecond); time annotations
                    can be composed by zero, one, two or more time instants, item schemata can be simple (e.g.
                    numbers) or complex (e.g., graphs or tables).
-                   To preserve the heterogeneity that characterizes the Web, <em><span name="wrsp"></span> should
+                   To preserve the heterogeneity that characterizes the Web, <em>WeSP should
                    support the exchange of a wide variety of streams</em>.
                   </p>
                 </div>
               </section>
-              <br>
               <section id="sec:scenario-req-7">
                 <h4 property="schema:name">R7: Reuse of technologies and standards</h4>
                 <div datatype="rdf:HTML" property="schema:description">
@@ -434,7 +423,7 @@
                    (i.e. standards and protocols) allows reusing existing tools and methods. 
                    This is particular true on the Web, where guaranteeing compatibility is mandatory in order
                    to enable interoperability.
-                   Our last requirements states that the design of <em><span name="wrsp"></span> should exploit
+                   Our last requirements states that the design of <em>WeSP should exploit
                    as much as possible existing protocols and standards</em>.
                   </p>
                 </div>
@@ -442,11 +431,11 @@
             </div>
           </section>
 
-          <section id="rsep" rel="schema:hasPart" resource="#rsep">
+          <section id="framework-rdf-streams" rel="schema:hasPart" resource="#framework-rdf-streams">
             <h2 property="schema:name">A framework to exchange RDF streams on the Web</h2>
             <div datatype="rdf:HTML" property="schema:description">
               <p>
-                In this section we present our proposal to build an infrastructure to exchange RDF streams on the Web, <span name="wrsp"></span>. The design follows the requirements presented above, and it is composed by a data model for RDF streams, an API and a protocol to exchange the streams, and a model to describe the stream objects.
+                In this section we present our proposal to build an infrastructure to exchange RDF streams on the Web, WeSP. The design follows the requirements presented above, and it is composed by a data model for RDF streams, an API and a protocol to exchange the streams, and a model to describe the stream objects.
               </p>
               <section id="rdf-stream" rel="schema:hasPart" resource="#rdf-stream">
                <h3 property="schema:name">RDF stream: model and serialization</h3>
@@ -472,7 +461,6 @@
                    For the latter, RDF graphs can be used as an underlying data model, while streams can be
                    captured using an extended RDF stream data model.
                  </p>
-
                  <p>
                    To fulfil these goals, we adopt the notion of time-annotated RDF graphs as elements
                    of RDF streams, following the <a href="https://w3id.org/rsp/abstract-model">abstract data model</a> proposed by the W3C RSP Community Group.
@@ -492,7 +480,6 @@
                    can be formulated as an extension of RDF Graphs with time annotations.
                  </p>
 
-                 <br>
 
                  <h4>RDF Stream</h4>
 -->
@@ -527,7 +514,6 @@
 
                    where, for every \(i>0\), \((G_i,t_i)\) is a timestamped RDF graph and \(t_i \leq t_{i+1}\).
                  </p>
-
                  <p>
                    The following stream \(S\) is compliant with the above model:
                      $$S{=}(G_1,2),(G_2,4),(G_3,6),(G_4,8),(G_5,10),\ldots,$$
@@ -535,7 +521,7 @@
                  </p>
 
                  <figure id="fig:streamexample" class="fig">
-                   <object data="img/streamexample.png"  type="image/png" style="min-height:0px;"></object>
+                   <img src="img/streamexample.png"  type="image/png" style="min-height:0px;"/>
                    <figcaption>An example of time annotated graphs on an RDF Stream.</figcaption>
                  </figure>
 
@@ -581,7 +567,7 @@
                  </figure>
 -->
                  <p>
-                   In the remaining of this contribution, we consider this model where the time annotation is represented by one time instant. The choice is without loss of generality, since <span name="wrsp"></span> can be used to exchange other types of streams.
+                   In the remaining of this contribution, we consider this model where the time annotation is represented by one time instant. The choice is without loss of generality, since WeSP can be used to exchange other types of streams.
                  </p>
                </div>
              </section>
@@ -590,7 +576,7 @@
                <h3 property="schema:name">Communication protocol</h3>
                <div datatype="rdf:HTML" property="schema:description">
                  <p>
-                   <span name="wrsp"></span> defines two interfaces, namely <em>producer</em> and <em>consumer</em>.
+                   WeSP defines two interfaces, namely <em>producer</em> and <em>consumer</em>.
                    As the names suggest, the former is implemented by actors that distribute streams
                    across the Web, while the latter is implemented by actors who want to receive streams.
                  </p>
@@ -613,11 +599,11 @@
                    information about the stream.
                    However, the most relevant data the Stream Descriptor brings is about how to effectively access
                    the stream content.
-                   We detail the stream descriptor in <a href="#service-descriptor">Section 3.3</a>. In the following, we describe how the producer/consumer communication develops.
+                   We detail the stream descriptor in <a href="#stream-descriptor">Section 3.3</a>. In the following, we describe how the producer/consumer communication develops.
                  </p>
 
                  <figure id="fig:protocol" class="fig">
-                   <object data="img/consume.png"  type="image/png" width="200"></object>
+                   <img src="img/consume.png"  type="image/png" />
                    <figcaption>Protocol to establish the communication between the producer and the consumer
                    interfaces</figcaption>
                  </figure>
@@ -631,7 +617,6 @@
                    IRI (as in <a href="#fig:protocol">Figure</a>) through an HTTP request, following the
                    Linked Data principles.
                  </p>
-
                  <p>
                    In the second phase, the consumer starts to receive the stream (as in
                    <a href="#fig:protocol">Figure</a>).
@@ -644,7 +629,6 @@
                    choose the way they prefer.
                    After the decision, the consumer can start to receive the stream content and to process it.
                  </p>
-
                  <p>
                    The choice to allow several channels to distribute the streams gives the freedom to
                    adopt several channels to exchange the streams, relying on different technologies based on
@@ -653,7 +637,7 @@
                </div>
              </section>
 
-              <section id="service-descriptor" rel="schema:hasPart" resource="#service-descriptor">
+              <section id="stream-descriptor" rel="schema:hasPart" resource="#stream-descriptor">
                <h3 property="schema:name">Stream Descriptor</h3>
                <div datatype="rdf:HTML" property="schema:description">
                  <p>
@@ -674,12 +658,10 @@
                    optimize its processing.
                    It also plays the role as a validation rule for consumer to verify if the incoming data is conformed with the template.
                  </p>
-
                  <figure id="fig:schema" class="fig">
-                   <object data="img/sd-model.png"  type="image/png" width="200"></object>
+                   <img src="img/sd-model.png"  type="image/png" />
                    <figcaption>Description of RDF Stream</figcaption>
                  </figure>
-
                  <p>
                    Note that an RDF stream can be distributed via different stream channels using different protocols, like HTTP and Websocket.
                    Therefore, a stream channel is an instance of the RDFStreamPublisher class which is linked
@@ -734,15 +716,15 @@
             </div>
           </section>
 
-          <section id="impl" rel="schema:hasPart" resource="#impl">
+          <section id="implementation" rel="schema:hasPart" resource="#implementation">
             <h2 property="schema:name">Implementation and examples</h2>
             <div datatype="rdf:HTML" property="schema:description">
               <p>
-                In this section, we describe two implementations of <span name="wrsp"></span>.
+                In this section, we describe two implementations of WeSP.
                 The first is a stream source, the second is a stream transformer. They are built on top of existing frameworks, TripleWave and C-SPARQL.
                 All the related code is open source under <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 Licence</a> and is available online.
               </p>
-              <section id="impl" rel="schema:hasPart" resource="#impl">
+              <section id="triplewave" rel="schema:hasPart" resource="#triplewave">
                 <h3 property="schema:name">Stream source example: TripleWave</h3>
                 <div datatype="rdf:HTML" property="schema:description">
                   <p>
@@ -771,14 +753,14 @@
                   </p>
 
                   <p>
-                   TripleWave has been extended to natively support <span name="wrsp"></span>, as it implements the producer interface.
+                   TripleWave has been extended to natively support WeSP, as it implements the producer interface.
                    It can spread the streams through WebSocket, <a href="mqtt.org/">MQTT</a> and HTTP chunked econdoing. Support for <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events">Server-Sent Events</a> (SSE) will be released soon. This offers to consumers a wide choice on the protocol to be used to receive the data, according to the use case requirements and on the system needs.
                    The endpoints related to the protocols, as well as the required informantion to access them, are described in RDF and embed in the Stream Descriptor, exposed on an HTTP address. The code and the instructions are available at the <a href="http://streamreasoning.github.io/TripleWave">project page</a>.
                   </p>
                 </div>
               </section>
 
-              <section id="impl" rel="schema:hasPart" resource="#impl">
+              <section id="stream-transformer" rel="schema:hasPart" resource="#stream-transformer">
                 <h3 property="schema:name">Stream transformer example: C-SPARQL and CQELS</h3>
                 <div datatype="rdf:HTML" property="schema:description">
                   <p>
@@ -786,12 +768,10 @@
                    We depict this possibility by presenting the cases of C-SPARQL [<a href="#barbieri2010"></a>]
                    and CQELS [<a href="#lephuoc2011"></a>], two engines able to processing streams throgh continuous query languages based on SPARQL [<a href="#harris2013"></a>].
                   </p>
-
                   <p>
                     These engines offer programmatic APIs to manage the communication, i.e. (i) declare RDF streams, (ii) push the stream items into the declared RDF Streams, (iii) register the query, (iv) register listeners to obtain and manage query results.
                     The WeSP adapter should implement the producer and consumer interfaces according to such APIs.
                   </p>
-
                   <p>
                     The implementation of the consumer interface in the adapter should enable the connection to a
                     stream source or transformer, according to the protocol described above.
@@ -806,7 +786,6 @@
                     If such IRI denotes a Stream Descriptor address, engines would have the information they need to
                     establish the connection.
                   </p>
-
                   <p>
                     Similarly to the consumption, the stream production is query driven. RSP engines stream out the
                     query results and make it available to other agents (e.g. users, other engines, etc.).
@@ -850,8 +829,8 @@
                 CQELS [<a href="#lephuoc2011"></a>], and SPARQL<sub>stream</sub> [<a href="#calbimonte2012"></a>].
                 While these engines provide querying features, they generally lack the means to publish or reuse RDF data
                 streams on the Web. Instead, they assume ad-hoc connection to RDF streams without any protocol of
-                communication. </p>
-
+                communication. 
+              </p>
               <p>
                 An inital effort targeting communication and interchange among RSP engines, named
                 RSP Services, was proposed in [<a href="#balduini2013a"></a>].
@@ -859,7 +838,6 @@
                 Socket channels to connect engines. So far, <a href="https://github.com/streamreasoning/rsp-services-csparql">an implementation</a> for C-SPARQL exists. This project has limitations given the heterogeneity and difficulty of handling the engines in a uniform manner: not all the engines work based on queries, so it may not be enough to cover a wider range of RDF stream processing engines, such as stream reasoners.
                 WeSP targets the problem of exhanging RDF streams between engines, not only query engines; it supports a wider range of communication protocols and a richer  description of the stream (thorugh the stream descriptor).
               </p>
-
               <p>
                 Regarding the publication of streams on the Web using RDF technologies, we can mention
                 [<a href="#gerber2013"></a>, <a href="#trinh2014"></a>], which propose generation RDF datasets out of
@@ -869,22 +847,20 @@
               </p>
               <p>
                 The precursor WeSP relies on <a href="http://streamreasoning.github.io/TripleWave/">TripleWave</a> [<a href="#mauri2016"></a>], a generic and RDF stream-oriented publication system tailored for the Web. It goes beyond
-                previous works, providing a generic framework for RDF stream provision, including ingestion of non-RDF sources and time-annotated RDF datasets. TripleWave introduced the notion of stream descriptor. As explained in <a href="#impl"></a>, in the context of this study we extended TripleWave with a new stream descriptor vocabulary and extension to new communication protocols such as MQTT.
+                previous works, providing a generic framework for RDF stream provision, including ingestion of non-RDF sources and time-annotated RDF datasets. TripleWave introduced the notion of stream descriptor. As explained in <a href="#implementation"></a>, in the context of this study we extended TripleWave with a new stream descriptor vocabulary and extension to new communication protocols such as MQTT.
               </p>
-
               <p>
                 The work of the W3C RDF Stream Processing Community Group (RSP-CG) provides a starting point towards
                 a common model for representing, querying and exchanging RDF stream data. However, given the scope of the
                 group, the published reports on <a href="https://w3id.org/rsp/requirements">
                 Requirements and Design Principles</a>, as well as the <a href="https://w3id.org/rsp/abstract-syntax">Abstract model</a>, do not propose a concrete
-                set of interfaces and serialization formats for enabling interchange and interoperability. In <span name="wrsp"></span>
+                set of interfaces and serialization formats for enabling interchange and interoperability. In WeSP
                 we take into consideration the abstract model and guidelines of the RSP-CG, taking it to the implementation level.
                 Another related specification, the <a href="https://www.w3.org/TR/ldn/">Linked Data Notifications</a> (LDN)
                 recommendation of W3C, targets a very generic scenario of Linked Data senders, receivers and consumers.
-                While this specification is too generic for the streaming data requirements presented in <a href="#reqs"></a>,
+                While this specification is too generic for the streaming data requirements presented in <a href="#requirements"></a>,
                 it might be worth to explore commonalities between LDN and this work.
               </p>
-
               <p>
                 Finally, outside of the RDF and Semantic Web technologies, different technologies and protocols have been developed
                 for supporting data stream communication and exchange, often linked to the Internet of Things. Protocols
@@ -892,11 +868,10 @@
                 In this work, these different options can be encapsulated under a higher-level protocol, allowing the
                 co-existence of different underlying technologies.
               </p>
-
             </div>
           </section>
 
-          <section id="concl" rel="schema:hasPart" resource="#concl">
+          <section id="conclusions" rel="schema:hasPart" resource="#conclusions">
             <h2 property="schema:name">Conclusions</h2>
             <div datatype="rdf:HTML" property="schema:description">
               <p>
@@ -925,92 +900,115 @@
                 <li id="anicic2011" property="schema:citation">
                   D. Anicic, P. Fodor, S. Rudolph, and N. Stojanovic.
                   EP-SPARQL: a unified language for event processing and stream reasoning.
-                  In WWW, pages 635-644, 2011.</li>
+                  In <em>WWW</em>, pages 635-644, 2011. 
+                  <a href="http://www.aifb.kit.edu/images/c/c0/Www29-anicic.pdf">[online]</a></li>
                 <li id="balduini2013a" property="schema:citation">
                   M. Balduini and E. Della Valle.
                   A restful interface for RDF stream processors.
-                  In Proceedings of the 2013th International Conference on Posters & Demonstrations Track-Volume 1035, pages 209-212, 2013</li>
+                  In <em>ISWC 2013 Posters &amp; Demonstrations Track</em>, pages 209-212, 2013.
+                  <a href="http://ceur-ws.org/Vol-1035/iswc2013_poster_8.pdf">[online]</a></li>
                 <li id="balduini2013" property="schema:citation">
                   M. Balduini, E. Della Valle, D. Dell'Aglio, M. Tsytsarau, T. Palpanas, and C. Confalonieri.
                   Social Listening of City Scale Events Using the Streaming Linked Data Framework.
-                  In International Semantic Web Conference (2), volume 8219 of Lecture Notes in Computer Science, pages 1-16. Springer, 2013.</li>
+                  In <em>ISWC</em>, pages 1-16. 2013.
+                  <a href="http://disi.unitn.it/~themis/publications/iswc13.pdf">[online]</a></li>
                 <li id="barbieri2010" property="schema:citation">
                   D. F. Barbieri, D. Braga, S. Ceri, E. Della Valle, and M. Grossniklaus.
                   C-SPARQL: a Continuous Query Language for RDF Data Streams.
-                  Int. J. Semantic Computing, 4(1):3{25, 2010.</li>
+                  <em>Int. J. Semantic Computing</em>, 4(1):3-25, 2010.</li>
                 <li id="barbieri2010a" property="schema:citation">
                   D. F. Barbieri and E. Della Valle.
                   A proposal for publishing data streams as linked data - A position paper.
-                  In LDOW, 2010.</li>
+                  In <em>LDOW</em>, 2010.
+                  <a href="http://ceur-ws.org/Vol-628/ldow2010_paper11.pdf">[online]</a></li>
                 <li id="beck2015" property="schema:citation">
                   Beck, H., Dao-Tran, M., Eiter, T., and Fink, M.
                   LARS: A Logic-Based Framework for Analyzing Reasoning over Streams.
-                  In AAAI (pp. 1431-1438), 2015.</li>
+                  In <em>AAAI</em>, pages 1431-1438, 2015.
+                  <a href="http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/download/9657/9415">[online]</a></li>
                 <li id="calbimonte2012" property="schema:citation">
                   J.-P. Calbimonte, H. Jeung, O. Corcho, and K. Aberer.
                   Enabling query technologies for the semantic sensor web.
-                  Int. J. Semantic Web Inf. Syst., 8:43{63, 2012.
+                  <em>Int. J. Semantic Web Inf. Syst.</em>, 8:43-63, 2012.
+                  <a href="http://jeanpi.org/wp/media/ijswis_calbimonte_submission_images.pdf">[online]</a></li>
                 <li id="das2012" property="schema:citation">
                   S. Das, S. Sundara, and R. Cyganiak. R2rml: RDB to RDF Mapping Language.
-                  W3C Recommendation, W3C, 2012.</li>
+                  W3C Recommendation, W3C, 2012.
+                  <a href="https://www.w3.org/TR/r2rml/">https://www.w3.org/TR/r2rml/</a></li>
                 <li id="dellaglio2016" property="schema:citation">
                   D. Dell'Aglio, M. Dao-Tran, J.-P. Calbimonte, D. L. Phuoc, and E. Della Valle.
                   A Query Model to Capture Event Pattern Matching in RDF Stream Processing Query Languages.
-                  In EKAW, volume 10024 of Lecture Notes in Computer Science, pages 145-162, 2016.</li>
+                  In <em>EKAW</em>, pages 145-162, 2016.
+                  <a href="http://www.kr.tuwien.ac.at/staff/dao/pub/2016/AQueryModeltoCaptureEventPatternMatchinginRDFStreamProcessingQueryLanguages-ekaw.pdf">[online]</a></li>
                 <li id="feigenbaum2013" property="schema:citation">
                   L. Feigenbaum, G. T. Williams, K. G. Clark, and E. Torres.
                   SPARQL 1.1 Protocol.
-                  W3C Recommendation, W3C, 2013.</li>
+                  W3C Recommendation, W3C, 2013.
+                  <a href="https://www.w3.org/TR/sparql11-protocol/">https://www.w3.org/TR/sparql11-protocol/</a></li>
                 <li id="fisteus2014" property="schema:citation">
                   J. A. Fisteus, N. F. Garcia, L. S. Fernandez, and D. Fuentes-Lorenzo.
                   Ztreamy: A middleware for publishing semantic streams on the web.
-                  J. Web Semantics, 25:16-23, 2014.</li>
+                  <em>J. Web Semantics</em>, 25:16-23, 2014.
+                  <a href="http://www.imap.websemanticsjournal.org/preprints/index.php/ps/article/download/350/372">[online]</a></li>
                 <li id="gerber2013" property="schema:citation">
-                  D. Gerber, S. Hellmann, L. Buhmann, T. Soru, R. Usbeck, and A.-C. N. Ngomo.
+                  D. Gerber, S. Hellmann, L. Bühmann, T. Soru, R. Usbeck, and A.-C. N. Ngomo.
                   Real-time rdf extraction from unstructured data streams.
-                  In ISWC, pages 135-150. 2013.</li>
+                  In <em>ISWC</em>, pages 135-150. 2013.
+                  <a href="http://svn.aksw.org/papers/2013/ISWC_RdfLiveNews/public_preprint.pdf">[online]</a></li>
                 <li id="harris2013" property="schema:citation">
                   S. Harris and A. Seaborne.
                   SPARQL 1.1 Query Language. W3c Recommendation, W3C, 2013.
+                  <a href="https://www.w3.org/TR/sparql11-query/">https://www.w3.org/TR/sparql11-query/</a></li>
                 <li id="komazec2012" property="schema:citation">
                   S. Komazec, D. Cerri, and D. Fensel.
                   Sparkwave: continuous schema-enhanced pattern matching over RDF data streams.
-                  In DEBS, pages 58-68. 2012.</li>
+                  In <em>DEBS</em>, pages 58-68. 2012.
+                  <a href="http://www.davidecerri.it/wp-content/uploads/2016/02/art-sparkwave-debs2012.pdf">[online]</a></li>
                 <li id="lephuoc2011" property="schema:citation">
                   D. Le Phuoc, M. Dao-Tran, J. X. Parreira, and M. Hauswirth.
                   A Native and Adaptive Approach for Unified Processing of Linked Streams and Linked Data.
-                  In International Semantic Web Conference (1), volume 7031 of Lecture Notes in Computer Science, pages 370-388. Springer, 2011.</li>
+                  In <em>ISWC</em>, pages 370-388. 2011.
+                  <a href="http://iswc2011.semanticweb.org/fileadmin/iswc/Papers/Research_Paper/05/70310368.pdf">[online]</a></li>
                 <li id="lephuoc2012" property="schema:citation">
                   D. Le-Phuoc, H. Q. Nguyen-Mau, J. X. Parreira, and M. Hauswirth.
                   A middleware framework for scalable management of linked streams.
-                  J. Web Semantics, 16:42-51, 2012.</li>
+                  <em>J. Web Semantics</em>, 16:42-51, 2012.
+                  <a href="http://www.manfredhauswirth.org/research/papers/JoWS2012.pdf">[online]</a></li>
                 <li id="mauri2016" property="schema:citation">
                   A. Mauri, J.-P. Calbimonte, D. Dell'Aglio, M. Balduini, M. Brambilla, E. D. Valle, and K. Aberer.
                   TripleWave: Spreading RDF Streams on the Web.
-                  In International Semantic Web Conference (2), volume 9982 of Lecture Notes in Computer Science, pages 140-149, 2016.</li>
+                  In <em>ISWC</em>, pages 140-149, 2016.
+                  <a href="http://publications.hevs.ch/index.php/attachments/single/1182">[online]</a></li>
                 <li id="rinne2012" property="schema:citation">
-                  M. Rinne, S. Torma, and E. Nuutila.
+                  M. Rinne, S. Törmä, and E. Nuutila.
                   SPARQL-based applications for RDF encoded sensor data.
-                  In SSN, volume 904, pages 81-96. 2012.</li>
+                  In <em>SSN</em>, volume 904, pages 81-96. 2012.
+                  <a href="http://ceur-ws.org/Vol-904/paper15.pdf">[online]</a></li>
                 <li id="schmidt2011" property="schema:citation">
-                  M. Schmidt, O. Gorlitz, P. Haase, G. Ladwig, A. Schwarte, and T. Tran.
+                  M. Schmidt, O. Görlitz, P. Haase, G. Ladwig, A. Schwarte, and T. Tran.
                   Fedbench: A benchmark suite for federated semantic data query processing.
-                  In The Semantic Web - ISWC 2011 - 10th International Semantic Web Conference, Bonn, Germany, October 23-27, 2011, Proceedings, Part I, volume 7031 of Lecture Notes in Computer Science, pages 585-600. Springer, 2011.</li>
+                  In <em>ISWC</em>, pages 585-600. 2011.
+                  <a href="http://iswc2011.semanticweb.org/fileadmin/iswc/Papers/Research_Paper/05/70310576.pdf">[online]</a></li>
                 <li id="schwarte2011" property="schema:citation">
                   A. Schwarte, P. Haase, K. Hose, R. Schenkel, and M. Schmidt.
                   Fedx: A federation layer for distributed query processing on linked open data.
-                  In The Semanic Web: Research and Applications - 8th Extended Semantic Web Conference, ESWC 2011, Heraklion, Crete, Greece, May 29 - June 2, 2011, Proceedings, Part II, volume 6644 of Lecture Notes in Computer Science, pages 481-486. Springer, 2011.</li>
+                  In <em>ESWC</em>, pages 481-486. 2011.
+                  <a href="http://www.fluidops.com/downloads/documents/pubeswc2011fedx.pdf">[online]</a></li>
                 <li id="stonebraker2005" property="schema:citation">
                   M. Stonebraker, U. Cetintemel, and S. B. Zdonik.
-                  The 8 requirements of real-time stream processing. SIGMOD Record, 34(4):42{47, 2005.</li>
+                  The 8 requirements of real-time stream processing. 
+                  SIGMOD Record, 34(4):42-47, 2005.
+                  <a href="http://www09.sigmod.org/sigmod/record/issues/0512/p42-article-stonebraker.pdf">[online]</a></li>
                 <li id="taelman2016" property="schema:citation">
                   R. Taelman, P. Heyvaert, R. Verborgh, E. Mannens.
                   Querying Dynamic Datasources with Continuously Mapped Sensor Data.
-                  In International Semantic Web Conference (Posters & Demos), CEUR-WS, 2016.</li>
+                  In <em>ISWC (Posters &amp; Demos)</em>, 2016.
+                  <a href="http://ceur-ws.org/Vol-1690/paper6.pdf">[online]</a></li>
                 <li id="trinh2014" property="schema:citation">
                   T.-D. Trinh, P. Wetz, B.-L. Do, A. Anjomshoaa, E. Kiesling, and A. M. Tjoa.
                   A web-based platform for dynamic integration of heterogeneous data.
-                  In IIWAS, pages 253-261, 2014.</li>
+                  In <em>IIWAS</em>, pages 253-261, 2014.
+                  <a href="https://publik.tuwien.ac.at/files/PubDat_235082.pdf">[online]</a></li>
              </ol>
             </div>
           </section>
