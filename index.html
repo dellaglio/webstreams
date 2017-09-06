@@ -266,7 +266,7 @@
               <figure id="fig:overview" class="fig">
                 <img src="img/overview.png"  type="image/png" />
                 <figcaption>The vision of WeSP: a network of RSP engines distributed on the Web, able to
-                exchange RDF streaminf data among them.</figcaption>
+                exchange RDF streaming data among them.</figcaption>
               </figure>
               <p>
                The solution should take into account the nature of the streams and the engines, as
@@ -294,10 +294,10 @@
               </p>
               <p>
                The remainder of the article is structured as follows.
-               We set requirements for communication of Web stream processors in
+               We identify a set of requirements for communication of Web stream processors in
                <a href="#requirements"></a>.
                <a href="#framework-rdf-streams"></a> presents WeSP, describing its components
-               and presenting some existing implementation in in <a href="#implementation"></a>.
+               and presenting an existing implementation in <a href="#implementation"></a>.
                In <a href="#related-work"></a>, we review the state of the art and we discuss
                the solutions available so far, before concluding with
                remarks and future directions in <a href="#conclusions"></a>.
@@ -455,7 +455,7 @@
                  <p>
                    We can distinguish two kinds of data in the requirements, first the streaming data,
                    which are by nature highly dynamic and labeled with time annotations.
-                   Second, the contextual or background data, which changes lees often, provides information that
+                   Second, the contextual or background data, which changes less often, provides information that
                    enriches the streaming data (e.g. locations, profiles, producer data, system
                    descriptions).
                    For the latter, RDF graphs can be used as an underlying data model, while streams can be
@@ -644,7 +644,7 @@
                    The Stream Descriptor is an RDF document providing metadata of the RDF stream that is used by a
                    <em>consumer</em> for bootstrapping its stream consuming process.
                    Realizing that an RDF stream is similar to an RDF dataset, we extend the
-                   <a  href="https://www.w3.org/TR/vocab-dcat/">DCAT vocabulary</a> to represent the an RDF
+                   <a  href="https://www.w3.org/TR/vocab-dcat/">DCAT vocabulary</a> to represent an RDF
                    Stream as illustrated in <a href="#fig:schema">Figure</a> (and available 
                    <a href="https://dellaglio.github.io/webstreams/rs-onto.ttl">here</a>).
                  </p>
@@ -754,8 +754,8 @@
 
                   <p>
                    TripleWave has been extended to natively support WeSP, as it implements the producer interface.
-                   It can spread the streams through WebSocket, <a href="mqtt.org/">MQTT</a> and HTTP chunked econdoing. Support for <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events">Server-Sent Events</a> (SSE) will be released soon. This offers to consumers a wide choice on the protocol to be used to receive the data, according to the use case requirements and on the system needs.
-                   The endpoints related to the protocols, as well as the required informantion to access them, are described in RDF and embed in the Stream Descriptor, exposed on an HTTP address. The code and the instructions are available at the <a href="http://streamreasoning.github.io/TripleWave">project page</a>.
+                   It can spread the streams through WebSocket, <a href="mqtt.org/">MQTT</a> and HTTP chunked encoding. Support for <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events">Server-Sent Events</a> (SSE) will be released soon. This offers to consumers a wide choice on the protocol to be used to receive the data, according to the use case requirements and on the system needs.
+                   The endpoints related to the protocols, as well as the required information to access them, are described in RDF and embed in the Stream Descriptor, exposed on an HTTP address. The code and the instructions are available at the <a href="http://streamreasoning.github.io/TripleWave">project page</a>.
                   </p>
                 </div>
               </section>
@@ -766,7 +766,7 @@
                   <p>
                    It is possible to create WeSP actors out of existing stream processors by introducing adapters.
                    We depict this possibility by presenting the cases of C-SPARQL [<a href="#barbieri2010"></a>]
-                   and CQELS [<a href="#lephuoc2011"></a>], two engines able to processing streams throgh continuous query languages based on SPARQL [<a href="#harris2013"></a>].
+                   and CQELS [<a href="#lephuoc2011"></a>], two engines able to processing streams through continuous query languages based on SPARQL [<a href="#harris2013"></a>].
                   </p>
                   <p>
                     These engines offer programmatic APIs to manage the communication, i.e. (i) declare RDF streams, (ii) push the stream items into the declared RDF Streams, (iii) register the query, (iv) register listeners to obtain and manage query results.
@@ -794,7 +794,7 @@
                     First, it creates a Stream Descriptor and exposes it at an HTTP address.
                     Second, it registers a listener to manage the answers.
                     The current implementation provides the listeners for MQTT and WebSocket.
-                    The first forwards the results to a MQTT broker, while the latter sends the result to an interla component that manages the ongoing connections.
+                    The first forwards the results to a MQTT broker, while the latter sends the result to an internal component that manages the ongoing connections.
                     In this way, several actors may access the results of the same query.
                   </p>
                   <p>
@@ -836,17 +836,17 @@
                 RSP Services, was proposed in [<a href="#balduini2013a"></a>].
                 The goal of this project is to enable remote control of RSP engines, which is achieved by introducing REST APIs that exposes the programmatic APIs of the RSP engines, and by Web
                 Socket channels to connect engines. So far, <a href="https://github.com/streamreasoning/rsp-services-csparql">an implementation</a> for C-SPARQL exists. This project has limitations given the heterogeneity and difficulty of handling the engines in a uniform manner: not all the engines work based on queries, so it may not be enough to cover a wider range of RDF stream processing engines, such as stream reasoners.
-                WeSP targets the problem of exhanging RDF streams between engines, not only query engines; it supports a wider range of communication protocols and a richer  description of the stream (thorugh the stream descriptor).
+                WeSP targets the problem of exhanging RDF streams between engines, not only query engines; it supports a wider range of communication protocols and a richer  description of the stream (through the stream descriptor).
               </p>
               <p>
                 Regarding the publication of streams on the Web using RDF technologies, we can mention
-                [<a href="#gerber2013"></a>, <a href="#trinh2014"></a>], which propose generation RDF datasets out of
+                [<a href="#gerber2013"></a>, <a href="#trinh2014"></a>], which proposes the generation of RDF datasets out of
                 unstructured streams. Other works focused on the usage of Linked Data principles for publishing streams
                 [<a href="#balduini2013"></a>,<a href="#lephuoc2012"></a>], although they did not provide any further
                 communication or interchange protocol beyond the standard principles used in static and stored data.
               </p>
               <p>
-                The precursor WeSP relies on <a href="http://streamreasoning.github.io/TripleWave/">TripleWave</a> [<a href="#mauri2016"></a>], a generic and RDF stream-oriented publication system tailored for the Web. It goes beyond
+                The stream publishing implementation of WeSP relies on <a href="http://streamreasoning.github.io/TripleWave/">TripleWave</a> [<a href="#mauri2016"></a>], a generic and RDF stream-oriented publication system tailored for the Web. It goes beyond
                 previous works, providing a generic framework for RDF stream provision, including ingestion of non-RDF sources and time-annotated RDF datasets. TripleWave introduced the notion of stream descriptor. As explained in <a href="#implementation"></a>, in the context of this study we extended TripleWave with a new stream descriptor vocabulary and extension to new communication protocols such as MQTT.
               </p>
               <p>
@@ -885,7 +885,7 @@
               <p>
                 We designed WeSP based on a set of requirements elicited from literature and real use cases, and as a result, it
                 builds on existing technologies and recommendations, such as RDF, WebSocket and MQTT.
-                We have shown the feasibility of the approach by presenting three implementations, available as open source projects.
+                We have shown the feasibility of the approach by presenting concrete implementations, available as open source projects.
                 We believe that a wide availability of Web stream engines can enable research in future interesting work directions,
                 such as federated query processing or, more in general, federated stream processing over the Web.
               </p>
