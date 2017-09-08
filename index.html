@@ -208,7 +208,7 @@
                research to cope with streaming data.
                They introduce new paradigms and processing models that fit better the requirements and
                scenarios involving data streams.
-               As a result, new languages have been designed and developed, such as CQL, StreamSQL and EPL,
+               As a result, new languages have been designed and developed, such as CQL [<a href="#arasu2006"></a>], <a href="https://docs.oracle.com/cd/E13157_01/wlevs/docs30/epl_guide/overview.html">EPL</a> and StreamSQL,
                with engines and systems designed with the specific task of processing streams.
               </p>
               <p>
@@ -585,7 +585,7 @@
                    Every actor involved in the processing may implement either interface, as well as both
                    of them. This leads us to the following nomenclature.
                    A <em>stream source</em> implements the producer interface only. Services exposing sensors
-                   data on the Web and TripleWave are examples of stream sources.
+                   data on the Web and TripleWave [<a href="#mauri2016"></a>] are examples of stream sources.
                    Similarly, a <em>stream sink</em> implements the consumer interface only, e.g. a dashboard
                    visualising information for the final user.
                    Finally, a <em>stream transformer</em> implements both the interfaces: it gets as input a
@@ -624,7 +624,7 @@
                    That means, it describes one or more ways to establish the connection between the consumer and
                    the endpoint that is providing the stream content.
                    This connection can happen with different protocols, based on push mechanisms. e.g. WebSocket
-                   and MQTT, as well as based on pull mechanisms, e.g. HTTP.
+                   and <a href="mqtt.org/">MQTT</a>, as well as based on pull mechanisms, e.g. HTTP.
                    Among the several options offered by the producer through the Service Descriptor, consumers
                    choose the way they prefer.
                    After the decision, the consumer can start to receive the stream content and to process it.
@@ -720,8 +720,8 @@
             <h2 property="schema:name">Implementation and examples</h2>
             <div datatype="rdf:HTML" property="schema:description">
               <p>
-                In this section, we describe two implementations of WeSP.
-                The first is a stream source, the second is a stream transformer. They are built on top of existing frameworks, TripleWave and C-SPARQL.
+                In this section, we describe three implementations of WeSP.
+                The first is a stream source, the others are stream transformers. They are built on top of existing frameworks, TripleWave and C-SPARQL [<a href="#barbieri2010"></a>] and CQELS [<a href="#lephuoc2011"></a>].
                 All the related code is open source under <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache 2.0 Licence</a> and is available online.
               </p>
               <section id="triplewave" rel="schema:hasPart" resource="#triplewave">
@@ -754,7 +754,7 @@
 
                   <p>
                    TripleWave has been extended to natively support WeSP, as it implements the producer interface.
-                   It can spread the streams through WebSocket, <a href="mqtt.org/">MQTT</a> and HTTP chunked encoding. Support for <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events">Server-Sent Events</a> (SSE) will be released soon. This offers to consumers a wide choice on the protocol to be used to receive the data, according to the use case requirements and on the system needs.
+                   It can spread the streams through WebSocket, MQTT and HTTP chunked encoding. Support for <a href="https://html.spec.whatwg.org/multipage/server-sent-events.html#server-sent-events">Server-Sent Events</a> (SSE) will be released soon. This offers to consumers a wide choice on the protocol to be used to receive the data, according to the use case requirements and on the system needs.
                    The endpoints related to the protocols, as well as the required information to access them, are described in RDF and embed in the Stream Descriptor, exposed on an HTTP address. The code and the instructions are available at the <a href="http://streamreasoning.github.io/TripleWave">project page</a>.
                   </p>
                 </div>
@@ -897,11 +897,15 @@
             <h2>References</h2>
             <div>
              <ol>
-                <li id="anicic2011" property="schema:citation">
+               <li id="anicic2011" property="schema:citation">
                   D. Anicic, P. Fodor, S. Rudolph, and N. Stojanovic.
                   EP-SPARQL: a unified language for event processing and stream reasoning.
                   In <em>WWW</em>, pages 635-644, 2011. 
                   <a href="http://www.aifb.kit.edu/images/c/c0/Www29-anicic.pdf">[online]</a></li>
+ 		<li id="arasu2006" property="schema:citation">A. Arasu, S. Babu, J. Widom.
+		  The CQL continuous query language: semantic foundations and query execution. 
+		  In <em>VLDB J.</em> 15(2), pages 121-142, 2006.
+		  <a href="http://ilpubs.stanford.edu:8090/758/1/2003-67.pdf">[online]</a></li>
                 <li id="balduini2013a" property="schema:citation">
                   M. Balduini and E. Della Valle.
                   A restful interface for RDF stream processors.
