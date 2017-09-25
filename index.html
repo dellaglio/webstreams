@@ -3,19 +3,18 @@
   <head>
     <meta charset="utf-8" />
     <title>On a Web of Data Streams</title>
-    <link rel="stylesheet" href="https://dokie.li/media/css/lncs.css" media="all" title="LNCS" />
-    <link rel="stylesheet alternate" href="https://dokie.li/media/css/acm.css" media="all" title="ACM" />
-    <link rel="stylesheet alternate" href="https://www.w3.org/StyleSheets/TR/W3C-ED.css" media="all" title="W3C-ED"/>
-    <link rel="stylesheet" href="https://dokie.li/media/css/do.css" media="all" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="all" />
+    <link href="https://dokie.li/media/css/lncs.css" media="all" rel="stylesheet" title="LNCS" />
+    <link href="https://dokie.li/media/css/acm.css" media="all" rel="stylesheet alternate" title="ACM" />
+    <link href="https://www.w3.org/StyleSheets/TR/W3C-ED.css" media="all" rel="stylesheet alternate" title="W3C-ED" />
+    <link href="https://dokie.li/media/css/do.css" media="all" rel="stylesheet" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" media="all" rel="stylesheet" />
     <script src="https://dokie.li/scripts/simplerdf.js"></script>
     <script src="https://dokie.li/scripts/medium-editor.min.js"></script>
     <script src="https://dokie.li/scripts/do.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" async="true"
-      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
+    <script async="true" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML">
     </script>
-    <script type="text/javascript">
+    <script><![CDATA[
       var wrsp="WeSP";
 
       function load(){
@@ -63,8 +62,14 @@
       })
 
       }
-    </script>
+    ]]></script>
     <style>
+      @media print {
+        a {
+          text-decoration: underline !important;
+          color: rgb(0, 0, 238) !important;
+        }
+      }
         #authors li {
             white-space: nowrap;
         }  
@@ -74,64 +79,37 @@
     </style>
   </head>
 
-  <body about="" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# dcterms: http://purl.org/dc/terms/ dctypes: http://purl.org/dc/dcmitype/ foaf: http://xmlns.com/foaf/0.1/ v: http://www.w3.org/2006/vcard/ns# pimspace: http://www.w3.org/ns/pim/space# cc: https://creativecommons.org/ns# skos: http://www.w3.org/2004/02/skos/core# prov: http://www.w3.org/ns/prov# qb: http://purl.org/linked-data/cube# schema: http://schema.org/ void: http://rdfs.org/ns/void# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# cal: http://www.w3.org/2002/12/cal/ical# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# org: http://www.w3.org/ns/org# biblio: http://purl.org/net/biblio# bibo: http://purl.org/ontology/bibo/ book: http://purl.org/NET/book/vocab# ov: http://open.vocab.org/terms/ sioc: http://rdfs.org/sioc/ns# doap: http://usefulinc.com/ns/doap# dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ oa: http://www.w3.org/ns/oa# as: https://www.w3.org/ns/activitystreams# ldp: http://www.w3.org/ns/ldp# solid: http://www.w3.org/ns/solid/terms# acl: http://www.w3.org/ns/auth/acl# dio: https://w3id.org/dio#" typeof="schema:CreativeWork sioc:Post prov:Entity" onload="load();">
+  <body about="" onload="load();" prefix="rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# owl: http://www.w3.org/2002/07/owl# xsd: http://www.w3.org/2001/XMLSchema# dcterms: http://purl.org/dc/terms/ dctypes: http://purl.org/dc/dcmitype/ foaf: http://xmlns.com/foaf/0.1/ v: http://www.w3.org/2006/vcard/ns# pimspace: http://www.w3.org/ns/pim/space# cc: https://creativecommons.org/ns# skos: http://www.w3.org/2004/02/skos/core# prov: http://www.w3.org/ns/prov# qb: http://purl.org/linked-data/cube# schema: http://schema.org/ void: http://rdfs.org/ns/void# rsa: http://www.w3.org/ns/auth/rsa# cert: http://www.w3.org/ns/auth/cert# cal: http://www.w3.org/2002/12/cal/ical# wgs: http://www.w3.org/2003/01/geo/wgs84_pos# org: http://www.w3.org/ns/org# biblio: http://purl.org/net/biblio# bibo: http://purl.org/ontology/bibo/ book: http://purl.org/NET/book/vocab# ov: http://open.vocab.org/terms/ sioc: http://rdfs.org/sioc/ns# doap: http://usefulinc.com/ns/doap# dbr: http://dbpedia.org/resource/ dbp: http://dbpedia.org/property/ sio: http://semanticscience.org/resource/ opmw: http://www.opmw.org/ontology/ deo: http://purl.org/spar/deo/ doco: http://purl.org/spar/doco/ cito: http://purl.org/spar/cito/ fabio: http://purl.org/spar/fabio/ oa: http://www.w3.org/ns/oa# as: https://www.w3.org/ns/activitystreams# ldp: http://www.w3.org/ns/ldp# solid: http://www.w3.org/ns/solid/terms# acl: http://www.w3.org/ns/auth/acl# dio: https://w3id.org/dio#" typeof="schema:CreativeWork sioc:Post prov:Entity">
     <main>
       <article about="" typeof="schema:ScholarlyArticle">
         <h1 property="schema:name">On a Web of Data Streams</h1>
         <div id="authors">
           <dl id="author-name">
             <dt>Authors</dt>
-            <dd id="author-1">
-              <span about="http://dellaglio.org" rel="schema:creator schema:publisher schema:contributor schema:author">
-                <a about="#daniele" typeof="schema:Person" rel="schema:url" property="schema:name" href="http://dellaglio.org">Daniele Dell'Aglio</a>
-              </span>
-              <span about="#daniele" rel="schema:memberOf" resource="#UZH"></span><sup><a href="#author-org-1">1</a></sup><sup><a href="#author-email-a">a</a></sup>
-            </dd>
-            <dd id="author-2">
-              <span about="" rel="schema:contributor">
-                <a about="#danh" typeof="schema:Person" rel="schema:url" property="schema:name" href="http://data.semanticweb.org/person/danh-le-phuoc">Danh Le Phuoc</a>
-              </span>
-              <span about="#danh" rel="schema:memberOf" resource="#tuberlin"></span><sup><a href="#author-org-2">2</a></sup><sup><a href="#author-email-b">b</a></sup>
-            </dd>
-            <dd id="author-3">
-              <span about="" rel="schema:contributor">
-                <a about="#anh" typeof="schema:Person" rel="schema:url" property="schema:name" href="https://www.insight-centre.org/users/anh-le-tuan">Anh Le-Tuan</a>
-              </span>
-              <span about="#anh" rel="schema:memberOf" resource="#insight"></span><sup><a href="#author-org-3">3</a></sup><sup><a href="#author-email-c">c</a></sup>
-            </dd>
-            <dd id="author-4">
-              <span about="" rel="schema:contributor">
-                <a about="#ali" typeof="schema:Person" rel="schema:url" property="schema:name" href="http://intizarali.org/">Muhammad Intizar Ali</a>
-              </span>
-              <span about="#ali" rel="schema:memberOf" resource="#insight"></span><sup><a href="#author-org-3">3</a></sup><sup><a href="#author-email-d">d</a></sup>
-            </dd>
-            <dd id="author-5">
-              <span about="" rel="schema:creator schema:publisher schema:contributor schema:author">
-                <a about="#jpcik" typeof="schema:Person" rel="schema:url" property="schema:name" href="https://w3id.org/people/jpcik/me">Jean-Paul Calbimonte</a>
-              </span>
-              <span about="#jpcik" rel="schema:memberOf" resource="#HESSO"></span><sup><a href="#author-org-4">4</a></sup><sup><a href="#author-email-e">e</a></sup>
-            </dd>
+            <dd id="author-1"><span about="http://dellaglio.org" rel="schema:creator schema:publisher schema:author schema:author"><a about="#daniele" href="http://dellaglio.org" property="schema:name" rel="schema:url" typeof="schema:Person">Daniele Dell'Aglio</a></span><span about="#daniele" rel="schema:memberOf" resource="#UZH"></span><sup><a href="#author-org-1">1</a></sup><sup><a href="#author-email-a">a</a></sup></dd>
+
+            <dd id="author-2"><span about="" rel="schema:author"><a about="#danh" href="http://data.semanticweb.org/person/danh-le-phuoc" property="schema:name" rel="schema:url" typeof="schema:Person">Danh Le Phuoc</a></span><span about="#danh" rel="schema:memberOf" resource="#tuberlin"></span><sup><a href="#author-org-2">2</a></sup><sup><a href="#author-email-b">b</a></sup></dd>
+
+            <dd id="author-3"><span about="" rel="schema:author"><a about="#anh" href="https://www.insight-centre.org/users/anh-le-tuan" property="schema:name" rel="schema:url" typeof="schema:Person">Anh Le-Tuan</a></span><span about="#anh" rel="schema:memberOf" resource="#insight"></span><sup><a href="#author-org-3">3</a></sup><sup><a href="#author-email-c">c</a></sup></dd>
+
+            <dd id="author-4"><span about="" rel="schema:author"><a about="#ali" href="http://intizarali.org/" property="schema:name" rel="schema:url" typeof="schema:Person">Muhammad Intizar Ali</a></span><span about="#ali" rel="schema:memberOf" resource="#insight"></span><sup><a href="#author-org-3">3</a></sup><sup><a href="#author-email-d">d</a></sup></dd>
+
+            <dd id="author-5"><span about="" rel="schema:creator schema:publisher schema:author schema:author"><a about="#jpcik" href="https://w3id.org/people/jpcik/me" property="schema:name" rel="schema:url" typeof="schema:Person">Jean-Paul Calbimonte</a></span><span about="#jpcik" rel="schema:memberOf" resource="#HESSO"></span><sup><a href="#author-org-4">4</a></sup><sup><a href="#author-email-e">e</a></sup></dd>
           </dl>
 
           <ul id="author-org">
-            <li id="author-org-1"><sup>1</sup>
-              <a about="#UZH" typeof="schema:Organization" property="schema:name" rel="schema:url" href="http://uzh.ch">University of Zurich</a>,
-              <span class="adr"><span class="region">Zurich</span>, <span class="country-name">Switzerland</span></span></li>
-            <li id="author-org-2"><sup>2</sup>
-              <a about="#tuberlin" typeof="schema:Organization" property="schema:name" rel="schema:url" href="http://tu-berlin.de">Technichal University of Berlin</a>,
-              <span class="adr"><span class="region">Berlin</span>, <span class="country-name">Germany</span></span></li>
-            <li id="author-org-3"><sup>3</sup>
-              <a about="#insight" typeof="schema:Organization" property="schema:name" rel="schema:url" href="https://insight-centre.org/">Insight Center for Data Analytics. National University of Ireland</a>,
-              <span class="adr"><span class="region">Galway</span>, <span class="country-name">Ireland</span></span></li>
-            <li id="author-org-4"><sup>4</sup><a about="#HESSO" typeof="schema:Organization" property="schema:name" rel="schema:url" href="http://www.hevs.ch">University of Applied Sciences and Arts Western Switzerland, HES-SO Valais-Wallis</a>,
-              <span class="adr"><span class="region">Sierre</span>, <span class="country-name">Switzerland</span></span></li>
+            <li id="author-org-1"><sup>1</sup><a about="#UZH" href="http://uzh.ch" property="schema:name" rel="schema:url" typeof="schema:Organization">University of Zurich</a>, <span class="adr"><span class="region">Zurich</span>, <span class="country-name">Switzerland</span></span></li>
+            <li id="author-org-2"><sup>2</sup><a about="#tuberlin" href="http://tu-berlin.de" property="schema:name" rel="schema:url" typeof="schema:Organization">Technichal University of Berlin</a>, <span class="adr"><span class="region">Berlin</span>, <span class="country-name">Germany</span></span></li>
+            <li id="author-org-3"><sup>3</sup><a about="#insight" href="https://insight-centre.org/" property="schema:name" rel="schema:url" typeof="schema:Organization">Insight Center for Data Analytics</a>, National University of Ireland, <span class="adr"><span class="region">Galway</span>, <span class="country-name">Ireland</span></span></li>
+            <li id="author-org-4"><sup>4</sup><a about="#HESSO" href="http://www.hevs.ch" property="schema:name" rel="schema:url" typeof="schema:Organization">University of Applied Sciences and Arts Western Switzerland, HES-SO Valais-Wallis</a>, <span class="adr"><span class="region">Sierre</span>, <span class="country-name">Switzerland</span></span></li>
           </ul>
+
           <ul id="author-email">
-              <li id="author-email-a"><sup>a</sup><a about="#daniele" rel="schema:email" href="mailto:dellaglio@ifi.uzh.ch">dellaglio@ifi.uzh.ch</a></li>
-            <li id="author-email-b"><sup>b</sup><a about="#danh" rel="schema:email" href="mailto:danh.lephuoc@tu-berlin.de">danh.lephuoc@tu-berlin.de</a></li>
-            <li id="author-email-c"><sup>c</sup><a about="#anh" rel="schema:email" href="mailto:anh.letuan@insight-centre.org">anh.letuan@insight-centre.org</a></li>
-            <li id="author-email-d"><sup>c</sup><a about="#ali" rel="schema:email" href="mailto:ali.intizar@insight-centre.org">ali.intizar@insight-centre.org</a></li>
-            <li id="author-email-e"><sup>d</sup><a about="#jpcik" rel="schema:email" href="mailto:jean-paul.calbimonte@hevs.ch">jean-paul.calbimonte@hevs.ch</a></li>
+            <li id="author-email-a"><sup>a</sup><a about="#daniele" href="mailto:dellaglio@ifi.uzh.ch" rel="schema:email">dellaglio@ifi.uzh.ch</a></li>
+            <li id="author-email-b"><sup>b</sup><a about="#danh" href="mailto:danh.lephuoc@tu-berlin.de" rel="schema:email">danh.lephuoc@tu-berlin.de</a></li>
+            <li id="author-email-c"><sup>c</sup><a about="#anh" href="mailto:anh.letuan@insight-centre.org" rel="schema:email">anh.letuan@insight-centre.org</a></li>
+            <li id="author-email-d"><sup>c</sup><a about="#ali" href="mailto:ali.intizar@insight-centre.org" rel="schema:email">ali.intizar@insight-centre.org</a></li>
+            <li id="author-email-e"><sup>d</sup><a about="#jpcik" href="mailto:jean-paul.calbimonte@hevs.ch" rel="schema:email">jean-paul.calbimonte@hevs.ch</a></li>
           </ul>
         </div>
         <div id="content">
@@ -172,7 +150,7 @@
           </section>
 
           <section id="introduction" rel="schema:hasPart" resource="#introduction">
-            <h2 property="schema:name">Introduction</h2>
+            <h2 property="schema:name" resource="#introduction" typeof="deo:Introduction">Introduction</h2>
             <div datatype="rdf:HTML" property="schema:description">
               <p>
                The Web of Data (WoD) vision considers the Web as a distributed database: a vast—endless—amount of datasets to be accessed and queried.
@@ -263,8 +241,8 @@
                enables the scenario depicted in <a href="#fig:overview">Figure</a>: a network of RSP engines,
                distributed on the Web, able to exchange and process RDF streams among them.
               </p>
-              <figure id="fig:overview" class="fig">
-                <img src="img/overview.png"  type="image/png" />
+              <figure class="fig" id="fig:overview">
+                <img src="img/overview.png" type="image/png" />
                 <figcaption>The vision of WeSP: a network of RSP engines distributed on the Web, able to
                 exchange RDF streaming data among them.</figcaption>
               </figure>
@@ -464,9 +442,7 @@
                  <p>
                    To fulfil these goals, we adopt the notion of time-annotated RDF graphs as elements
                    of RDF streams, following the <a href="https://w3id.org/rsp/abstract-model">abstract data model</a> proposed by the W3C RSP Community Group.
-                 </p>
-
-<!--
+                 </p><!--
                  <p>
                    We define a <em>timeline</em> \(T\) as an infinite, ordered sequence of time entities
                    \((t_1, t_2,\ldots)\), where \(t_i{\in}\mbox{ TimeEntities}\)
@@ -486,6 +462,7 @@
                  <p>
                    The proposal introduces a notion of RDF stream as a sequence of time-annotated named graphs (<em>timestamped graph</em>). Each graph can have different time annotations, identified through <em>timestamp predicates</em>.
                  </p>
+
                  <p>
                    As an example, we can consider the case where each graph has a time annotation. We define a <em>timeline</em> \(T\) as an infinite, ordered sequence of time entities
                    \((t_1, t_2,\ldots)\), where \(t_i{\in}\mbox{ TimeEntities}\)
@@ -519,9 +496,8 @@
                      $$S{=}(G_1,2),(G_2,4),(G_3,6),(G_4,8),(G_5,10),\ldots,$$
                    where each \(G_i\) contains the depicted RDF triples in <a href="#fig:streamexample"></a>.
                  </p>
-
-                 <figure id="fig:streamexample" class="fig">
-                   <img src="img/streamexample.png"  type="image/png" style="min-height:0px;"/>
+                 <figure class="fig" id="fig:streamexample">
+                   <img src="img/streamexample.png" type="image/png" />
                    <figcaption>An example of time annotated graphs on an RDF Stream.</figcaption>
                  </figure>
 
@@ -533,8 +509,7 @@
                  </p>
 
                  <figure class="listing" id="list:example">
-                   <pre style="font-size:0.7em;">
-<code>{"prov:generatedAtTime": "2015-06-30T04:00:00.000Z",</code>
+                   <pre><code>{"prov:generatedAtTime": "2015-06-30T04:00:00.000Z",</code>
 <code> "@id": "wesp:G2",</code>
 <code> "@graph": [</code>
 <code>  { "@id": "wesp:a2",</code>
@@ -545,8 +520,7 @@
 <code>    "wesp": "http://streamreasoning.org/wesp/"</code>
 <code>}</code></pre>
                    <figcaption>Example of a timestamped graph represented using JSON-LD.</figcaption>
-                 </figure>
-<!--
+                 </figure><!--
                  <figure class="listing" id="list:example">
                    <pre style="font-size:0.7em;">
 <code>{"http://www.w3.org/ns/prov#generatedAtTime": "2015-06-30T16:44:59.587Z",</code>
@@ -602,8 +576,8 @@
                    We detail the stream descriptor in <a href="#stream-descriptor">Section 3.3</a>. In the following, we describe how the producer/consumer communication develops.
                  </p>
 
-                 <figure id="fig:protocol" class="fig">
-                   <img src="img/consume.png"  type="image/png" />
+                 <figure class="fig" id="fig:protocol">
+                   <img src="img/consume.png" type="image/png" />
                    <figcaption>Protocol to establish the communication between the producer and the consumer
                    interfaces</figcaption>
                  </figure>
@@ -658,8 +632,8 @@
                    optimize its processing.
                    It also plays the role as a validation rule for consumer to verify if the incoming data is conformed with the template.
                  </p>
-                 <figure id="fig:schema" class="fig">
-                   <img src="img/sd-model.png"  type="image/png" />
+                 <figure class="fig" id="fig:schema">
+                   <img src="img/sd-model.png" type="image/png" />
                    <figcaption>Description of RDF Stream</figcaption>
                  </figure>
                  <p>
@@ -681,8 +655,7 @@
                  -->
                  </p>
                  <figure class="listing">
-                   <pre style="font-size:0.7em;">
-<code>{"@context": {</code>
+                   <pre><code>{"@context": {</code>
 <code>  "wesp": "http://streamreasoning.org/wesp/",</code>
 <code>  "generatedAt": { </code>
 <code>   "@id": "http://www.w3.org/ns/prov#generatedAtTime",</code>
@@ -815,7 +788,7 @@
 
 
           <section id="related-work" rel="schema:hasPart" resource="#related-work">
-            <h2 property="schema:name">Related Work</h2>
+            <h2 property="schema:name" resource="#related-work" typeof="#related-work">Related Work</h2>
 
             <div datatype="rdf:HTML" property="schema:description">
               <p>
@@ -872,7 +845,7 @@
           </section>
 
           <section id="conclusions" rel="schema:hasPart" resource="#conclusions">
-            <h2 property="schema:name">Conclusions</h2>
+            <h2 property="schema:name" resource="#conclusions" typeof="deo:Conclusion">Conclusions</h2>
             <div datatype="rdf:HTML" property="schema:description">
               <p>
                 In this contribution, we presented WeSP, a framework to exchange RDF streams. WeSP moves a step towards the
@@ -897,122 +870,122 @@
             <h2>References</h2>
             <div>
              <ol>
-               <li id="anicic2011" property="schema:citation">
+                <li id="anicic2011">
                   D. Anicic, P. Fodor, S. Rudolph, and N. Stojanovic.
                   EP-SPARQL: a unified language for event processing and stream reasoning.
                   In <em>WWW</em>, pages 635-644, 2011. 
-                  <a href="http://www.aifb.kit.edu/images/c/c0/Www29-anicic.pdf">[online]</a></li>
- 		<li id="arasu2006" property="schema:citation">A. Arasu, S. Babu, J. Widom.
+                  <a href="http://www.aifb.kit.edu/images/c/c0/Www29-anicic.pdf" property="schema:citation">[online]</a></li>
+ 		            <li id="arasu2006">A. Arasu, S. Babu, J. Widom.
 		  The CQL continuous query language: semantic foundations and query execution. 
 		  In <em>VLDB J.</em> 15(2), pages 121-142, 2006.
-		  <a href="http://ilpubs.stanford.edu:8090/758/1/2003-67.pdf">[online]</a></li>
-                <li id="balduini2013a" property="schema:citation">
+		  <a href="http://ilpubs.stanford.edu:8090/758/1/2003-67.pdf" property="schema:citation">[online]</a></li>
+                <li id="balduini2013a">
                   M. Balduini and E. Della Valle.
                   A restful interface for RDF stream processors.
                   In <em>ISWC 2013 Posters &amp; Demonstrations Track</em>, pages 209-212, 2013.
-                  <a href="http://ceur-ws.org/Vol-1035/iswc2013_poster_8.pdf">[online]</a></li>
-                <li id="balduini2013" property="schema:citation">
+                  <a href="http://ceur-ws.org/Vol-1035/iswc2013_poster_8.pdf" property="schema:citation">[online]</a></li>
+                <li id="balduini2013">
                   M. Balduini, E. Della Valle, D. Dell'Aglio, M. Tsytsarau, T. Palpanas, and C. Confalonieri.
                   Social Listening of City Scale Events Using the Streaming Linked Data Framework.
                   In <em>ISWC</em>, pages 1-16. 2013.
-                  <a href="http://disi.unitn.it/~themis/publications/iswc13.pdf">[online]</a></li>
+                  <a href="http://disi.unitn.it/~themis/publications/iswc13.pdf" property="schema:citation">[online]</a></li>
                 <li id="barbieri2010" property="schema:citation">
                   D. F. Barbieri, D. Braga, S. Ceri, E. Della Valle, and M. Grossniklaus.
                   C-SPARQL: a Continuous Query Language for RDF Data Streams.
                   <em>Int. J. Semantic Computing</em>, 4(1):3-25, 2010.</li>
-                <li id="barbieri2010a" property="schema:citation">
+                <li id="barbieri2010a">
                   D. F. Barbieri and E. Della Valle.
                   A proposal for publishing data streams as linked data - A position paper.
                   In <em>LDOW</em>, 2010.
-                  <a href="http://ceur-ws.org/Vol-628/ldow2010_paper11.pdf">[online]</a></li>
-                <li id="beck2015" property="schema:citation">
+                  <a href="http://ceur-ws.org/Vol-628/ldow2010_paper11.pdf" property="schema:citation">[online]</a></li>
+                <li id="beck2015">
                   Beck, H., Dao-Tran, M., Eiter, T., and Fink, M.
                   LARS: A Logic-Based Framework for Analyzing Reasoning over Streams.
                   In <em>AAAI</em>, pages 1431-1438, 2015.
-                  <a href="http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/download/9657/9415">[online]</a></li>
-                <li id="calbimonte2012" property="schema:citation">
+                  <a href="http://www.aaai.org/ocs/index.php/AAAI/AAAI15/paper/download/9657/9415" property="schema:citation">[online]</a></li>
+                <li id="calbimonte2012">
                   J.-P. Calbimonte, H. Jeung, O. Corcho, and K. Aberer.
                   Enabling query technologies for the semantic sensor web.
                   <em>Int. J. Semantic Web Inf. Syst.</em>, 8:43-63, 2012.
-                  <a href="http://jeanpi.org/wp/media/ijswis_calbimonte_submission_images.pdf">[online]</a></li>
-                <li id="das2012" property="schema:citation">
+                  <a href="http://jeanpi.org/wp/media/ijswis_calbimonte_submission_images.pdf" property="schema:citation">[online]</a></li>
+                <li id="das2012">
                   S. Das, S. Sundara, and R. Cyganiak. R2rml: RDB to RDF Mapping Language.
                   W3C Recommendation, W3C, 2012.
-                  <a href="https://www.w3.org/TR/r2rml/">https://www.w3.org/TR/r2rml/</a></li>
-                <li id="dellaglio2016" property="schema:citation">
+                  <a href="https://www.w3.org/TR/r2rml/" property="schema:citation">https://www.w3.org/TR/r2rml/</a></li>
+                <li id="dellaglio2016">
                   D. Dell'Aglio, M. Dao-Tran, J.-P. Calbimonte, D. L. Phuoc, and E. Della Valle.
                   A Query Model to Capture Event Pattern Matching in RDF Stream Processing Query Languages.
                   In <em>EKAW</em>, pages 145-162, 2016.
-                  <a href="http://www.kr.tuwien.ac.at/staff/dao/pub/2016/AQueryModeltoCaptureEventPatternMatchinginRDFStreamProcessingQueryLanguages-ekaw.pdf">[online]</a></li>
-                <li id="feigenbaum2013" property="schema:citation">
+                  <a href="http://www.kr.tuwien.ac.at/staff/dao/pub/2016/AQueryModeltoCaptureEventPatternMatchinginRDFStreamProcessingQueryLanguages-ekaw.pdf" property="schema:citation">[online]</a></li>
+                <li id="feigenbaum2013">
                   L. Feigenbaum, G. T. Williams, K. G. Clark, and E. Torres.
                   SPARQL 1.1 Protocol.
                   W3C Recommendation, W3C, 2013.
-                  <a href="https://www.w3.org/TR/sparql11-protocol/">https://www.w3.org/TR/sparql11-protocol/</a></li>
-                <li id="fisteus2014" property="schema:citation">
+                  <a href="https://www.w3.org/TR/sparql11-protocol/" property="schema:citation">https://www.w3.org/TR/sparql11-protocol/</a></li>
+                <li id="fisteus2014">
                   J. A. Fisteus, N. F. Garcia, L. S. Fernandez, and D. Fuentes-Lorenzo.
                   Ztreamy: A middleware for publishing semantic streams on the web.
                   <em>J. Web Semantics</em>, 25:16-23, 2014.
-                  <a href="http://www.imap.websemanticsjournal.org/preprints/index.php/ps/article/download/350/372">[online]</a></li>
-                <li id="gerber2013" property="schema:citation">
+                  <a href="http://www.imap.websemanticsjournal.org/preprints/index.php/ps/article/download/350/372" property="schema:citation">[online]</a></li>
+                <li id="gerber2013">
                   D. Gerber, S. Hellmann, L. Bühmann, T. Soru, R. Usbeck, and A.-C. N. Ngomo.
                   Real-time rdf extraction from unstructured data streams.
                   In <em>ISWC</em>, pages 135-150. 2013.
-                  <a href="http://svn.aksw.org/papers/2013/ISWC_RdfLiveNews/public_preprint.pdf">[online]</a></li>
-                <li id="harris2013" property="schema:citation">
+                  <a href="http://svn.aksw.org/papers/2013/ISWC_RdfLiveNews/public_preprint.pdf" property="schema:citation">[online]</a></li>
+                <li id="harris2013">
                   S. Harris and A. Seaborne.
                   SPARQL 1.1 Query Language. W3c Recommendation, W3C, 2013.
-                  <a href="https://www.w3.org/TR/sparql11-query/">https://www.w3.org/TR/sparql11-query/</a></li>
-                <li id="komazec2012" property="schema:citation">
+                  <a href="https://www.w3.org/TR/sparql11-query/" property="schema:citation">https://www.w3.org/TR/sparql11-query/</a></li>
+                <li id="komazec2012">
                   S. Komazec, D. Cerri, and D. Fensel.
                   Sparkwave: continuous schema-enhanced pattern matching over RDF data streams.
                   In <em>DEBS</em>, pages 58-68. 2012.
-                  <a href="http://www.davidecerri.it/wp-content/uploads/2016/02/art-sparkwave-debs2012.pdf">[online]</a></li>
-                <li id="lephuoc2011" property="schema:citation">
+                  <a href="http://www.davidecerri.it/wp-content/uploads/2016/02/art-sparkwave-debs2012.pdf" property="schema:citation">[online]</a></li>
+                <li id="lephuoc2011">
                   D. Le Phuoc, M. Dao-Tran, J. X. Parreira, and M. Hauswirth.
                   A Native and Adaptive Approach for Unified Processing of Linked Streams and Linked Data.
                   In <em>ISWC</em>, pages 370-388. 2011.
                   <a href="http://iswc2011.semanticweb.org/fileadmin/iswc/Papers/Research_Paper/05/70310368.pdf">[online]</a></li>
-                <li id="lephuoc2012" property="schema:citation">
+                <li id="lephuoc2012">
                   D. Le-Phuoc, H. Q. Nguyen-Mau, J. X. Parreira, and M. Hauswirth.
                   A middleware framework for scalable management of linked streams.
                   <em>J. Web Semantics</em>, 16:42-51, 2012.
-                  <a href="http://www.manfredhauswirth.org/research/papers/JoWS2012.pdf">[online]</a></li>
-                <li id="mauri2016" property="schema:citation">
+                  <a href="http://www.manfredhauswirth.org/research/papers/JoWS2012.pdf" property="schema:citation">[online]</a></li>
+                <li id="mauri2016">
                   A. Mauri, J.-P. Calbimonte, D. Dell'Aglio, M. Balduini, M. Brambilla, E. D. Valle, and K. Aberer.
                   TripleWave: Spreading RDF Streams on the Web.
                   In <em>ISWC</em>, pages 140-149, 2016.
-                  <a href="http://publications.hevs.ch/index.php/attachments/single/1182">[online]</a></li>
-                <li id="rinne2012" property="schema:citation">
+                  <a href="http://publications.hevs.ch/index.php/attachments/single/1182" property="schema:citation">[online]</a></li>
+                <li id="rinne2012">
                   M. Rinne, S. Törmä, and E. Nuutila.
                   SPARQL-based applications for RDF encoded sensor data.
                   In <em>SSN</em>, volume 904, pages 81-96. 2012.
-                  <a href="http://ceur-ws.org/Vol-904/paper15.pdf">[online]</a></li>
-                <li id="schmidt2011" property="schema:citation">
+                  <a href="http://ceur-ws.org/Vol-904/paper15.pdf" property="schema:citation">[online]</a></li>
+                <li id="schmidt2011">
                   M. Schmidt, O. Görlitz, P. Haase, G. Ladwig, A. Schwarte, and T. Tran.
                   Fedbench: A benchmark suite for federated semantic data query processing.
                   In <em>ISWC</em>, pages 585-600. 2011.
-                  <a href="http://iswc2011.semanticweb.org/fileadmin/iswc/Papers/Research_Paper/05/70310576.pdf">[online]</a></li>
-                <li id="schwarte2011" property="schema:citation">
+                  <a href="http://iswc2011.semanticweb.org/fileadmin/iswc/Papers/Research_Paper/05/70310576.pdf" property="schema:citation">[online]</a></li>
+                <li id="schwarte2011">
                   A. Schwarte, P. Haase, K. Hose, R. Schenkel, and M. Schmidt.
                   Fedx: A federation layer for distributed query processing on linked open data.
                   In <em>ESWC</em>, pages 481-486. 2011.
-                  <a href="http://www.fluidops.com/downloads/documents/pubeswc2011fedx.pdf">[online]</a></li>
-                <li id="stonebraker2005" property="schema:citation">
+                  <a href="http://www.fluidops.com/downloads/documents/pubeswc2011fedx.pdf" property="schema:citation">[online]</a></li>
+                <li id="stonebraker2005">
                   M. Stonebraker, U. Cetintemel, and S. B. Zdonik.
                   The 8 requirements of real-time stream processing. 
                   SIGMOD Record, 34(4):42-47, 2005.
-                  <a href="http://www09.sigmod.org/sigmod/record/issues/0512/p42-article-stonebraker.pdf">[online]</a></li>
-                <li id="taelman2016" property="schema:citation">
+                  <a href="http://www09.sigmod.org/sigmod/record/issues/0512/p42-article-stonebraker.pdf" property="schema:citation">[online]</a></li>
+                <li id="taelman2016">
                   R. Taelman, P. Heyvaert, R. Verborgh, E. Mannens.
                   Querying Dynamic Datasources with Continuously Mapped Sensor Data.
                   In <em>ISWC (Posters &amp; Demos)</em>, 2016.
-                  <a href="http://ceur-ws.org/Vol-1690/paper6.pdf">[online]</a></li>
-                <li id="trinh2014" property="schema:citation">
+                  <a href="http://ceur-ws.org/Vol-1690/paper6.pdf" property="schema:citation">[online]</a></li>
+                <li id="trinh2014">
                   T.-D. Trinh, P. Wetz, B.-L. Do, A. Anjomshoaa, E. Kiesling, and A. M. Tjoa.
                   A web-based platform for dynamic integration of heterogeneous data.
                   In <em>IIWAS</em>, pages 253-261, 2014.
-                  <a href="https://publik.tuwien.ac.at/files/PubDat_235082.pdf">[online]</a></li>
+                  <a href="https://publik.tuwien.ac.at/files/PubDat_235082.pdf" property="schema:citation">[online]</a></li>
              </ol>
             </div>
           </section>
