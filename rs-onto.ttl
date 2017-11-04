@@ -2,7 +2,7 @@
 @prefix dcat: <http://www.w3.org/ns/dcat#>.
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
 
-rsd:RDFStream rdfs:subClassOf dcat:DataSet .
+rsd:RDFStream rdfs:subClassOf dcat:Dataset .
 rsd:RDFStreamEndpoint rdfs:subClassOf dcat:Distribution .
 rsd:protocol rdfs:domain rsd:RDFStreamEndpoint .
 rsd:queryLanguage rdfs:domain rsd:RDFStreamEndpoint .
